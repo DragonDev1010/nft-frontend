@@ -4,10 +4,9 @@ import { Button } from 'react-bootstrap';
 
 function Navigation() {
     return (
-        <div>
-            <p>navigation</p>
-            <Button variant="primary">Button #1</Button>
-        </div>
+        <Router>
+            
+        </Router>
     )
 }
 

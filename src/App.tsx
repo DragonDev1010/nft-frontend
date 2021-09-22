@@ -1,12 +1,13 @@
 import React from 'react';
-
-import Home from './views/Home'
-import Navigation from './Navigation';
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+// import Navigation from './Navigation';
 
 function App() {
   return (
     <div className="App">
-      <Navigation/>
+      <Navbar/>
+      {/* <Navigation/> */}
       <Home/>
     </div>
   );

@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
-
+import Home from '../../pages/Home'
+import Register from '../../pages/Register'
 function Navbar() {
     return (
         <Router>
@@ -14,10 +15,10 @@ function Navbar() {
                 </nav>
                 <Switch>
                     <Route exact path="/">
-                        <p>Route Home</p>
+                        <Home />
                     </Route>
                     <Route path="/register">
-                        <p>Route register</p>
+                        <Register />
                     </Route>
                 </Switch>
             </div>

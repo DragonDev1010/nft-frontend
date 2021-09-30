@@ -13,7 +13,6 @@ function App() {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
       <Navbar/>
-      <Wallet />
     </Web3ReactProvider>
   );
 }

@@ -32,7 +32,7 @@ function Register() {
   function handleSubmit(event: any) {
     event.preventDefault()
     console.log(convertFormeventForAPI(event))
-    fetch("http://127.0.0.1:8080/users",
+    fetch("http://127.0.0.1:8000/users",
       {
         method: 'POST',
         headers: {

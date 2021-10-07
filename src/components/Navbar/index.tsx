@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-ro
 import { Button } from 'react-bootstrap';
 import Home from '../../pages/Home'
 import Register from '../../pages/Register'
+import Create from '../../pages/Create'
 import Wallet from '../Wallet'
 function Navbar() {
     return (
@@ -12,6 +13,7 @@ function Navbar() {
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/register">Register</Link></li>
+                        <li><Link to="/create">Create</Link></li>
                         <li><Wallet /></li>
                     </ul>
                 </nav>
@@ -21,6 +23,9 @@ function Navbar() {
                     </Route>
                     <Route path="/register">
                         <Register />
+                    </Route>
+                    <Route path="/create">
+                        <Create />
                     </Route>
                 </Switch>
             </div>

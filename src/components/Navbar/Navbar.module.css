@@ -1,16 +1,19 @@
-.test {
-  list-style-type: none;
-  margin: 0;
+.spaceNav {
   padding: 0;
   overflow: hidden;
   background-color: #00052B;
-	float: right;
+	
+  margin-left: auto;
+  margin-right: 0;
 }
-
-.test_1 {
+.spaceUnorderList {
+  float: right;
+  list-style-type: none;
+}
+.spaceListItem {
 	float: left;
 }
-.test_2 {
+.spaceNavLink {
 	display: block;
   color: #FF01DD;
 	font-weight: bold;
@@ -19,6 +22,6 @@
   padding: 16px;
   text-decoration: none;
 }
-.test_2:hover {
+.spaceNavLink:hover {
 	background-color: #111111;
 }

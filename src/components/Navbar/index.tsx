@@ -11,8 +11,8 @@ function Navbar() {
     return (
         <Router>
             <div>
-                <nav>
-                    <ul className={styles.test}>
+                <nav className={styles.spaceNav}>
+                    <ul className={styles.spaceUnorderList}>
                         <NavbarItem navName = {"MarketPlace"} navPath = {"/"}/>
                         <NavbarItem navName = {"Create NFTs"} navPath = {"/create"}/>
                         <NavbarItem navName = {"Resource Center"} navPath = {"/register"}/>

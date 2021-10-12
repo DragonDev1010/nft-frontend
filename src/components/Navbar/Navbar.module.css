@@ -26,6 +26,9 @@
 .spaceNavLink:active {
   border-bottom: 3px solid #FF01DD;
 }
+.spaceListItem:active {
+  border-bottom: 3px solid #FF01DD;
+} */
 .spaceListItem {
 	float: left;
 }

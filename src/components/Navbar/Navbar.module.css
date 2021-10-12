@@ -26,9 +26,6 @@
 .spaceNavLink:active {
   border-bottom: 3px solid #FF01DD;
 }
-.spaceListItem:active {
-  border-bottom: 3px solid #FF01DD;
-} 
 .spaceListItem {
 	float: left;
 }
@@ -43,7 +40,8 @@
   text-decoration: none;
 }
 .spaceNavLinkActive {
-  color: red;
+  color: #FF01DD;
+  border-bottom: 3px solid #FF01DD;
 }
 .spaceNavLink:hover {
 	background-color: #111111;

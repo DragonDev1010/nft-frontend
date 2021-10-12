@@ -22,7 +22,7 @@ function Wallet() {
   }
 	return (
     <div>
-        <Button onClick = {connect}>Connect Metamask</Button>
+        <Button onClick = {connect}>Connect</Button>
         {/* {active ? <span>Connected with <b>{account}</b></span> : <span>Not connected</span>} */}
         {/* <Button onClick = {disconnect}>Disconnect Metamask</Button> */}
     </div>

@@ -5,7 +5,7 @@ import {useLocation} from 'react-router-dom'
 const NavbarItem: React.FC<{navName: string, navPath: string}> = ({navName, navPath}) => {
     return (
         <li className={styles.spaceListItem}>
-            <NavLink to={navPath} className={styles.spaceNavLink} activeClassName={styles.spaceNavLinkActive}>{navName}</NavLink>
+            <NavLink to={navPath} className={styles.spaceNavLink} activeClassName={styles.spaceNavLinkActive} exact>{navName}</NavLink>
         </li>
     )
 }

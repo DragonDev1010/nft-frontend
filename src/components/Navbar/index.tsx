@@ -14,14 +14,17 @@ function Navbar() {
             <div>
                 
                 <nav className={styles.spaceNav}>
-                    <a href="">
+                    <a href="" className={styles.logo}>
                         <img src={logo} alt="mmtuts logo"/>
                     </a>
+                    {/* <div className={styles.navFilterDiv}> */}
+                        <input type='text' name='navFilter' placeholder='Search' className={styles.navFilterInput} />
+                    {/* </div> */}
                     <ul className={styles.spaceUnorderList}>
                         <NavbarItem navName = {"MarketPlace"} navPath = {"/"}/>
                         <NavbarItem navName = {"Create NFTs"} navPath = {"/create"}/>
                         <NavbarItem navName = {"Resource Center"} navPath = {"/register"}/>
-                        <li><Wallet /></li>
+                        <li className={styles.spaceListItem}><Wallet /></li>
                     </ul>
                 </nav>
                 <Switch>

@@ -6,10 +6,26 @@
   margin-left: auto;
   margin-right: 0;
 }
+.logo {
+
+}
+.navFilterDiv {
+
+}
+.navFilterInput {
+
+}
 .spaceUnorderList {
   float: right;
   list-style-type: none;
+  border-bottom: 3px solid transparent;
 }
+/* .spaceListItem:hover {
+  border-bottom: 3px solid #FF01DD;
+}
+.spaceListItem:active {
+  border-bottom: 3px solid #FF01DD;
+} */
 .spaceListItem {
 	float: left;
 }

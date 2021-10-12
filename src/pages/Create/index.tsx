@@ -30,8 +30,10 @@ function Create() {
     return(
         <>
             <form onSubmit={handleSubmit}>
-                <input type='file' name='nft_img' />
-                <input type='text' name='nft_name' onChange={handleChange}/>
+                <input type='file' name='nft_img' /><br/>
+                NFT Name: <input type='text' name='nft_name' onChange={handleChange}/> <br/>
+                NFT Description: <textarea name='nft_des' /> <br/>
+
                 <input type='submit' value='Create'/>
             </form>
         </>

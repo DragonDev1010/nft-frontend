@@ -1,10 +1,11 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import styles from './Navbar.module.css'
+import {useLocation} from 'react-router-dom'
 const NavbarItem: React.FC<{navName: string, navPath: string}> = ({navName, navPath}) => {
     return (
         <li className={styles.spaceListItem}>
-            <Link to={navPath} className={styles.spaceNavLink}>{navName}</Link>
+            <NavLink to={navPath} className={styles.spaceNavLink} activeClassName={styles.spaceNavLinkActive}>{navName}</NavLink>
         </li>
     )
 }

@@ -16,12 +16,16 @@ function List() {
                 <input type='text' name='sort' onChange={handleChange}/>
             </form>
             <div className={styles.listWrap}>
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                <div className={styles.listRow}>
+                    <Item />
+                    <Item />
+                    <Item />
+                </div>
+                <div className={styles.listRow}>
+                    <Item />
+                    <Item />
+                    <Item />
+                </div>
             </div>
         </div>
     )

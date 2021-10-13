@@ -10,7 +10,7 @@ function Filter() {
                     console.log(icon_style)
                     console.log(typeof(icon_style))
                     return(
-                        <li className={styles.listItem}><i className={""}></i>{item.name}</li>
+                        <li className={styles.filterListItem}><i className={""}></i>{item.name}</li>
                     )
                 })}        
             </ul>

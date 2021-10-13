@@ -1,13 +1,24 @@
 .filter {
     width: 20%;
     border-right: 1px solid #FF01DD;
+    display: inline-block;
 }
 .list{
-    width: 80%;
+    /* width: 80%; */
     color: white;
+    display: inline-block;
 }
-.listItem {
+.listRow::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.filterListItem {
     list-style-type: none;
     color: white;
     font-size: 30px;
+}
+.listItem {
+    float: left;
+    width: 30%;
 }

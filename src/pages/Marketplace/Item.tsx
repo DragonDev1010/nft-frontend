@@ -6,7 +6,7 @@ import itemImg from '../../assets/spaceItem.png'
 function Item() {
     console.log(itemImg)
     return (
-        <div className={styles.item}>
+        <div className={styles.listItem}>
             <div className={styles.itemFavorite}>
                 <FontAwesomeIcon icon={faHeart}/>
             </div>

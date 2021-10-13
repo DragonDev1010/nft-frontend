@@ -1,0 +1,13 @@
+.filter {
+    width: 20%;
+    border-right: 1px solid #FF01DD;
+}
+.list{
+    width: 80%;
+    color: white;
+}
+.listItem {
+    list-style-type: none;
+    color: white;
+    font-size: 30px;
+}

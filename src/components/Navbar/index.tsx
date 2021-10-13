@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
-import Home from '../../pages/Home'
+import Home from '../../pages/Marketplace'
 import Register from '../../pages/Register'
 import Create from '../../pages/Create'
 import Wallet from '../Wallet'

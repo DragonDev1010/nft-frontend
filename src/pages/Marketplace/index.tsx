@@ -4,7 +4,7 @@ import List from './List'
 import styles from './Marketplace.module.css'
 function Marketplace() {
   return (
-    <div className={styles.Marketplace}>
+    <div className={styles.marketplaceWrapper}>
         <Filter/>
         <List/>
     </div>

@@ -1,23 +1,24 @@
+import * as FaIcons from "react-icons/fa";
 const FilterItemData = [
     {
         name: "Filters",
-        icon: "filter"
+        icon: <FaIcons.FaFilter size={18}/>
     },
     {
         name: "Status",
-        icon: "circle"
+        icon: <FaIcons.FaCircle size={18}/>
     },
     {
         name: "Price",
-        icon: "currency"
+        icon: <FaIcons.FaCoins size={18}/>
     },
     {
         name: "Collections",
-        icon: "coll"
+        icon: <FaIcons.FaCubes size={18}/>
     },
     {
         name: "Categories",
-        icon: "cate"
+        icon: <FaIcons.FaRegListAlt size={18}/>
     },
 ]
 

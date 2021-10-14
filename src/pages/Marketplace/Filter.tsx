@@ -1,16 +1,22 @@
 import React from 'react'
 import FilterItemData from './FilterItemData'
 import styles from './Marketplace.module.css'
+import * as FaIcons from "react-icons/fa";
 function Filter() {
     return (
         <div className={styles.filter}>
-            <ul>
+            <ul style={{paddingInlineStart: "0"}}>
                 {FilterItemData.map((item, idx) => {
-                    let icon_style = "fa " + item.icon
-                    console.log(icon_style)
-                    console.log(typeof(icon_style))
                     return(
-                        <li className={styles.filterListItem}><i className={""}></i>{item.name}</li>
+                        <li className={styles.filterListItem}>
+                            <div>
+                                <span style={{marginRight: "20px"}}>{item.icon}</span>
+                                {item.name}
+                            </div>
+                            <div>
+                                <FaIcons.FaCaretDown size={18}/>
+                            </div>
+                        </li>
                     )
                 })}        
             </ul>

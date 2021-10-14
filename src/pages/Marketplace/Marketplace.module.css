@@ -1,24 +1,91 @@
+.marketplaceWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+
 .filter {
     width: 20%;
+    height: 100vh;
     border-right: 1px solid #FF01DD;
     display: inline-block;
 }
 .list{
-    /* width: 80%; */
+    width: 100%;
+    padding: 30px 50px 20px;
     color: white;
     display: inline-block;
 }
-.listRow::after {
+.listHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.listHeaderRight {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+.listHeaderForm {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.listHeadInput {
+    height: 30px;
+    font-size: 15px;
+    background: #00052B;
+}
+.listRow {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+/* .listRow::after {
     content: "";
     display: table;
     clear: both;
-}
+} */
 .filterListItem {
     list-style-type: none;
     color: white;
     font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #FF01DD;
 }
 .listItem {
-    float: left;
+    border: 1px #272938 solid;
     width: 30%;
+    padding: 20px 15px;
+}
+.itemFavorite {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.itemImg img {
+    width: 100%;
+}
+.itemDesTop {
+    display: flex;
+    justify-content: space-between;
+}
+.itemOffer {
+    display: flex;
+    justify-content: flex-end;
+    color: #FF01DD;
+}
+.itemCollection {
+    color: #35F2FE
+}
+.itemId {
+    font-weight: bold;
 }

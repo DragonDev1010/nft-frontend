@@ -9,8 +9,8 @@ function NavFilter() {
 
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <input type='text' name='navFilter' placeholder='Search' className={styles.navFilterInput} />
+        <form onSubmit={handleSubmit} className={styles.navFilterForm}>
+            <input type='text' name='navFilter' placeholder='Search items, collections, and more' className={styles.navFilterInput} />
         </form>
     )
 }

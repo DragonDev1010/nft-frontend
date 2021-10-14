@@ -12,36 +12,29 @@ import logo from '../../assets/spaceLogo.png'
 function Navbar() {
     return (
         <Router>
-            <div>
-                
-                <nav className={styles.spaceNav}>
-                    <a href="" className={styles.logo}>
-                        <img src={logo} alt="mmtuts logo"/>
-                    </a>
-                {/* <div className={styles.navFilterDiv}>
-                    <input type='text' name='navFilter' placeholder='Search' className={styles.navFilterInput} />
-                </div> */}
-                    <NavFilter />
-                    <ul className={styles.spaceUnorderList}>
-                        <NavbarItem navName = {"MarketPlace"} navPath = {"/"}/>
-                        <NavbarItem navName = {"Create NFTs"} navPath = {"/create"}/>
-                        <NavbarItem navName = {"Resource Center"} navPath = {"/register"}/>
-                        <li className={styles.spaceListItem}><Wallet /></li>
-                    </ul>
-                </nav>
-                <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path="/register">
-                        <Register />
-                    </Route>
-                    <Route path="/create">
-                        <Create />
-                    </Route>
-                </Switch>
-            </div>
-            
+            <nav className={styles.spaceNav}>
+                <a href="" className={styles.logo}>
+                    <img src={logo} alt="mmtuts logo"/>
+                </a>
+                <NavFilter />
+                <ul className={styles.navItemList}>
+                    <NavbarItem navName = {"MarketPlace"} navPath = {"/"}/>
+                    <NavbarItem navName = {"Create NFTs"} navPath = {"/create"}/>
+                    <NavbarItem navName = {"Resource Center"} navPath = {"/register"}/>
+                    <li className={styles.navListItem}><Wallet /></li>
+                </ul>
+            </nav>
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route path="/register">
+                    <Register />
+                </Route>
+                <Route path="/create">
+                    <Create />
+                </Route>
+            </Switch>
         </Router>
     )
 }

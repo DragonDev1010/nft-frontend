@@ -1,7 +1,7 @@
 .marketplaceWrapper {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: space-between;
 }
 
@@ -9,8 +9,7 @@
 
 .filter {
     width: 20%;
-    height: 100vh;
-    border-right: 1px solid #FF01DD;
+    border-right: 1px solid #FF01DD40;
     display: inline-block;
 }
 .list{
@@ -59,7 +58,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid #FF01DD;
+    border-bottom: 1px solid #FF01DD29;
 }
 .listItem {
     border: 1px #272938 solid;

@@ -3,7 +3,6 @@ import styles from './Marketplace.module.css'
 import FilterItemData from './FilterItemData'
 import * as FaIcons from "react-icons/fa";
 function FilterItem(props: any) {
-    console.log(props.data)
     return (
         <li className={styles.filterListItem}>
             <div className={styles.filterListMainItem}>

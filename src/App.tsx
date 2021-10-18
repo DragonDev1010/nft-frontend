@@ -16,7 +16,6 @@ function App() {
     <Web3ReactProvider getLibrary={getLibrary}>
       {/* <Sidebar /> */}
       <Navbar/>
-      
     </Web3ReactProvider>
   );
 }

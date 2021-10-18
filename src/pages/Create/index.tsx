@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styles from './Create.module.css'
+
 function Create() {
     const [file, setFile] = useState()
     const [nft_name, setNft_name] = useState('')

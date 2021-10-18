@@ -4,8 +4,8 @@
   align-items: stretch;
   border-bottom: 3px solid #FF01DD49;
 }
-.logo {
-
+.logo img{
+  max-height: 80px;
 }
 .navFilterForm {
   width: 30%;

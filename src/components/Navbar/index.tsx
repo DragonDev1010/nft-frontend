@@ -9,6 +9,8 @@ import styles from './Navbar.module.css'
 import NavbarItem from './NavbarItem'
 import NavFilter from './NavFilter';
 import logo from '../../assets/spaceLogo.png'
+// import logo from '../../assets/logo-dark.jpg'
+// import logo from '../../assets/logo-light.jpg'
 function Navbar() {
     return (
         <Router>

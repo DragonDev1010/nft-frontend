@@ -1,0 +1,24 @@
+.createWrap {
+    background: white;
+    
+}
+.createForm {
+    width: 50%;
+    margin: 0 25%;
+}
+.createForm div {
+}
+.createTitle {
+    font-weight: bolder;
+    font-size: 40px;
+}
+.headTxt {
+    font-weight: 700;
+    font-size: 25px;
+    margin: 5px 0;
+}
+.desTxt {
+    font-size: 18px;
+    color: rgb(112, 122, 131);
+    margin: 5px 0;
+}

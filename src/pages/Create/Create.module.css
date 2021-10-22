@@ -3,14 +3,40 @@
     
 }
 .createForm {
-    width: 50%;
+    width: 40%;
+    margin-left: 20%;
+    margin-right: 40%;
     margin: 0 25%;
 }
-.createForm div {
+.createForm > div {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .createTitle {
     font-weight: bolder;
     font-size: 40px;
+}
+.imgSelect {
+    position: relative;
+    padding: 4px;
+    cursor: pointer;
+    border: 3px dashed rgb(204, 204, 204);
+    border-radius: 10px;
+    height: 257px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgSelect:hover {
+    background: #80808040;
+}
+.imgSelect input {
+    display: none;
+}
+.imgUpload .headTxt::after, .name .headTxt::after {
+    content: " *";
+    color: rgb(235, 87, 87);
 }
 .headTxt {
     font-weight: 700;
@@ -18,7 +44,19 @@
     margin: 5px 0;
 }
 .desTxt {
-    font-size: 18px;
+    font-size: 14px;
     color: rgb(112, 122, 131);
     margin: 5px 0;
+}
+.inputName, .inputCollection {
+    height: 25px;
+    border: 2px #80808040 solid;
+    border-radius: 5px;
+    width: 100%;
+}
+.inputDescription {
+    resize: vertical;
+    border: 2px #80808040 solid;
+    border-radius: 5px;
+    width: 100%;
 }

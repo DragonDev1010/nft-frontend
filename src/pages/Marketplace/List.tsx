@@ -2,7 +2,8 @@ import React from 'react'
 import Item from './Item'
 import styles from './Marketplace.module.css'
 import * as FaIcons from "react-icons/fa";
-
+import backgroundVideo from '../../assets/bgVideo.mp4'
+import bgPoster from '../../assets/bgVideo.jpg'
 function List() {
     function handleFilterForm(event: any) {
 
@@ -12,6 +13,9 @@ function List() {
     }
     return (
         <div className={styles.list}>
+            <video className={styles.backgroundVideo} poster={bgPoster} autoPlay loop muted   >
+                <source src={backgroundVideo} type="video/mp4" />
+            </video>
             <div className={styles.listHeader}>
                 <p>2323323 results</p>
                 <div className={styles.listHeaderRight}>

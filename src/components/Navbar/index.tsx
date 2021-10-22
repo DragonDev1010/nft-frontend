@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import Home from '../../pages/Marketplace'
@@ -14,7 +14,25 @@ import { useWeb3React } from "@web3-react/core"
 // import logo from '../../assets/logo-light.jpg'
 function Navbar() {
     const { active, account, library, connector, activate, deactivate } = useWeb3React()
+    const [userCon, setUserCon] = useState(false)
     console.log('Web3React Test: ', active, account)
+    if(active) {
+        let walletAddress:string = account!;
+        localStorage.setItem('userWalletAddress', walletAddress)
+        localStorage.setItem('userActive', 'Active')
+    } else {
+        console.log('not con')
+    }
+    useEffect(() => {
+        if(localStorage.getItem("userActive") === "Active") {
+            setUserCon(true)
+        }
+        // const loggedInUser = localStorage.getItem("userActive");
+        // if (loggedInUser) {
+        //   const foundUser = JSON.parse(loggedInUser);
+        //   setUser(foundUser);
+        // }
+      }, []);
     return (
         <Router>
             <nav className={styles.spaceNav}>
@@ -26,7 +44,7 @@ function Navbar() {
                     <NavbarItem navName = {"MarketPlace"} navPath = {"/"}/>
                     <NavbarItem navName = {"Create NFTs"} navPath = {"/create"}/>
                     <NavbarItem navName = {"Resource Center"} navPath = {"/register"}/>
-                    {active ? <NavbarItem navName = {"User"} navPath = {"/user"}/> :  <li className={styles.navListItem}><Wallet /></li>}
+                    {userCon ? <NavbarItem navName = {"User"} navPath = {"/user"}/> :  <li className={styles.navListItem}><Wallet /></li>}
                     
                     
                 </ul>

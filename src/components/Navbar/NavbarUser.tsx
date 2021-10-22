@@ -69,8 +69,8 @@ function NavbarUser() {
                         
                     </div>
                 :
-                <div>
-                    <Button onClick = {connect}>Connect</Button>
+                <div className={styles.walletWrap}>
+                    <Button onClick = {connect} className={styles.walletButton}>Connect</Button>
                 </div>
             }
         </div>

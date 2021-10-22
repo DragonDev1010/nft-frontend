@@ -8,6 +8,7 @@ function Wallet() {
   async function connect() {
     try {
       await activate(injected)
+      localStorage.setItem('userActive', 'Active')
     } catch (ex) {
       console.log(ex)
     }

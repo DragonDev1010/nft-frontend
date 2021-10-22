@@ -4,11 +4,38 @@ import styles from './Navbar.module.css'
 import {useLocation} from 'react-router-dom'
 import { useDetectOutsideClick } from './useDetectOutsideClick';
 import * as FaIcons from "react-icons/fa";
+import Wallet from '../Wallet'
+import { Button } from 'react-bootstrap'
+import { useWeb3React } from "@web3-react/core"
+import { injected } from "../Wallet/Connectors"
 function NavbarUser() {
     const dropdownRef = useRef<any>()
     const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+    const [isConnected, setIsConnected] = useState(false)
     const onClick = () => setIsActive(!isActive);
+    const { active, account, library, connector, activate, deactivate } = useWeb3React()
 
+    console.log("localStorage: ", localStorage.getItem('userActive'))
+    function handleLogout() {
+        localStorage.clear()
+    }
+    async function connect() {
+        try {
+          await activate(injected)
+          localStorage.setItem('userActive', 'Active')
+          setIsConnected(true)
+        } catch (ex) {
+          console.log(ex)
+        }
+    }
+
+    async function disconnect() {
+        try {
+          deactivate()
+        } catch (ex) {
+          console.log(ex)
+        }
+    }
     useEffect(() => {
         const pageClickEvent = (e: any) => {
             console.log(e)
@@ -25,20 +52,27 @@ function NavbarUser() {
     }, [isActive])
 
     return (
-        <div className={styles.navbarUserContainer}>
-            <button onClick={onClick} className={styles.navbarUserMenuTrigger}>
-                {/* <span>User</span>
-                <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/df/df7789f313571604c0e4fb82154f7ee93d9989c6.jpg" alt="User avatar" /> */}
-                <FaIcons.FaUserCircle size={28}/>
-            </button>
-            {/* <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}> */}
-            <nav ref={dropdownRef} className={isActive ? styles.navbarUserNavActive : styles.navbarUserNavInactive }>
-                <ul>
-                    <li><a href="/messages">Messages</a></li>
-                    <li><a href="/trips">Trips</a></li>
-                    <li><a href="/saved">Saved</a></li>
-                </ul>
-            </nav>
+        <div>
+            {
+                isConnected ? 
+                    <div className={styles.navbarUserContainer}>
+                        <button onClick={onClick} className={styles.navbarUserMenuTrigger}>
+                            <FaIcons.FaUserCircle size={28}/>
+                        </button>
+                        <nav ref={dropdownRef} className={isActive ? styles.navbarUserNavActive : styles.navbarUserNavInactive }>
+                            <ul>
+                                <li><a href="/">Messages</a></li>
+                                <li><a href="/">Trips</a></li>
+                                <li onClick={handleLogout}><a href="/">Log Out</a></li>
+                            </ul>
+                        </nav>
+                        
+                    </div>
+                :
+                <div className={styles.walletWrap}>
+                    <Button onClick = {connect} className={styles.walletButton}>Connect</Button>
+                </div>
+            }
         </div>
 
     )

@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom'
-import { Button } from 'react-bootstrap';
 import Home from '../../pages/Marketplace'
-import Register from '../../pages/Register'
 import Create from '../../pages/Create'
+import Register from '../../pages/Register'
 import Wallet from '../Wallet'
 import styles from './Navbar.module.css'
 import NavbarItem from './NavbarItem'
@@ -19,19 +18,12 @@ function Navbar() {
     if(active) {
         let walletAddress:string = account!;
         localStorage.setItem('userWalletAddress', walletAddress)
-        localStorage.setItem('userActive', 'Active')
-    } else {
-        console.log('not con')
-    }
+        
+    } 
     useEffect(() => {
         if(localStorage.getItem("userActive") === "Active") {
             setUserCon(true)
         }
-        // const loggedInUser = localStorage.getItem("userActive");
-        // if (loggedInUser) {
-        //   const foundUser = JSON.parse(loggedInUser);
-        //   setUser(foundUser);
-        // }
       }, []);
     return (
         <Router>
@@ -44,7 +36,8 @@ function Navbar() {
                     <NavbarItem navName = {"MarketPlace"} navPath = {"/"}/>
                     <NavbarItem navName = {"Create NFTs"} navPath = {"/create"}/>
                     <NavbarItem navName = {"Resource Center"} navPath = {"/register"}/>
-                    {userCon ? <NavbarItem navName = {"User"} navPath = {"/user"}/> :  <li className={styles.navListItem}><Wallet /></li>}
+                    <NavbarItem navName = {"User"} navPath = {"/user"}/>
+                    {/* {userCon ? <NavbarItem navName = {"User"} navPath = {"/user"}/> :  <li className={styles.navListItem}><Wallet /></li>} */}
                     
                     
                 </ul>

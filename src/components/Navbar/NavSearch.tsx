@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Navbar.module.css'
 
-function NavFilter() {
+function NavSearch() {
     function handleChange(event: any) {
 
     }
@@ -15,4 +15,4 @@ function NavFilter() {
     )
 }
 
-export default NavFilter
+export default NavSearch

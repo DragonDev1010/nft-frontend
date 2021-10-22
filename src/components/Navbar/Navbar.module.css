@@ -47,6 +47,11 @@
   color: #FF01DD;
   border-bottom: 6px solid #FF01DD;
 }
+.navbarUserWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .navbarUserContainer {
   display: flex;
   align-items: center;
@@ -114,4 +119,17 @@
   color: #333333;
   padding: 15px 20px;
   display: block;
+}
+.walletWrap {
+  display: flex;
+  align-items: center;
+}
+.walletButton {
+  font-size: 20px;
+  padding: 10px;
+  background: #FF01DD22;
+  border-color: #FF01DD22;
+  border-radius: 5px;
+  color: #FF01DD75;
+  font-weight: bold;
 }

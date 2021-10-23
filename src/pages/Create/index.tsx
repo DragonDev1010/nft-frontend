@@ -42,13 +42,13 @@ function Create() {
                     <p className={styles.headTxt}>Image, Video, Audio, or 3D Model</p>
                     <p className={styles.desTxt}>File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB</p>
                     <div className={styles.imgSelect} onClick={inputFile}>
-                        <input type="file" className={styles.inputFile} ref = {inputRef} />
+                        <input type="file" name="nft_img" className={styles.inputFile} ref = {inputRef} />
                         <FaIcons.FaFileUpload size={90}/>
                     </div>
                 </div>
                 <div className={styles.name}>
                     <p className={styles.headTxt}>Name</p>
-                    <input type="text" className={styles.inputName}/>
+                    <input type="text" className={styles.inputName} name="nft_name"/>
                 </div>
                 <div className={styles.description}>
                     <p className={styles.headTxt}>Description</p>
@@ -60,8 +60,8 @@ function Create() {
                     <p className={styles.desTxt}>This is the collection where your item will appear. info</p>
                     <input type="text" className={styles.inputCollection} />
                 </div>
-                <div className={styles.formSubmit}>
-                    <button >Create</button>
+                <div>
+                    <button className={styles.formSubmit}>Create</button>
                 </div>
             </form>
         </div>

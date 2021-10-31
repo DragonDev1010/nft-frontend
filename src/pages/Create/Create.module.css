@@ -1,16 +1,68 @@
 .createWrap {
-    background: white;
-    
+   color: white; 
+}
+.createWrap > p {
+    margin-left: 25%;
 }
 .createForm {
     width: 40%;
-    margin-left: 20%;
-    margin-right: 40%;
     margin: 0 25%;
+    border: 2px solid #272938;
+    padding: 39px 36px 89px 36px;
 }
 .createForm > div {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.category {
+
+}
+.catList {
+    width: 40%;
+    height: 35px;
+    background: #00052B;
+    border: 1px #272938 solid;
+    color: #9091A1;
+
+    /* background-image:
+        linear-gradient(45deg, transparent 50%, blue 50%),
+        linear-gradient(135deg, blue 50%, transparent 50%),
+        linear-gradient(to right, skyblue, skyblue);
+    background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        100% 0;
+    background-size:
+        5px 5px,
+        5px 5px,
+        2.5em 2.5em;
+    background-repeat: no-repeat; */
+}
+.artworkType {
+
+}
+.typeGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+}
+.typeItem {
+    background: #00052B;
+    border: 2px #272938 solid;
+    color: #9091A1;
+    width: 80px;
+    height: 50px;
+}
+.typeItem:hover {
+    border: 2px solid #FF01DD;
+    color: #FF01DD;
+}
+.typeItem:focus {
+    outline: none;
+    border: 2px solid #FF01DD;
+    color: #FF01DD;
 }
 .createTitle {
     font-weight: bolder;
@@ -38,17 +90,30 @@
     content: " *";
     color: rgb(235, 87, 87);
 }
+.imgRemove {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+}
+.image {
+    position: relative;
+  /* width: 100%; */
+}
 .headTxt {
     font-weight: 700;
     font-size: 25px;
     margin: 5px 0;
 }
-.desTxt {
-    font-size: 14px;
-    color: rgb(112, 122, 131);
+.generalTxt {
+    font-size: 20px;
+    color: white;
     margin: 5px 0;
 }
-.inputName, .inputCollection {
+.inputName, .inputDescription {
+    background: #00052B;
+    color: #9091A1;
+}
+.inputName {
     height: 25px;
     border: 2px #80808040 solid;
     border-radius: 5px;
@@ -64,4 +129,6 @@
     font-size: 31px;
     margin: 5px 0 30px;
     padding: 5px 20px;
+    background: #00052B;
+    color: #9091A1;
 }

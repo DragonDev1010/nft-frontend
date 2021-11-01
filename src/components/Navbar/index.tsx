@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Redirect, Route, Switch, withRouter } from 'react-router-dom'
 import Home from '../../pages/Marketplace'
 import Create from '../../pages/Create'
 import Register from '../../pages/Register'
+import Nft from '../../pages/Nft'
 import styles from './Navbar.module.css'
 import NavbarItem from './NavbarItem'
 import NavSearch from './NavSearch';
@@ -21,14 +22,14 @@ function Navbar() {
                 </a>
                 <NavSearch />
                 <ul className={styles.navItemList}>
-                    <NavbarItem navName = {"MarketPlace"} navPath = {"/"}/>
+                    <NavbarItem navName = {"MarketPlace"} navPath = {"/assets"}/>
                     <NavbarItem navName = {"Create NFTs"} navPath = {"/create"}/>
                     <NavbarItem navName = {"Resource Center"} navPath = {"/register"}/>
                     <NavbarItem navName = {"User"} navPath = {"/user"}/>
                 </ul>
             </nav>
             <Switch>
-                <Route exact path="/">
+                <Route exact path="/assets">
                     <Home />
                 </Route>
                 <Route path="/register">
@@ -36,6 +37,8 @@ function Navbar() {
                 </Route>
                 <Route path="/create">
                     <Create />
+                </Route>
+                <Route path="/assets/:nftId" exact component={Nft}>
                 </Route>
             </Switch>
         </Router>

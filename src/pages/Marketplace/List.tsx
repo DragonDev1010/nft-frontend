@@ -31,14 +31,14 @@ function List() {
                 
             <div className={styles.listWrap}>
                 <div className={styles.listRow}>
-                    <Item />
-                    <Item />
-                    <Item />
+                    <Item idx={"0"}/>
+                    <Item idx={"1"}/>
+                    <Item idx={"2"}/>
                 </div>
                 <div className={styles.listRow}>
-                    <Item />
-                    <Item />
-                    <Item />
+                    <Item idx={"3"}/>
+                    <Item idx={"4"}/>
+                    <Item idx={"5"}/>
                 </div>
             </div>
         </div>

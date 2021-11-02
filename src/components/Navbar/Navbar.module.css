@@ -12,6 +12,9 @@
   display: flex;
   align-items: center;
 }
+.navFilterForm input {
+  border-radius: 10px;
+}
 .navFilterInput {
   width: 80%;
   margin: 5px 20px;

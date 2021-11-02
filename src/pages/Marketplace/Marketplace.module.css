@@ -33,6 +33,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 35px;
 }
 .listHeaderRight {
     display: flex;
@@ -106,6 +107,10 @@
     border: 3px #70759c solid;
     width: 30%;
     padding: 20px 15px;
+    border-radius: 5px;
+}
+.listItem a {
+    text-decoration: none;
 }
 .itemFavorite {
     display: flex;

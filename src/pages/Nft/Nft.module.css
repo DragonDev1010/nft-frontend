@@ -37,7 +37,7 @@ p {
     padding: 40px;
 }
 .img {
-    border: 1px solid #272938;
+    border: 3px solid #272938;
     padding: 20px;
     margin-bottom: 30px;
 }
@@ -49,7 +49,7 @@ p {
         width: 100%;
     }
 .details {
-    border: 1px solid #272938;
+    border: 3px solid #272938;
 }
 .details > div:first-child {
     border-bottom: 1px solid #272938;   
@@ -97,7 +97,7 @@ p {
             gap: 30px;
         }
     .priceWrap {
-        border: 1px solid #272938;
+        border: 2px solid #272938;
         padding: 0 24px 5px 24px;
         flex-flow: column;
         flex: 1;
@@ -134,7 +134,7 @@ p {
             width: 1em;
         }
     .offersWrap {
-        border: 1px solid #272938;
+        border: 2px solid #272938;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
@@ -144,14 +144,14 @@ p {
             font-size: 36px;
         }
     .offersTbl {
-        border: 1px solid #272938;
+        border: 2px solid #272938;
         border-bottom: none;
         border-top: none;
         border-spacing:0; /* Removes the cell spacing via CSS */
         border-collapse: collapse;  
     }
         .offersTbl td, th {
-            border-bottom: 1px solid #272938;
+            border-bottom: 2px solid #272938;
             padding: 5px 0 5px 25px;
             font-size: 16px;
         }
@@ -168,7 +168,7 @@ p {
             font-size: 16px;
         }
     .historyWrap {
-        border: 1px solid #272938;
+        border: 2px solid #272938;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
@@ -179,14 +179,14 @@ p {
             font-size: 36px;
         }
     .historyTbl {
-        border: 1px solid #272938;
+        border: 2px solid #272938;
         border-bottom: none;
         border-top: none;
         border-spacing:0; /* Removes the cell spacing via CSS */
         border-collapse: collapse;  
     }
         .historyTbl td, th {
-            border-bottom: 1px solid #272938;
+            border-bottom: 2px solid #272938;
             padding: 5px 0 5px 25px;
             font-size: 16px;
         }
@@ -210,12 +210,12 @@ p {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        border: 1px solid #272938;
+        border: 2px solid #272938;
         border-bottom: none;
         padding: 5px 20px;
     }
     .featuredList {
-        border: 1px solid #272938;
+        border: 2px solid #272938;
         padding: 25px;
         display: flex;
         gap: 10px;

@@ -51,12 +51,18 @@
     font-size: 15px;
     background: #00052B;
 }
-.listRow {
+.listWrap {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/* .listRow {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 20px;
-}
+} */
 /* .listRow::after {
     content: "";
     display: table;

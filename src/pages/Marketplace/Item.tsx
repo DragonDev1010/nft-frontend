@@ -6,7 +6,7 @@ import  {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import itemImg from '../../assets/spaceItem.png'
 
 function Item(props: any) {
-    console.log(itemImg)
+    console.log(props.nft)
     return (
         <div className={styles.listItem}>
             <Link to={`/assets/${props.idx}`}>
@@ -20,17 +20,17 @@ function Item(props: any) {
                 <div className={styles.itemDes}>
                     <div className={styles.itemDesTop}>
                         <div className={styles.itemTitle}>
-                            <p className={styles.itemCollection}>Winter Bears    
+                            <p className={styles.itemCollection}>{props.nft.collection.name}
                                 <svg id="icons8-verified-badge" xmlns="http://www.w3.org/2000/svg" width="21.451" height="21.451" viewBox="0 0 21.451 21.451">
                                     <path id="Path_1" data-name="Path 1" d="M12.726,2,14.92,4.438l3.169-.975.731,3.169,3.169.731-.975,3.169,2.438,2.194L21.014,14.92l.975,3.169-3.169.731-.731,3.169-3.169-.975-2.194,2.438-2.194-2.438-3.169.975L6.632,18.82l-3.169-.731.975-3.169L2,12.726l2.438-2.194L3.463,7.363l3.169-.731.731-3.169,3.169.975Z" transform="translate(-2 -2)" fill="#42a5f5"/>
                                     <path id="Path_2" data-name="Path 2" d="M21.706,14.6l-5.629,7.924-2.318-3.263L12.6,20.892l3.477,4.894,6.788-9.555Z" transform="translate(-6.424 -9.385)" fill="#e3f2fd"/>
                                 </svg>
                             </p>
 
-                            <p className={styles.itemId}>Winter Bear #7590</p>
+                            <p className={styles.itemId}>{props.nft.name}</p>
                         </div>
                         <div className={styles.itemPrice}>
-                            <p>price</p>
+                            <p>Price</p>
                             <p>
                                 <svg id="icons8-ethereum" xmlns="http://www.w3.org/2000/svg" width="12.69" height="19.942" viewBox="0 0 12.69 19.942">
                                     <path id="Path_3" data-name="Path 3" d="M11,11.971,17.345,2l6.345,9.971L17.345,15.6Z" transform="translate(-11 -2)" fill="#7880e7"/>
@@ -39,7 +39,7 @@ function Item(props: any) {
                                     <path id="Path_6" data-name="Path 6" d="M17.345,25.7l6.345-3.626L17.345,30.69ZM11,20.719,17.345,18l6.345,2.719-6.345,3.626Z" transform="translate(-11 -10.748)" fill="#5c64c7"/>
                                     <path id="Path_7" data-name="Path 7" d="M25,18l6.345,2.719L25,24.345Z" transform="translate(-18.655 -10.748)" fill="#2a3192"/>
                                 </svg>
-                                <b>0.59</b>
+                                <b>{props.nft.price}</b>
                             </p>
                         </div>
                     </div>

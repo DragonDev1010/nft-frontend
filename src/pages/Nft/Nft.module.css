@@ -37,7 +37,7 @@ p {
     padding: 40px;
 }
 .img {
-    border: 3px solid #272938;
+    border: 2px solid #272938;
     padding: 20px;
     margin-bottom: 30px;
 }
@@ -49,14 +49,17 @@ p {
         width: 100%;
     }
 .details {
-    border: 3px solid #272938;
+    border: 2px solid #272938;
 }
-.details > div:first-child {
-    border-bottom: 1px solid #272938;   
-}
-.details > div > p {
-    margin: 15px 20px;
-}
+    .details > div:first-child {
+        border-bottom: 1px solid #272938;   
+    }
+    .details > div > p {
+        margin: 15px 20px;
+    }
+    .creator p span {
+        text-transform: uppercase;
+    }
 .detailRight {
     width: 65%;
     padding: 40px;
@@ -96,6 +99,10 @@ p {
             justify-content: flex-start;
             gap: 30px;
         }
+            .titleBottom span {
+                text-transform: uppercase;
+                color: #35F2FE;
+            }
     .priceWrap {
         border: 2px solid #272938;
         padding: 0 24px 5px 24px;
@@ -116,6 +123,7 @@ p {
             flex: 1;
         }
         .btnBuyNow {
+            align-self: flex-end;
             flex: 1;
             width: 50%;
             background: #35F2FE22;

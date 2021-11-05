@@ -7,6 +7,24 @@ import bgPoster from '../../assets/bgVideo.jpg'
 function List() {
     const [nftLen, setNftLen] = useState(0)
     const [nfts, setNfts] = useState([{}])
+    const nftTemp = {
+        nft_id:0,
+        collection: {
+            id:0,
+            name: "None"
+        },
+        owner: {
+            id:0,
+            name: "None"
+        },
+        creator: {
+            id:0,
+            name: "None"
+        },
+        price: 0,
+        name: "None",
+        description: "None"
+    }
     function callAPI() {
         fetch("http://localhost:8000/nfts")
             .then(res => res.json())
@@ -45,12 +63,10 @@ function List() {
                 {
                     nftLen > 0 ?
                     nfts.map((nft, idx) => {
-                        console.log("idx: ", idx)
-                        console.log(nfts)
                         return <Item idx={idx} nft={nft}/>
                     })
                     :
-                    ""
+                    <Item idx="0" nft={nftTemp}/>
                 }
             </div>
         </div>

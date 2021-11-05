@@ -1,12 +1,38 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { withRouter } from 'react-router'
 import Item from '../Marketplace/Item'
 import styles from './Nft.module.css'
 import itemImg from '../../assets/spaceItem.png'
 import * as FaIcons from "react-icons/fa";
+import { getAllJSDocTags } from 'typescript'
 function Nft({match}: any) {
     console.log("match: ", match.params)
-    
+    const [nft, setNft] = useState({nftId:match.params, name:"", descriptioin:"", creatorName:"", creatorId:-1, ownerId:-1, ownerName:"", price:0, collectionId:-1, collectionName:""})
+    useEffect(() => {
+        console.log("call use Effect")
+        getData()
+
+        async function getData() {
+            let nftId = parseInt(match.params.nftId)
+            const res = await fetch(`http://localhost:8000/nfts/${nftId}`)
+                .then( res => res.json())
+                .then(
+                    res => {
+                        console.log("res: ", res)
+                        setNft(prevState => {return {...prevState, nftId: res[0].nft_id}})
+                        setNft(prevState => {return {...prevState, name: res[0].name}})
+                        setNft(prevState => {return {...prevState, descriptioin: res[0].description}})
+                        setNft(prevState => {return {...prevState, creatorName: res[0].creator.name}})
+                        setNft(prevState => {return {...prevState, creatorId: res[0].creator.id}})
+                        setNft(prevState => {return {...prevState, ownerId: res[0].owner.id}})
+                        setNft(prevState => {return {...prevState, ownerName: res[0].owner.name}})
+                        setNft(prevState => {return {...prevState, price: res[0].price}})
+                        setNft(prevState => {return {...prevState, collectionId: res[0].collection.id}})
+                        setNft(prevState => {return {...prevState, collectionName: res[0].collection.name}})
+                    }
+                )
+        }
+    }, [])
     return (
         // <h1>this is nft item : {match.params.nftId}</h1>
         <div className={styles.detailWrap}>
@@ -23,9 +49,9 @@ function Nft({match}: any) {
                         <div>
                             <p className={styles.title}>Details</p>
                         </div>
-                        <div>
-                            <p className={styles.fontMedium}>Creator: <span className={styles.fontBlue}>John Cena</span></p>
-                            <p className={styles.fontMedium}>contract address: <span className={styles.fontBlue}>0x234242342</span></p>
+                        <div className={styles.creator}>
+                            <p className={styles.fontMedium}>Creator: <span className={styles.fontBlue}>{nft.creatorName}</span></p>
+                            <p className={styles.fontMedium}>contract address: <span className={styles.fontBlue}>0x23abcedf34</span></p>
                         </div>
                         
                     </div>
@@ -33,7 +59,7 @@ function Nft({match}: any) {
                 <div className={styles.detailRight}>
                     <div className={styles.titleWrap}>
                         <div className={styles.titleHead}>
-                            <p className={styles.itemCollection}>Winter Bears    
+                            <p className={styles.itemCollection}>{nft.collectionName}
                                 <svg id="icons8-verified-badge" xmlns="http://www.w3.org/2000/svg" width="21.451" height="21.451" viewBox="0 0 21.451 21.451">
                                     <path id="Path_1" data-name="Path 1" d="M12.726,2,14.92,4.438l3.169-.975.731,3.169,3.169.731-.975,3.169,2.438,2.194L21.014,14.92l.975,3.169-3.169.731-.731,3.169-3.169-.975-2.194,2.438-2.194-2.438-3.169.975L6.632,18.82l-3.169-.731.975-3.169L2,12.726l2.438-2.194L3.463,7.363l3.169-.731.731-3.169,3.169.975Z" transform="translate(-2 -2)" fill="#42a5f5"/>
                                     <path id="Path_2" data-name="Path 2" d="M21.706,14.6l-5.629,7.924-2.318-3.263L12.6,20.892l3.477,4.894,6.788-9.555Z" transform="translate(-6.424 -9.385)" fill="#e3f2fd"/>
@@ -45,9 +71,9 @@ function Nft({match}: any) {
                                 <FaIcons.FaTwitter size={28}/>
                             </div>
                         </div>
-                        <p className={styles.titleId}>Winter Bear #7590</p>
+                        <p className={styles.titleId}>{nft.name}</p>
                         <div className={styles.titleBottom}>
-                            <p className={styles.fontMedium}>owned by: John cane</p>
+                            <p className={styles.fontMedium}>Owned by: <span>{nft.ownerName}</span></p>
                             <p className={styles.fontMedium}>
                                 <FaIcons.FaEye size={15}/>
                                 2500 views
@@ -64,7 +90,7 @@ function Nft({match}: any) {
                                 <path id="Path_6" data-name="Path 6" d="M17.345,25.7l6.345-3.626L17.345,30.69ZM11,20.719,17.345,18l6.345,2.719-6.345,3.626Z" transform="translate(-11 -10.748)" fill="#5c64c7"/>
                                 <path id="Path_7" data-name="Path 7" d="M25,18l6.345,2.719L25,24.345Z" transform="translate(-18.655 -10.748)" fill="#2a3192"/>
                             </svg>
-                            <p className={styles.titleX}>0.59 <span className={styles.titleL}>($2459.33)</span></p>
+                            <p className={styles.titleX}>{nft.price} <span className={styles.titleL}>($2459.33)</span></p>
                         </div>
                         <button className={styles.btnBuyNow}><FaIcons.FaCartArrowDown size={10}/>Buy Now</button>
                     </div>
@@ -161,10 +187,10 @@ function Nft({match}: any) {
                     <FaIcons.FaArrowDown size={25}/>
                 </div>
                 <div className={styles.featuredList}>
-                    <Item idx={"0"}/>
+                    {/* <Item idx={"0"}/>
                     <Item idx={"1"}/>
                     <Item idx={"2"}/>
-                    <Item idx={"3"}/>
+                    <Item idx={"3"}/> */}
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@ function Navbar() {
     return (
         <Router>
             <nav className={styles.spaceNav}>
-                <a href="" className={styles.logo}>
+                <a href="/" className={styles.logo}>
                     <img src={logo} alt="mmtuts logo"/>
                 </a>
                 <NavSearch />

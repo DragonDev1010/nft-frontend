@@ -5,7 +5,7 @@ import Slide from './Slide'
 import Feature from './Feature'
 function Home() {
     return (
-        <div>
+        <div className={styles.home}>
             <div className={styles.homeHead}>
                 <Intro/>
                 <Slide/>

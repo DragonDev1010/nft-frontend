@@ -1,6 +1,7 @@
 import React from 'react'
 import SlideThumbnail from './SlideThumbnail'
 import styles from './Home.module.css'
+import SlideController from './SlideController'
 function Slide() {
     return (
         <div className={styles.slide}>
@@ -16,11 +17,10 @@ function Slide() {
                         <SlideThumbnail />
                     </div>
                 </div>
+                
+                
             </div>    
-            <div className={styles.slideControl}>
-                <button>Prev</button>
-                <button>Next</button>
-            </div>
+            <SlideController />
             
         </div>
         

@@ -1,23 +1,55 @@
+.home {
+    margin: 30px 20px 50px 20px;
+}
 .homeHead {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
+    margin-bottom: 50px;
 }
 .introWrap {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
     .introText {
         font-size: 60px;
         font-weight: bold;
         color: white;
     }
+    .introBtnWrap {
+        display: flex;
+        justify-content: start;
+        gap: 25px;
+    }
+    .introBtnWrap > button:first-child {
+        font-size: 35px;
+        padding: 0.2em 1em;
+        color: #35F2FE75;
+        font-weight: bolder;
+        background: #35F2FE22;
+        border: none;
+        border-radius: 10px;
+    }
+    .introBtnWrap > button:last-child {
+        font-size: 35px;
+        font-weight: bolder;
+        padding: 0.2em 1em;
+        color: #35F2FE75;
+        background: #00052B;
+        border: 1px #35F2FE solid;
+        border-radius: 10px;
+    }
     .buySOGE {
         font-size: 30px;
         color: white;
     }
-    .buySOGE span {
-        margin-left: 20px;
-    }
+        .buySOGE > svg {
+            color: #35F2FE;
+        }
+        .buySOGE span {
+            margin-left: 20px;
+        }
 .slide {
     width: 50%;
     position: relative;
@@ -27,6 +59,7 @@
     }
         .curSlide {
             z-index: 9;
+            position: inherit;
             display: flex;
             justify-content: center;
         }
@@ -36,9 +69,11 @@
         .slideBack .slideThumbnail {
             display: flex;
             justify-content: center;
+            flex-direction: column;
         }
-        .slideBack .slideThumbnail img{
+        .slideBack .slideThumbnail>img, .slideBack .slideThumbnail .thumbDetailWrap{
             width: 70%;
+            margin: 0 15%;
         }
         .slideBack {
             display: flex;
@@ -60,21 +95,25 @@
         .nextSlide {
 
         }
-        .slideControl {
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            width: 100%;
-            top: 50%;
+    .slideControl {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+    }
+        .slideControl button {
+            background: transparent;
+            border: none;
         }
     .slideThumbnail {
 
     }
     .thumbDetailWrap {
         background: white;
-    padding: 20px 0;
-    display: flex;
-    justify-content: space-around;
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-around;
     }
     .userLogoSlide {
 
@@ -85,5 +124,42 @@
     }
     .thumbDetail p:last-child {
         color: #00052B;
-    font-size: 18px;
+        font-size: 18px;
+    }
+.featureWrap {
+
+}
+    .featureHeader {
+        color: #FF01DD;
+        font-size: 55px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 55px;
+    }
+    .featureItemWrap {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .featureItem {
+
+    }
+    .featureItemIcon {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .featureItemHeader {
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .featureItemDetail {
+        font-size: 18px;
+        font-weight: lighter;
+        color: white;
+        width: 50%;
+        margin: 0 25%;
+        text-align: justify;
     }

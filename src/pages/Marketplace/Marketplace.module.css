@@ -50,6 +50,7 @@
     height: 30px;
     font-size: 15px;
     background: #00052B;
+    border-radius: 7px;
 }
 .listWrap {
     display: flex;
@@ -115,29 +116,42 @@
     padding: 20px 15px;
     border-radius: 5px;
 }
-.listItem a {
-    text-decoration: none;
-}
-.itemFavorite {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
-.itemImg img {
-    width: 100%;
-}
-.itemDesTop {
-    display: flex;
-    justify-content: space-between;
-}
-.itemOffer {
-    display: flex;
-    justify-content: flex-end;
-    color: #FF01DD;
-}
-.itemCollection {
-    color: #35F2FE
-}
-.itemId {
-    font-weight: bold;
-}
+    .listItem a {
+        text-decoration: none;
+    }
+    .itemFavorite {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        color: white;
+    }
+    .itemImg img {
+        width: 100%;
+    }
+    .itemDesTop {
+        display: flex;
+        justify-content: space-between;
+    }
+    .itemOffer {
+        display: flex;
+        justify-content: flex-end;
+        color: #FF01DD;
+    }
+    .itemCollection {
+        color: #35F2FE
+    }
+    .itemId {
+        font-weight: bold;
+        font-size: 23px;
+        color: white;
+    }
+    .itemPrice p:first-child {
+        font-size: 16px;
+        font-weight: medium;
+        color: #9F9F9F;
+    }
+    .itemPriceValue b {
+        font-size: 23px;
+        font-weight: bold;
+        color: white;
+    }

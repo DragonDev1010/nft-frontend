@@ -1,0 +1,89 @@
+.homeHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.introWrap {
+
+}
+    .introText {
+        font-size: 60px;
+        font-weight: bold;
+        color: white;
+    }
+    .buySOGE {
+        font-size: 30px;
+        color: white;
+    }
+    .buySOGE span {
+        margin-left: 20px;
+    }
+.slide {
+    width: 50%;
+    position: relative;
+}
+    .slideWrap {
+        position: relative;
+    }
+        .curSlide {
+            z-index: 9;
+            display: flex;
+            justify-content: center;
+        }
+        .curSlide .slideThumbnail {
+            /* background-size: cover; */
+        }
+        .slideBack .slideThumbnail {
+            display: flex;
+            justify-content: center;
+        }
+        .slideBack .slideThumbnail img{
+            width: 70%;
+        }
+        .slideBack {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+            gap: 30px;
+
+            width: 100%;
+            height: 100%;            
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.3;  
+        }
+        .preSlide {
+
+        }
+        .nextSlide {
+
+        }
+        .slideControl {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+        }
+    .slideThumbnail {
+
+    }
+    .thumbDetailWrap {
+        background: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    }
+    .userLogoSlide {
+
+    }
+    .thumbDetail p:first-child {
+        font-size: 18px;
+        color: #07AFB9;
+    }
+    .thumbDetail p:last-child {
+        color: #00052B;
+    font-size: 18px;
+    }

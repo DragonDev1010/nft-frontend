@@ -5,7 +5,7 @@ function FilterSubitemPrice() {
         <div className={styles.filterSubitemPrice}>
             <form>
                 <select name = "dropdown">
-                    <option value = "usd" selected>United States Dollar</option>
+                    {/* <option value = "usd" selected>SOGE</option> */}
                     <option value = "eth">ETH</option>
                 </select>
                 <div className={styles.filterSubitemPriceInput}>

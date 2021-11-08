@@ -7,7 +7,7 @@ import * as FaIcons from "react-icons/fa";
 import { getAllJSDocTags } from 'typescript'
 function Nft({match}: any) {
     console.log("match: ", match.params)
-    const [nft, setNft] = useState({nftId:match.params, name:"", descriptioin:"", creatorName:"", creatorId:-1, ownerId:-1, ownerName:"", price:0, collectionId:-1, collectionName:""})
+    const [nft, setNft] = useState({nftId:match.params, name:"", descriptioin:"", creatorName:"", creatorId:-1, creatorAddress:"", ownerId:-1, ownerName:"", price:0, collectionId:-1, collectionName:""})
     useEffect(() => {
         console.log("call use Effect")
         getData()
@@ -29,6 +29,12 @@ function Nft({match}: any) {
                         setNft(prevState => {return {...prevState, price: res[0].price}})
                         setNft(prevState => {return {...prevState, collectionId: res[0].collection.id}})
                         setNft(prevState => {return {...prevState, collectionName: res[0].collection.name}})
+                        let walletAddrTemp = res[0].creator.wallet
+                        if(walletAddrTemp != undefined) {
+                            let walletAddrAbbre = walletAddrTemp.substring(0,5) + "..." + walletAddrTemp.substring(walletAddrTemp.length-1, walletAddrTemp.length-4)
+                            setNft(prevState => {return {...prevState, creatorAddress: walletAddrAbbre}})
+                        }
+                        
                     }
                 )
         }
@@ -51,7 +57,7 @@ function Nft({match}: any) {
                         </div>
                         <div className={styles.creator}>
                             <p className={styles.fontMedium}>Creator: <span className={styles.fontBlue}>{nft.creatorName}</span></p>
-                            <p className={styles.fontMedium}>contract address: <span className={styles.fontBlue}>0x23abcedf34</span></p>
+                            <p className={styles.fontMedium}>contract address: <span className={styles.fontBlue}>{nft.creatorAddress}</span></p>
                         </div>
                         
                     </div>

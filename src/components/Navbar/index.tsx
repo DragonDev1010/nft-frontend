@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch, withRouter } from 'react-router-dom'
-import Home from '../../pages/Marketplace'
+import Home from '../../pages/Home'
+import Marketplace from '../../pages/Marketplace'
 import Create from '../../pages/Create'
 import Register from '../../pages/Register'
 import Nft from '../../pages/Nft'
@@ -29,8 +30,11 @@ function Navbar() {
                 </ul>
             </nav>
             <Switch>
-                <Route exact path="/assets">
+                <Route exact path="/">
                     <Home />
+                </Route>
+                <Route exact path="/assets">
+                    <Marketplace />
                 </Route>
                 <Route path="/register">
                     <Register />

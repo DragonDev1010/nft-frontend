@@ -31,7 +31,7 @@ function Item(props: any) {
                         </div>
                         <div className={styles.itemPrice}>
                             <p>Price</p>
-                            <p>
+                            <p className={styles.itemPriceValue}>
                                 <svg id="icons8-ethereum" xmlns="http://www.w3.org/2000/svg" width="12.69" height="19.942" viewBox="0 0 12.69 19.942">
                                     <path id="Path_3" data-name="Path 3" d="M11,11.971,17.345,2l6.345,9.971L17.345,15.6Z" transform="translate(-11 -2)" fill="#7880e7"/>
                                     <path id="Path_4" data-name="Path 4" d="M25,2l6.345,9.971L25,15.6Z" transform="translate(-18.655 -2)" fill="#5c64c7"/>

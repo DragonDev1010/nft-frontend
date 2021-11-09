@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styles from './Home.module.css'
 import * as FaIcons from "react-icons/fa"
 
@@ -6,17 +7,17 @@ function Intro() {
     return (
         <div className={styles.introWrap}>
             <p className={styles.introText}>
-                Lorem ipsum dolor sit amet, <br/>
-                consectetur adipiscing elit.<br/>
-                NFTs
+            Explore the universe and <br/>
+            give life to your very <br/>
+            own stars!
             </p>
             <div className={styles.introBtnWrap}>
-                <button>Enter</button>
-                <button>Explorer</button>
+                {/* <button>Enter</button> */}
+                <button><NavLink to="/assets">Explore</NavLink></button>
             </div>
             <p className={styles.buySOGE}>
                 <FaIcons.FaShoppingCart size={18}/>
-                <span>Buy SOGE tokens to use on StarSeas</span>
+                <span>Buy SGE tokens to access STARSEAS</span>
             </p>
         </div>
     )

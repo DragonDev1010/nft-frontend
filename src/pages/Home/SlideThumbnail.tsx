@@ -1,13 +1,14 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import styles from './Home.module.css'
 import thumbnailImg from '../../assets/homeSlide.png'
 import userLogo from '../../assets/UserLogoSlider.png'
 import * as FaIcons from 'react-icons/fa'
+
 function SlideThumbnail(props: any) {
 
     return (
-        <div className={styles.slideThumbnail}>
-            {/* <img src={thumbnailImg}></img> */}
+        <Link to="/users" className={styles.slideThumbnail}>
             <img src={props.data.image}></img>
             <div className={styles.thumbDetailWrap}>
                 <img src={userLogo} className={styles.userLogoSlide}></img>
@@ -17,7 +18,7 @@ function SlideThumbnail(props: any) {
                 </div>
                 <FaIcons.FaInfoCircle size={20}/>
             </div>
-        </div>
+        </Link>
     )
 }
 

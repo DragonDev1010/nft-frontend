@@ -5,6 +5,7 @@ import Marketplace from '../../pages/Marketplace'
 import Create from '../../pages/Create'
 import Register from '../../pages/Register'
 import Nft from '../../pages/Nft'
+import User from '../../pages/User'
 import styles from './Navbar.module.css'
 import NavbarItem from './NavbarItem'
 import NavSearch from './NavSearch';
@@ -43,6 +44,9 @@ function Navbar() {
                     <Create />
                 </Route>
                 <Route path="/assets/:nftId" exact component={Nft}>
+                </Route>
+                <Route path="/users" exact>
+                    <User />
                 </Route>
             </Switch>
         </Router>

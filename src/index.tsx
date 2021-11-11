@@ -1,12 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+
 import App from './App';
 import styles from './index.module.css'
 
+const initialState = {
+  search: {
+    status: [],
+    price: [],
+    collects: []
+  }
+};
+function reducer(state = initialState, action: any) {
+  switch (action.type) {
+    case "changeState": {
+      return {
+        search: {
+          collects: action.search.collects,
+          price: action.search.price,
+          status: action.search.status
+        }
+      };
+    }
+    default:
+      return {
+        search: {
+          status: [],
+          price: [],
+          collects: []
+        }
+      };
+  }
+}
+const store = createStore(reducer);
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App/>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from 'react'
+import { useStore } from 'react-redux'
 import Item from './Item'
 import styles from './Marketplace.module.css'
 import * as FaIcons from "react-icons/fa";
 import backgroundVideo from '../../assets/bgVideo.mp4'
 import bgPoster from '../../assets/bgVideo.jpg'
 function List() {
+    const store = useStore()
     const [nftLen, setNftLen] = useState(0)
     const [nfts, setNfts] = useState([{}])
     const nftTemp = {
         nft_id:0,
-        collection: {
+        collects: {
             id:0,
             name: "None"
         },
@@ -25,8 +27,23 @@ function List() {
         name: "None",
         description: "None"
     }
+    function getAPIQuery() {
+        let query = store.getState().search
+        let queryStatus = query.status
+        let queryPrice = query.price
+        let queryCollects = query.collects
+        console.log(typeof(query.status[0]), query)
+        let queryStr = ''
+        if(queryStatus.length > 0) {
+            queryStatus.map((item: any) => {
+                queryStr += 'search[status]=' + item + '&'
+            })
+        }
+        return 'http://localhost:8000/nfts?' + queryStr
+    }
     function callAPI() {
-        fetch("http://localhost:8000/nfts")
+        let fetchURL = getAPIQuery()
+        fetch(fetchURL)
             .then(res => res.json())
             .then(res => {
                 setNfts(res)

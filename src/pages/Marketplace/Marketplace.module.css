@@ -5,9 +5,7 @@
     justify-content: space-between;
 }
 
-
-
-.filter {
+.filterWrap {
     width: 30%;
     border-right: 1px solid #FF01DD40;
     display: inline-block;
@@ -69,47 +67,9 @@
     display: table;
     clear: both;
 } */
-.filterListItem {
-    list-style-type: none;
-    color: white;
-    font-size: 30px;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
-    padding: 20px;
-    border-bottom: 1px solid #FF01DD29;
-}
-.filterListMainItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.filterListSubItem {
-}
-.filterSubitemStatusForm {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-.filterSubitemStatusForm button {
-    flex:0 0 45%;
-    margin: 2px;
-    height: 30px;
-}
-.filterSubitemPrice {
 
-}
-.filterSubitemPriceInput {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 3px;
-}
-.filterSubitemPriceInput span {
-    font-size: 18px;
-    margin: 0 4px;
-}
+
+
 .listItem {
     border: 3px #70759c solid;
     width: 30%;

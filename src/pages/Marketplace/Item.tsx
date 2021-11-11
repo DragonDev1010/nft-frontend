@@ -6,7 +6,6 @@ import  {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import itemImg from '../../assets/spaceItem.png'
 
 function Item(props: any) {
-    console.log(props.nft)
     return (
         <div className={styles.listItem}>
             <Link to={`/assets/${props.idx}`}>
@@ -20,7 +19,7 @@ function Item(props: any) {
                 <div className={styles.itemDes}>
                     <div className={styles.itemDesTop}>
                         <div className={styles.itemTitle}>
-                            <p className={styles.itemCollection}>{props.nft.collection.name}
+                            <p className={styles.itemCollection}>{props.nft.collects.name}
                                 <svg id="icons8-verified-badge" xmlns="http://www.w3.org/2000/svg" width="21.451" height="21.451" viewBox="0 0 21.451 21.451">
                                     <path id="Path_1" data-name="Path 1" d="M12.726,2,14.92,4.438l3.169-.975.731,3.169,3.169.731-.975,3.169,2.438,2.194L21.014,14.92l.975,3.169-3.169.731-.731,3.169-3.169-.975-2.194,2.438-2.194-2.438-3.169.975L6.632,18.82l-3.169-.731.975-3.169L2,12.726l2.438-2.194L3.463,7.363l3.169-.731.731-3.169,3.169.975Z" transform="translate(-2 -2)" fill="#42a5f5"/>
                                     <path id="Path_2" data-name="Path 2" d="M21.706,14.6l-5.629,7.924-2.318-3.263L12.6,20.892l3.477,4.894,6.788-9.555Z" transform="translate(-6.424 -9.385)" fill="#e3f2fd"/>

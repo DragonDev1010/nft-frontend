@@ -1,29 +1,19 @@
-import React from 'react'
-import FilterItemData from './FilterItemData'
+import React, {useState, useEffect} from 'react'
 import styles from './Marketplace.module.css'
+import FilterStatus from './FilterStatus'
 import * as FaIcons from "react-icons/fa";
-import FilterItem from './FilterItem';
 function Filter() {
     return (
-        <div className={styles.filter}>
-            <ul style={{paddingInlineStart: "0"}}>
-                {FilterItemData.map((item, idx) => {
-                    return(
-                        <FilterItem data={item} />
-                        // <li className={styles.filterListItem}>
-                        //     <div>
-                        //         <span style={{marginRight: "20px"}}>{item.icon}</span>
-                        //         {item.name}
-                        //     </div>
-                        //     <div>
-                        //         <FaIcons.FaCaretDown size={18}/>
-                        //     </div>
-                        // </li>
-                    )
-                })}        
-            </ul>
+        <div className={styles.filterWrap}>
+            <div className={styles.filterHeader}>
+                <FaIcons.FaFilter size={15}/>
+                <span>Filters</span>        
+                <FaIcons.FaTimes size={15}/>
+            </div>
+            <div className={styles.filterStatus}>
+                <FilterStatus />
+            </div>
         </div>
     )
 }
-
 export default Filter

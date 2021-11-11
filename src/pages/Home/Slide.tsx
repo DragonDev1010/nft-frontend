@@ -29,8 +29,7 @@ function Slide() {
         
         
     }, [])
-    console.log(slideItems)
-    
+
     return (
         <div className={styles.slide}>
             <div className={styles.slideWrap}>

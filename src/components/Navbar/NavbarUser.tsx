@@ -48,11 +48,8 @@ function NavbarUser() {
             window.removeEventListener('click', pageClickEvent)
         }
     }, [isActive])
-    console.log('aaa: ', localStorage.getItem('userActive'))
     return (
         <div className={styles.navbarUserWrap}>
-                
-            {console.log('DDD: ', localStorage.getItem('userActive'))}
             {
                 localStorage.getItem('userActive') === 'Active'? 
                     <div className={styles.navbarUserContainer}>

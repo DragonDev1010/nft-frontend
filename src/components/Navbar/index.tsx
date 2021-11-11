@@ -15,7 +15,6 @@ import { useWeb3React } from "@web3-react/core"
 // import logo from '../../assets/logo-light.jpg'
 function Navbar() {
     const { active, account, library, connector, activate, deactivate } = useWeb3React()
-    console.log('Web3React Test: ', active, account)
     return (
         <Router>
             <nav className={styles.spaceNav}>

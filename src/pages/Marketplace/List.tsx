@@ -39,6 +39,10 @@ function List() {
                 queryStr += 'search[status]=' + item + '&'
             })
         }
+        if(queryPrice.length > 0) {
+            queryStr += 'search[price][min]=' + queryPrice[0] + '&'
+            queryStr += 'search[price][max]=' + queryPrice[1] + '&'
+        }
         return 'http://localhost:8000/nfts?' + queryStr
     }
     function callAPI() {

@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react'
-import { useStore } from 'react-redux'
+import { useStore, useSelector } from 'react-redux'
 import Item from './Item'
-import styles from './Marketplace.module.css'
+import FilterBar from './FilterBar'
+import styles from '../Marketplace.module.css'
 import * as FaIcons from "react-icons/fa";
-import backgroundVideo from '../../assets/bgVideo.mp4'
-import bgPoster from '../../assets/bgVideo.jpg'
+import backgroundVideo from '../../../assets/bgVideo.mp4'
+import bgPoster from '../../../assets/bgVideo.jpg'
 function List() {
-    const store = useStore()
+    const store = useSelector((state: any) => state.search)
     const [nftLen, setNftLen] = useState(0)
     const [nfts, setNfts] = useState([{}])
     const nftTemp = {
@@ -28,11 +29,9 @@ function List() {
         description: "None"
     }
     function getAPIQuery() {
-        let query = store.getState().search
-        let queryStatus = query.status
-        let queryPrice = query.price
-        let queryCollects = query.collects
-        console.log(typeof(query.status[0]), query)
+        let queryStatus = store.status
+        let queryPrice = store.price
+        let queryCollects = store.collects
         let queryStr = ''
         if(queryStatus.length > 0) {
             queryStatus.map((item: any) => {
@@ -47,6 +46,7 @@ function List() {
     }
     function callAPI() {
         let fetchURL = getAPIQuery()
+        console.log(fetchURL)
         fetch(fetchURL)
             .then(res => res.json())
             .then(res => {
@@ -62,7 +62,7 @@ function List() {
     }
     useEffect(() => {
         callAPI()
-    }, [])
+    }, [store])
     return (
         <div className={styles.list}>
             <video className={styles.backgroundVideo} poster={bgPoster} autoPlay loop muted   >
@@ -80,6 +80,7 @@ function List() {
                 </div>
                 
             </div>
+            <FilterBar />
             <div className={styles.listWrap}>
                 {
                     nftLen > 0 ?

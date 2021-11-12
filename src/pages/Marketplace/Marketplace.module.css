@@ -60,6 +60,7 @@
             
         }
         .filterPriceInput {
+            padding: 20px 30px;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -95,89 +96,113 @@
     color: white;
     display: inline-block;
 }
-.backgroundVideo {
-    height: 100vh;
-    width: 100vw;
-    object-fit: cover;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-}
-.listHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 35px;
-}
-.listHeaderRight {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 10px;
-}
-.listHeaderForm {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-}
-.listHeadInput {
-    height: 30px;
-    font-size: 15px;
-    background: #00052B;
-    border-radius: 7px;
-}
-.listWrap {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.listItem {
-    border: 3px #70759c solid;
-    width: 30%;
-    padding: 20px 15px;
-    border-radius: 5px;
-}
-    .listItem a {
-        text-decoration: none;
+    .backgroundVideo {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
     }
-    .itemFavorite {
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-        color: white;
-    }
-    .itemImg img {
-        width: 100%;
-    }
-    .itemDesTop {
+    .listHeader {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        margin-bottom: 35px;
     }
-    .itemOffer {
+    .listHeaderRight {
         display: flex;
-        justify-content: flex-end;
-        color: #FF01DD;
+        justify-content: space-around;
+        align-items: center;
+        gap: 10px;
     }
-    .itemCollection {
-        color: #35F2FE
+    .listHeaderForm {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
     }
-    .itemId {
-        font-weight: bold;
-        font-size: 23px;
-        color: white;
+    .listHeadInput {
+        height: 30px;
+        font-size: 15px;
+        background: #00052B;
+        border-radius: 7px;
     }
-    .itemPrice p:first-child {
-        font-size: 16px;
-        font-weight: medium;
-        color: #9F9F9F;
+    .filterBar {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
     }
-    .itemPriceValue b {
-        font-size: 23px;
-        font-weight: bold;
-        color: white;
+        .filterBarItem {
+            font-size: 18px;
+            font-weight: normal;
+            background: #272938;
+            border: 1px solid #272938;
+            border-radius: 5px;
+            color: white;
+            padding: 0.3em 0.5em;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+        }
+        .filterBar > span {
+            font-size: 18px;
+            color: white;
+        }
+    .listWrap {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
     }
+
+    .listItem {
+        border: 3px #70759c solid;
+        width: 30%;
+        padding: 20px 15px;
+        border-radius: 5px;
+    }
+        .listItem a {
+            text-decoration: none;
+        }
+        .itemFavorite {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            color: white;
+        }
+        .itemImg img {
+            width: 100%;
+        }
+        .itemDesTop {
+            display: flex;
+            justify-content: space-between;
+        }
+        .itemOffer {
+            display: flex;
+            justify-content: flex-end;
+            color: #FF01DD;
+        }
+        .itemCollection {
+            color: #35F2FE
+        }
+        .itemId {
+            font-weight: bold;
+            font-size: 23px;
+            color: white;
+        }
+        .itemPrice p:first-child {
+            font-size: 16px;
+            font-weight: medium;
+            color: #9F9F9F;
+        }
+        .itemPriceValue b {
+            font-size: 23px;
+            font-weight: bold;
+            color: white;
+        }

@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import styles from '../Marketplace.module.css'
-import { useStore } from 'react-redux'
+import { useStore, useSelector } from 'react-redux'
 
 function FilStatusOptions() {
     const store = useStore()
-    let storeState = store.getState().search.status
+    let storeState = useSelector((state: any) => state.search.status)
     const [buy, setBuy] = useState(false)
     const [auction, setAuction] = useState(false)
     const [newstatus, setNewstatus] = useState(false)
@@ -47,10 +47,10 @@ function FilStatusOptions() {
     }
     return (
         <div className = {styles.filStatusOptWrap}>
-            <button onClick={handleClick} name="buy" id="0" className={buy?styles.activeBtn:''}>Buy Now</button>
-            <button onClick={handleClick} name="auction" id="1" className={auction?styles.activeBtn:''}>On Auction</button>
-            <button onClick={handleClick} name="new" id="2" className={newstatus?styles.activeBtn:''}>new</button>
-            <button onClick={handleClick} name="offer" id="3" className={offer?styles.activeBtn:''}>offer</button>
+            <button onClick={handleClick} name="buy" id="0" className={storeState.includes('0')?styles.activeBtn:''}>Buy Now</button>
+            <button onClick={handleClick} name="auction" id="1" className={storeState.includes('1')?styles.activeBtn:''}>On Auction</button>
+            <button onClick={handleClick} name="new" id="2" className={storeState.includes('2')?styles.activeBtn:''}>New</button>
+            <button onClick={handleClick} name="offer" id="3" className={storeState.includes('3')?styles.activeBtn:''}>Offer</button>
         </div>
     )
 }

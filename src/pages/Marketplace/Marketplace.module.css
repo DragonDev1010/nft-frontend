@@ -90,6 +90,63 @@
             font-weight: normal;
             padding: 0.5em;
         }
+    .filterCollection {
+
+    }
+        .collectSearchWrap {
+            margin: 15px 30px;
+            padding: 10px 0 10px 5px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            border: 1px #272938 solid;
+            width: 70%;
+            background-color: #00052B;
+        }
+        .collectSearchWrap > svg {
+            color: #2F3141;
+         }
+        .collectSearchWrap > input {
+            font-size: 18px;
+            color: white;
+            border: none;
+            background: transparent;
+        }
+        .collectSearchWrap > input:focus {
+            outline: none;
+        }
+        .collectSearchWrap > button {
+            color: #2F3141;;
+            background: transparent;
+            border: none;
+        }
+        .collectSearchWrap > button:focus {
+            outline: none;
+        }
+        .filterCollectsListWrap {
+            color: white;
+        }
+        .filterColItemWrap {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .filCollectItemBtn {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 20px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-weight: normal;
+            padding-left: 30px;
+        }
+        .filCollectItemBtn >  img {
+            width: 10%;
+            border-radius: 50%;
+        }
 .list{
     width: 100%;
     padding: 30px 50px 20px;

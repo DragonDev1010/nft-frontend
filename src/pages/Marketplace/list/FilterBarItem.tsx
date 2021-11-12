@@ -16,7 +16,8 @@ function FilterBarItem(props:any) {
                     search: {
                         status: searchState.status,
                         price: store.getState().search.price,
-                        collects: store.getState().search.collects
+                        collects: store.getState().search.collects,
+                        category: store.getState().search.category
                     }
                 })
                 break;
@@ -28,13 +29,23 @@ function FilterBarItem(props:any) {
                     search: {
                         status: store.getState().search.status,
                         price: searchState.price,
-                        collects: store.getState().search.collects
+                        collects: store.getState().search.collects,
+                        category: store.getState().search.category
                     }
                 })
                 break;
                 
             case "collects":
-        
+                searchState.collects.splice(searchState.collects.indexOf(e.target.id), 1)
+                store.dispatch({
+                    type: "changeState",
+                    search: {
+                        status: store.getState().search.status,
+                        price: store.getState().search.price,
+                        collects: searchState.collects,
+                        category: store.getState().search.category
+                    }
+                })
                 break;
             default:
                 break;

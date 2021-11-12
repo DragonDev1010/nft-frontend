@@ -23,7 +23,8 @@ function FilterPriceOptions() {
                 search: {
                     status: store.getState().search.status,
                     price: [min, max],
-                    collects: store.getState().search.collects
+                    collects: store.getState().search.collects,
+                    category: store.getState().search.category
                 }
             })
         }

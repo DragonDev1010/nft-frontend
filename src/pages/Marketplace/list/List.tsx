@@ -32,6 +32,7 @@ function List() {
         let queryStatus = store.status
         let queryPrice = store.price
         let queryCollects = store.collects
+        let queryCategory = store.category
         let queryStr = ''
         if(queryStatus.length > 0) {
             queryStatus.map((item: any) => {
@@ -41,6 +42,16 @@ function List() {
         if(queryPrice.length > 0) {
             queryStr += 'search[price][min]=' + queryPrice[0] + '&'
             queryStr += 'search[price][max]=' + queryPrice[1] + '&'
+        }
+        if(queryCollects.length > 0) {
+            queryCollects.map((item:any) => {
+                queryStr += 'search[collects]=' + item + '&'
+            })
+        }
+        if(queryCategory.length > 0)  {
+            queryCategory.map((item:any) => {
+                queryStr += 'search[category]=' + item + '&'
+            })
         }
         return 'http://localhost:8000/nfts?' + queryStr
     }
@@ -62,6 +73,7 @@ function List() {
     }
     useEffect(() => {
         callAPI()
+        console.log(nfts)
     }, [store])
     return (
         <div className={styles.list}>
@@ -88,7 +100,8 @@ function List() {
                         return <Item idx={idx} nft={nft}/>
                     })
                     :
-                    <Item idx="0" nft={nftTemp}/>
+                    // <Item idx="0" nft={nftTemp}/>
+                    ""
                 }
             </div>
         </div>

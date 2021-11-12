@@ -41,7 +41,8 @@ function FilStatusOptions() {
             search: {
                 status: storeState,
                 price: store.getState().search.price,
-                collects: store.getState().search.collects
+                collects: store.getState().search.collects,
+                category: store.getState().search.category
             }
         })
     }

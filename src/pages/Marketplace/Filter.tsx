@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import styles from './Marketplace.module.css'
 import FilterStatus from './status/FilterStatus'
 import FilterPrice from './price/FilterPrice';
+import FilterCollection from './collection/FilterCollection';
+import FilterCategory from './category/FilterCategory';
 import * as FaIcons from "react-icons/fa";
 function Filter() {
     return (
@@ -18,6 +20,12 @@ function Filter() {
             </div>
             <div className={styles.filterPrice}>
                 <FilterPrice />
+            </div>
+            <div className={styles.filterCollection}>
+                <FilterCollection />
+            </div>
+            <div className={styles.filterCategory}>
+                <FilterCategory />
             </div>
         </div>
     )

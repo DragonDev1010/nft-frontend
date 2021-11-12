@@ -11,7 +11,8 @@ const initialState = {
   search: {
     status: [],
     price: [],
-    collects: []
+    collects: [],
+    category: []
   }
 };
 function reducer(state = initialState, action: any) {
@@ -21,7 +22,8 @@ function reducer(state = initialState, action: any) {
         search: {
           collects: action.search.collects,
           price: action.search.price,
-          status: action.search.status
+          status: action.search.status,
+          category: action.search.category
         }
       };
     }
@@ -30,7 +32,8 @@ function reducer(state = initialState, action: any) {
         search: {
           status: [],
           price: [],
-          collects: []
+          collects: [],
+          category: []
         }
       };
   }

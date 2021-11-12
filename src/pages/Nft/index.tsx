@@ -27,8 +27,8 @@ function Nft({match}: any) {
                         setNft(prevState => {return {...prevState, ownerId: res[0].owner.id}})
                         setNft(prevState => {return {...prevState, ownerName: res[0].owner.name}})
                         setNft(prevState => {return {...prevState, price: res[0].price}})
-                        setNft(prevState => {return {...prevState, collectionId: res[0].collection.id}})
-                        setNft(prevState => {return {...prevState, collectionName: res[0].collection.name}})
+                        setNft(prevState => {return {...prevState, collectionId: res[0].collects.id}})
+                        setNft(prevState => {return {...prevState, collectionName: res[0].collects.name}})
                         let walletAddrTemp = res[0].creator.wallet
                         if(walletAddrTemp != undefined) {
                             let walletAddrAbbre = walletAddrTemp.substring(0,5) + "..." + walletAddrTemp.substring(walletAddrTemp.length-1, walletAddrTemp.length-4)

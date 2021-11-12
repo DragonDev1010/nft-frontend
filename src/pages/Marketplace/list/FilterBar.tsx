@@ -4,7 +4,6 @@ import {useSelector, useStore} from 'react-redux'
 import FilterBarItem from './FilterBarItem'
 import styles from '../Marketplace.module.css'
 function FilterBar() {
-    console.log('Filter Bar')
     const searchState = useSelector((state: any) => state.search)
     const store = useStore()
     const statusName = ["Buy Now", "On Auction", "New", "Offer"]
@@ -15,6 +14,7 @@ function FilterBar() {
             search:{}
         })
     }
+    console.log(searchState)
     return (
         <div className={styles.filterBar}>
             {searchState.status.map((item:any) => (
@@ -24,10 +24,13 @@ function FilterBar() {
                 <FilterBarItem name={"price"} val={item} btnName={`${priceName[parseInt(idx)]} : ${item}`}/>
             ))}
             {searchState.collects.map((item:any) => (
-                <FilterBarItem name={"collects"} val={item}/>
+                <FilterBarItem name={"collects"} val={item} btnName={item}/>
+            ))}
+            {searchState.category.map((item:any) => (
+                <FilterBarItem name={"category"} val={item} btnName={item}/>
             ))}
             {
-                searchState.status.length > 0 || searchState.price.length > 0 || searchState.collects.length > 0 ?
+                searchState.status.length > 0 || searchState.price.length > 0 || searchState.collects.length > 0 || searchState.category.length > 0 ?
                 <span onClick={removeAll}>Clear All</span>
                 :
                 ""

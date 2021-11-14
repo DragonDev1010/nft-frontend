@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from '../Marketplace.module.css'
-import { useStore, useSelector } from 'react-redux'
+import { useStore, useSelector, connect } from 'react-redux'
 
 function FilStatusOptions() {
     const store = useStore()
@@ -10,36 +10,24 @@ function FilStatusOptions() {
     const [newstatus, setNewstatus] = useState(false)
     const [offer, setOffer] = useState(false)
     function handleClick(e: any) {
-        // e.preventDefault()
-        switch(e.target.name) {
-            case "buy": 
-                setBuy(!buy)
-                break
-            case "auction":
-                setAuction(!auction)
-                break
-            case "new":
-                setNewstatus(!newstatus)
-                break
-            case "offer":
-                setOffer(!offer)
-                break
-            default : {
-            }
-        }
+        e.preventDefault()
+        let temp: any[] = [] 
+        storeState.map((item:any) => {
+            temp.push(item)
+        })
         if(storeState.length == 0) {
-            storeState.push(e.target.id)
+            temp.push(e.target.id)
         } else {
             if(storeState.includes(e.target.id)) {
-                storeState.splice(storeState.indexOf(e.target.id), 1)
+                temp.splice(temp.indexOf(e.target.id), 1)
             } else {
-                storeState.push(e.target.id)
+                temp.push(e.target.id)
             }
         }
         store.dispatch({
             type: "changeState",
             search: {
-                status: storeState,
+                status: temp,
                 price: store.getState().search.price,
                 collects: store.getState().search.collects,
                 category: store.getState().search.category
@@ -47,7 +35,7 @@ function FilStatusOptions() {
         })
     }
     return (
-        <div className = {styles.filStatusOptWrap}>
+        <div style={{color: 'white'}} className = {styles.filStatusOptWrap}>
             <button onClick={handleClick} name="buy" id="0" className={storeState.includes('0')?styles.activeBtn:''}>Buy Now</button>
             <button onClick={handleClick} name="auction" id="1" className={storeState.includes('1')?styles.activeBtn:''}>On Auction</button>
             <button onClick={handleClick} name="new" id="2" className={storeState.includes('2')?styles.activeBtn:''}>New</button>
@@ -55,5 +43,4 @@ function FilStatusOptions() {
         </div>
     )
 }
-
 export default FilStatusOptions

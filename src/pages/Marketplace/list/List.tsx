@@ -57,7 +57,6 @@ function List() {
     }
     function callAPI() {
         let fetchURL = getAPIQuery()
-        console.log(fetchURL)
         fetch(fetchURL)
             .then(res => res.json())
             .then(res => {
@@ -73,7 +72,6 @@ function List() {
     }
     useEffect(() => {
         callAPI()
-        console.log(nfts)
     }, [store])
     return (
         <div className={styles.list}>

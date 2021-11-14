@@ -5,18 +5,21 @@ import colLogo from '../../../assets/spaceItem.png'
 import checkedIcon from '../../../assets/marketplace/filter/collects/checked.png'
 
 function FilterCategoryOptions(props:any) {
-    const [checked, setChecked] = useState(false)
+    
     const store = useStore()
     let storeState = useSelector((state: any) => state.search.category)
+    let temp: any[] = [] 
+    storeState.map((item:any) => {
+        temp.push(item)
+    })
     function clickBtn() {
-        setChecked(!checked)
-        if(storeState.length == 0) {
-            storeState.push(props.data)
+        if(temp.length == 0) {
+            temp.push(props.data)
         } else {
-            if(storeState.includes(props.data)) {
-                storeState.splice(storeState.indexOf(props.data), 1)
+            if(temp.includes(props.data)) {
+                temp.splice(temp.indexOf(props.data), 1)
             } else {
-                storeState.push(props.data)
+                temp.push(props.data)
             }
         }
         store.dispatch({
@@ -25,15 +28,14 @@ function FilterCategoryOptions(props:any) {
                 status: store.getState().search.status,
                 price: store.getState().search.price,
                 collects: store.getState().search.collects,
-                category: storeState
+                category: temp
             }
         })
-        console.log(storeState)
     }
     return (
         <button onClick={clickBtn} className={styles.filCollectItemBtn} name={props.data} id={props.id}>
             {
-                checked ?
+                storeState.includes(props.data) ?
                 <img src={checkedIcon} />
                 :
                 ''

@@ -4,18 +4,20 @@ import styles from '../Marketplace.module.css'
 import colLogo from '../../../assets/spaceItem.png'
 import checkedIcon from '../../../assets/marketplace/filter/collects/checked.png'
 function FilterCollectionItem(props:any) {
-    const [checked, setChecked] = useState(false)
     const store = useStore()
     let storeState = useSelector((state: any) => state.search.collects)
+    let temp: any[] = [] 
+    storeState.map((item:any) => {
+        temp.push(item)
+    })
     function clickBtn() {
-        setChecked(!checked)
-        if(storeState.length == 0) {
-            storeState.push(props.data.name)
+        if(temp.length == 0) {
+            temp.push(props.data.name)
         } else {
-            if(storeState.includes(props.data.name)) {
-                storeState.splice(storeState.indexOf(props.data.name), 1)
+            if(temp.includes(props.data.name)) {
+                temp.splice(temp.indexOf(props.data.name), 1)
             } else {
-                storeState.push(props.data.name)
+                temp.push(props.data.name)
             }
         }
         store.dispatch({
@@ -23,7 +25,7 @@ function FilterCollectionItem(props:any) {
             search: {
                 status: store.getState().search.status,
                 price: store.getState().search.price,
-                collects: storeState,
+                collects: temp,
                 category: store.getState().search.category
             }
         })
@@ -31,7 +33,7 @@ function FilterCollectionItem(props:any) {
     return (
         <button onClick={clickBtn} className={styles.filCollectItemBtn} name={props.data.name} id={props.data.col_id}>
             {
-                checked ?
+                storeState.includes(props.data.name)?
                 <img src={checkedIcon} />
                 :
                 <img src={colLogo}/>

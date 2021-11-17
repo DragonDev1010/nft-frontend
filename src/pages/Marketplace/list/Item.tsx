@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styles from '../Marketplace.module.css'
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import  {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-import itemImg from '../../../assets/spaceItem.png'
 
 function Item(props: any) {
     const [img, setImg] = useState('')

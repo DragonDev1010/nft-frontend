@@ -46,6 +46,9 @@
         border: 1px #35F2FE solid;
         border-radius: 10px;
     }
+    .introBtnWrap > button:last-child:focus {
+        outline: none;
+    }
     .buySOGE {
         font-size: 30px;
         color: white;
@@ -120,6 +123,9 @@
             z-index: 10;
             background: transparent;
             border: none;
+        }
+        .slideControl button:focus {
+            outline: none;
         }
     .slideThumbnail {
 

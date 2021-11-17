@@ -60,6 +60,7 @@
   align-items: center;
 }
 .navbarUserContainer nav{
+  z-index: 15;
   background: #ffffff;
   border-radius: 8px;
   position: absolute;
@@ -89,7 +90,9 @@
 .navbarUserMenuTrigger:hover {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
-
+.navbarUserMenuTrigger:focus {
+  outline: none;
+}
 .navbarUserMenuTrigger span {
   font-weight: 700;
   vertical-align: middle;

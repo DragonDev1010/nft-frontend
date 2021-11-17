@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {Link, NavLink} from 'react-router-dom'
-import styles from './Navbar.module.css'
+import styles from '../Navbar.module.css'
 import {useLocation} from 'react-router-dom'
 import { useDetectOutsideClick } from './useDetectOutsideClick';
 import * as FaIcons from "react-icons/fa";
-import { Button } from 'react-bootstrap'
 import { useWeb3React } from "@web3-react/core"
-import { injected } from "../Wallet/Connectors"
+import { injected } from "./Connectors"
 function NavbarUser() {
     const dropdownRef = useRef<any>()
     const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
@@ -67,7 +66,7 @@ function NavbarUser() {
                     </div>
                 :
                 <div className={styles.walletWrap}>
-                    <Button onClick = {connect} className={styles.walletButton}>Connect</Button>
+                    <button onClick = {connect} className={styles.walletButton}>Connect</button>
                 </div>
             }
         </div>

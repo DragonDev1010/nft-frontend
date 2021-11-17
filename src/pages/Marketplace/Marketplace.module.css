@@ -49,6 +49,9 @@
         border: 1px solid #00052B;
         border-radius: 5px;
     }
+    .filStatusOptWrap button:focus {
+        outline: none;
+    }
     .filStatusOptWrap > .activeBtn {
         background-color: #272938;
     }
@@ -142,6 +145,9 @@
             font-size: 20px;
             font-weight: normal;
             padding-left: 30px;
+        }
+        .filCollectItemBtn:focus {
+            outline: none;
         }
         .filCollectItemBtn >  img {
             width: 10%;

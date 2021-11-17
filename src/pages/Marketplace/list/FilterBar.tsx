@@ -14,6 +14,7 @@ function FilterBar() {
             search:{}
         })
     }
+    console.log('searchState: ', searchState)
     return (
         <div className={styles.filterBar}>
             {searchState.status.map((item:any) => (
@@ -25,11 +26,8 @@ function FilterBar() {
             {searchState.collects.map((item:any) => (
                 <FilterBarItem name={"collects"} val={item} btnName={item}/>
             ))}
-            {searchState.category.map((item:any) => (
-                <FilterBarItem name={"category"} val={item} btnName={item}/>
-            ))}
             {
-                searchState.status.length > 0 || searchState.price.length > 0 || searchState.collects.length > 0 || searchState.category.length > 0 ?
+                searchState.status.length > 0 || searchState.price.length > 0 || searchState.collects.length > 0 ?
                 <span onClick={removeAll}>Clear All</span>
                 :
                 ""

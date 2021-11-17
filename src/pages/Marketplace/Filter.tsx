@@ -24,9 +24,6 @@ function Filter() {
             <div className={styles.filterCollection}>
                 <FilterCollection />
             </div>
-            <div className={styles.filterCategory}>
-                <FilterCategory />
-            </div>
         </div>
     )
 }

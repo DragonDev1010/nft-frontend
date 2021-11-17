@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styles from '../Marketplace.module.css'
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
@@ -6,6 +6,20 @@ import  {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
 import itemImg from '../../../assets/spaceItem.png'
 
 function Item(props: any) {
+    const [img, setImg] = useState('')
+    function arrayBufferToBase64(buffer:any) {
+        var binary = '';
+        var bytes = [].slice.call(new Uint8Array(buffer));
+        bytes.forEach((b) => binary += String.fromCharCode(b));
+        return window.btoa(binary);
+    }
+    function getImg(buffer:any) {
+        let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer)
+        setImg(temp)
+    }
+    useEffect(() => {
+        getImg(props.nft.img.data.data)
+    }, [])
     return (
         <div className={styles.listItem}>
             <Link to={`/assets/${props.idx}`}>
@@ -14,7 +28,7 @@ function Item(props: any) {
                     1
                 </div>
                 <div className={styles.itemImg}>
-                    <img src = {itemImg}></img>
+                    <img src = {img}></img>
                 </div>
                 <div className={styles.itemDes}>
                     <div className={styles.itemDesTop}>

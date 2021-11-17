@@ -1,7 +1,6 @@
 import React, {useState, useRef} from 'react'
 import styles from './Create.module.css'
 import * as FaIcons from "react-icons/fa";
-import Category from './Category';
 import Collects from './Collects';
 import ArtworkType from './ArtworkType';
 import Image from './Image'
@@ -16,8 +15,9 @@ function Create() {
         return (await nftContract.methods.PRICE().call())
     }
     getPrice()
+    let userWalletAddr:any
     async function mint() { 
-        let userWalletAddr
+        
         let nftPrice = await nftContract.methods.PRICE().call()
         await web3.eth.getAccounts((err, accounts) => {
             userWalletAddr = accounts[0]
@@ -26,7 +26,6 @@ function Create() {
         await nftContract.methods.mint(userWalletAddr, 1).send({from: userWalletAddr, value: nftPrice})
     }
 
-    const [category, setCategory] = useState('')
     const [collects, setCollects] = useState('')
     const [artType, setArtType] = useState('')
     const [imgFile, setImgFile] = useState(null)
@@ -35,15 +34,15 @@ function Create() {
     function handleSubmit(event: any) {
         event.preventDefault()
         var data = new FormData()
-        data.append('category', category)
         data.append('collects', collects)
         data.append('artType', artType)
+        data.append('name', name)
+        data.append('description', des)
+        data.append('creatorAddr', userWalletAddr)
         if( imgFile !== null) {
             data.append('file', imgFile)
         }
-        data.append('name', name)
-        data.append('description', des)
-        data.append('creatorAddr', localStorage.userWalletAddress)
+        
         fetch("http://127.0.0.1:8000/nfts",
             {
                 method: 'POST',
@@ -56,7 +55,6 @@ function Create() {
         <div className={styles.createWrap}>
             <p className={styles.createTitle}>Create Non Fungible Token (NFT):</p>
             <form onSubmit={handleSubmit} className={styles.createForm}>
-                <Category setMethod={setCategory}/>
                 <Collects setMethod={setCollects}/>
                 <ArtworkType setMethod={setArtType}/>
                 <Image setMethod={setImgFile}/>

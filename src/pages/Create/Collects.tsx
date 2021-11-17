@@ -26,11 +26,11 @@ function Collects(props:any) {
     return (
         <div className={styles.category}>
             <p className={styles.headTxt}>Collection</p>
-            <select className={styles.catList} onChange={handleChange}>
-                <option className={styles.catItem}>Select Collection</option>
+            <select className={styles.colList} onChange={handleChange}>
+                <option className={styles.colItem}>Select Collection</option>
                 {
                     collects.map((item:any) => (
-                        <option className={styles.catItem} value={item}>{item}</option>
+                        <option className={styles.colItem} value={item}>{item}</option>
                     ))
                 }
             </select>

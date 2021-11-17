@@ -7,33 +7,37 @@ import * as FaIcons from "react-icons/fa";
 import { useWeb3React } from "@web3-react/core"
 import { injected } from "./Connectors"
 function NavbarUser() {
+    const [connected, setConnected] = useState(false)
     const dropdownRef = useRef<any>()
     const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
     const onClick = () => setIsActive(!isActive);
     const { active, account, library, connector, activate, deactivate } = useWeb3React()
 
-    let walletAddress:string = account!;
-    localStorage.setItem('userWalletAddress', walletAddress)
     function handleLogout() {
         localStorage.clear()
     }
+    
     async function connect() {
-        console.log('call connection')
         try {
             await activate(injected)
+            localStorage.setItem('walletConnected', 'true')
+            setConnected(!connected)
         } catch (ex) {
           console.log(ex)
+          localStorage.setItem('walletConnected', 'false')
         }
     }
     async function disconnect() {
         try {
           deactivate()
+          localStorage.setItem('walletConnected', 'false')
+          setConnected(!connected)
         } catch (ex) {
           console.log(ex)
+          localStorage.setItem('walletConnected', 'true')
         }
     }
     useEffect(() => {
-        localStorage.setItem('userActive', 'Active')
         const pageClickEvent = (e: any) => {
             console.log(e)
             if(dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
@@ -46,11 +50,11 @@ function NavbarUser() {
         return () => {
             window.removeEventListener('click', pageClickEvent)
         }
-    }, [isActive])
+    }, [isActive, connected])
     return (
         <div className={styles.navbarUserWrap}>
             {
-                localStorage.getItem('userActive') === 'Active'? 
+                (localStorage.getItem('walletConnected') === 'true')?
                     <div className={styles.navbarUserContainer}>
                         <button onClick={onClick} className={styles.navbarUserMenuTrigger}>
                             <FaIcons.FaUserCircle size={28}/>

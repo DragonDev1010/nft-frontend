@@ -39,7 +39,6 @@ function NavbarUser() {
     }
     useEffect(() => {
         const pageClickEvent = (e: any) => {
-            console.log(e)
             if(dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
                 setIsActive(!isActive)
             }

@@ -7,25 +7,23 @@ import ArtworkType from './ArtworkType';
 import Image from './Image'
 import Details from './Details';
 import web3 from '../../web3';
-
 const nftJson = require('../../contracts/NFT.json')
 const nftContractAddress = '0x7F80C6b98DBeF433Ce24B4512830Abc68eC82F64'
+
 function Create() {
     const nftContract = new web3.eth.Contract(nftJson, nftContractAddress)
-    
     async function getPrice() {
         return (await nftContract.methods.PRICE().call())
     }
     getPrice()
-    async function mint() {
+    async function mint() { 
+        let userWalletAddr
         let nftPrice = await nftContract.methods.PRICE().call()
-        if(localStorage.userWalletAddress !== 'undefined') {
-            console.log(localStorage.userWalletAddress !== undefined)
-            let senderAddr = localStorage.userWalletAddress
-            await nftContract.methods.mint(senderAddr, 1).send({from: senderAddr, value: nftPrice})
-        } else {
-            console.error('Conect metamaks wallet')
-        }
+        await web3.eth.getAccounts((err, accounts) => {
+            userWalletAddr = accounts[0]
+        })
+        console.log('user wallet address: ', userWalletAddr)
+        await nftContract.methods.mint(userWalletAddr, 1).send({from: userWalletAddr, value: nftPrice})
     }
 
     const [category, setCategory] = useState('')

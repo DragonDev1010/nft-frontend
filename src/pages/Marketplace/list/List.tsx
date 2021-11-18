@@ -44,6 +44,7 @@ function List() {
     }
     function callAPI() {
         let fetchURL = getAPIQuery()
+        console.log('fetch url: ', fetchURL)
         fetch(fetchURL)
             .then(res => res.json())
             .then(res => {

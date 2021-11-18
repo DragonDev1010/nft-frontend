@@ -40,7 +40,7 @@ function Create() {
                 body: data
             }
         )
-        // mint()
+        mint()
     }
     return(
         <div className={styles.createWrap}>

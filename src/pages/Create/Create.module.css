@@ -51,14 +51,11 @@
     color: #9091A1;
     width: 80px;
     height: 50px;
+    line-height: 50px;
+    text-align: center;
 }
 .typeItem:hover {
-    border: 2px solid #FF01DD;
-    color: #FF01DD;
-}
-.typeItem:focus {
-    outline: none;
-    border: 2px solid #FF01DD;
+    border: 2px solid #FF01DD30;
     color: #FF01DD;
 }
 .createTitle {

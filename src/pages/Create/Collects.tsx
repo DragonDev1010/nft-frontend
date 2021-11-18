@@ -2,18 +2,15 @@ import React, {useEffect, useState} from 'react'
 import styles from './Create.module.css'
 
 function Collects(props:any) {
-    // const collectsList = ['Galaxies', 'Clusters', 'Nebulae', 'Lunar', 'Solar', 'Sci-Fi', 'Cretives']
     const [collects, setCollects] = useState([])
     let temp:any = []
     async function getCollects() {
         await fetch('http://localhost:8000/collects?')
             .then(res => res.json())
             .then(res => {
-                console.log(res)
                 res.map((item:any) => {
                     temp.push(item.name)
                 })
-                console.log(temp)
             })
         setCollects(temp)
     }

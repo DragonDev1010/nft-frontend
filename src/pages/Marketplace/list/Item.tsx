@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styles from '../Marketplace.module.css'
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import  {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
-
+import Favorite from './Favorite';
 function Item(props: any) {
     const [img, setImg] = useState('')
     function arrayBufferToBase64(buffer:any) {
@@ -22,10 +22,7 @@ function Item(props: any) {
     return (
         <div className={styles.listItem}>
             <Link to={`/assets/${props.idx}`}>
-                <div className={styles.itemFavorite}>
-                    <FontAwesomeIcon icon={faHeart}/>
-                    1
-                </div>
+                <Favorite idx={props.idx}/>
                 <div className={styles.itemImg}>
                     <img src = {img}></img>
                 </div>

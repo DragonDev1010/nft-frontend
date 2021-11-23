@@ -9,9 +9,9 @@ import User from '../../pages/User'
 import styles from './Navbar.module.css'
 import NavbarItem from './NavbarItem'
 import NavSearch from './NavSearch';
-import logo from '../../assets/spaceLogo.png'
 import { useWeb3React } from "@web3-react/core"
-// import logo from '../../assets/logo-dark.jpg'
+// import logo from '../../assets/spaceLogo.png'
+import logo from '../../assets/starseas-final-001.png'
 // import logo from '../../assets/logo-light.jpg'
 function Navbar() {
     const { active, account, library, connector, activate, deactivate } = useWeb3React()

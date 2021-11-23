@@ -12,25 +12,38 @@ function NavbarUser() {
     const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
     const onClick = () => setIsActive(!isActive);
     const { active, account, library, connector, activate, deactivate } = useWeb3React()
-    const [userWalletAddr, setUserWalletAddr] = useState('')
     async function connect() {
+        localStorage.setItem('connected', 'true')
         try {
             await activate(injected)
-            let temp = await web3.eth.getAccounts()
-            setUserWalletAddr(temp[0])
         } catch (ex) {
-          console.log(ex)
+            console.log(ex)
         }
     }
     async function disconnect() {
+        localStorage.setItem('connected', 'false')
         try {
-          deactivate()
-          setUserWalletAddr('')
+            deactivate()
         } catch (ex) {
-          console.log(ex)
+            console.log(ex)
         }
     }
     useEffect(() => {
+        if(localStorage.getItem('connected') === 'true'){
+            connect()
+        }
+        switch (account) {
+            case null:
+                localStorage.setItem('wallet', 'null')        
+                break;
+            case undefined:
+                localStorage.setItem('wallet', 'null')        
+                break;
+            default:
+                localStorage.setItem('wallet', account)        
+                break;
+        }
+        
         const pageClickEvent = (e: any) => {
             if(dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
                 setIsActive(!isActive)
@@ -42,11 +55,11 @@ function NavbarUser() {
         return () => {
             window.removeEventListener('click', pageClickEvent)
         }
-    }, [isActive, userWalletAddr])
+    }, [isActive, active])
     return (
         <div className={styles.navbarUserWrap}>
             {
-                (userWalletAddr !== '')?
+                active || (localStorage.getItem('connected') === 'true')?
                     <div className={styles.navbarUserContainer}>
                         <button onClick={onClick} className={styles.navbarUserMenuTrigger}>
                             <FaIcons.FaUserCircle size={28}/>
@@ -59,7 +72,6 @@ function NavbarUser() {
                                 <li onClick={disconnect}><a href="/">Log Out</a></li>
                             </ul>
                         </nav>
-                        
                     </div>
                 :
                 <div className={styles.walletWrap}>
@@ -67,8 +79,7 @@ function NavbarUser() {
                 </div>
             }
         </div>
-
-    )
+)
 }
 
 export default NavbarUser;

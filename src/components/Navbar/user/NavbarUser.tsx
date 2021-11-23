@@ -59,7 +59,7 @@ function NavbarUser() {
     return (
         <div className={styles.navbarUserWrap}>
             {
-                active || (localStorage.getItem('connected') === 'true')?
+                ((localStorage.getItem('connected') === 'true') && (localStorage.getItem('wallet') !== 'null')) ?
                     <div className={styles.navbarUserContainer}>
                         <button onClick={onClick} className={styles.navbarUserMenuTrigger}>
                             <FaIcons.FaUserCircle size={28}/>

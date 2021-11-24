@@ -14,7 +14,6 @@ function FilterBar() {
             search:{}
         })
     }
-    console.log('searchState: ', searchState)
     return (
         <div className={styles.filterBar}>
             {searchState.status.map((item:any) => (

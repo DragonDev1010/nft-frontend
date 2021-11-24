@@ -67,7 +67,7 @@ function List() {
                 <source src={backgroundVideo} type="video/mp4" />
             </video>
             <div className={styles.listHeader}>
-                <p>2323323 results</p>
+                <p>{nftLen} results</p>
                 <div className={styles.listHeaderRight}>
                     <form onSubmit={handleFilterForm} className={styles.listHeaderForm}>
                         <input type='text' name='item' onChange={handleChange} placeholder="All items" className={styles.listHeadInput}/>

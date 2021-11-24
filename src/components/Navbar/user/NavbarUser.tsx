@@ -22,28 +22,29 @@ function NavbarUser() {
     }
     async function disconnect() {
         localStorage.setItem('connected', 'false')
+        localStorage.setItem('wallet', 'null') 
         try {
             deactivate()
         } catch (ex) {
             console.log(ex)
         }
     }
+    async function setUserId(walletAddr: any) {
+        let url = process.env.REACT_APP_API_BASE_URL + 'users/findByWallet/' + walletAddr
+        await fetch(url)
+            .then(res => res.json())
+            .then(res => {
+                localStorage.setItem('userId', res[0].userId)
+            })
+    }
     useEffect(() => {
         if(localStorage.getItem('connected') === 'true'){
             connect()
         }
-        switch (account) {
-            case null:
-                localStorage.setItem('wallet', 'null')        
-                break;
-            case undefined:
-                localStorage.setItem('wallet', 'null')        
-                break;
-            default:
-                localStorage.setItem('wallet', account)        
-                break;
+        if(account !== null && account !== undefined) {
+            localStorage.setItem('wallet', account)
+            setUserId(account)
         }
-        
         const pageClickEvent = (e: any) => {
             if(dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
                 setIsActive(!isActive)

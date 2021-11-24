@@ -21,8 +21,8 @@ function Item(props: any) {
     }, [])
     return (
         <div className={styles.listItem}>
+            <Favorite idx={props.idx}/>
             <Link to={`/assets/${props.idx}`}>
-                <Favorite idx={props.idx}/>
                 <div className={styles.itemImg}>
                     <img src = {img}></img>
                 </div>

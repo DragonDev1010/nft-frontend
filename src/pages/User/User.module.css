@@ -1,3 +1,44 @@
 .userWrap {
     color: white;
 }
+
+.headerWrap {
+
+}
+    .headerBackground {
+        position: relative;
+    }
+        .imgContainer {
+
+        }
+            .imgContainer img {
+                object-fit: cover;
+                width: 100%;
+                height: 300px;
+            }
+            .imgAlt {
+                width: 100%;
+                background: #cac6c65e;
+                height: 300px;
+            }
+        .imgUploadPen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background: green;
+            opacity: 0;
+        }
+        .imgUploadPen:hover {
+            opacity: 1;
+        }
+        .inputFile {
+            display: none;
+        }
+    .userInfo {
+
+    }

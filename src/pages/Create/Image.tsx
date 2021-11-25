@@ -8,7 +8,6 @@ function Image(props:any) {
         if(selectedImage === undefined || selectedImage === null) {
             inputRef.current?.click()
         }
-        
     }
     function imageChange(e: any) {
         if (e.target.files && e.target.files.length > 0) {

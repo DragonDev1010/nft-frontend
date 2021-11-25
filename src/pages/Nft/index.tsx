@@ -17,7 +17,7 @@ function Nft({match}: any) {
         let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer)
         setImg(temp)
     }
-    function aggregate(str:String) {
+    function abbreviate(str:String) {
         var head = str.substring(0, 6)
         var tail = str.substring(str.length - 1, str.length -8)
         return (head + ' ... ' + tail)
@@ -27,7 +27,7 @@ function Nft({match}: any) {
         const response = await fetch(`http://localhost:8000/nfts/${nftId}`)
         const json = await response.json()
         if(json[0].creatorAddr !== undefined) {
-            var temp = aggregate(json[0].creatorAddr)
+            var temp = abbreviate(json[0].creatorAddr)
             json[0].creatorAddr = temp
         }
         setNft(json[0])

@@ -1,7 +1,7 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import styles from '../User.module.css'
 import * as FaIcons from 'react-icons/fa'
-function Background() {
+function UserImg() {
     let userId = localStorage.getItem('userId')
     const inputRef = useRef<HTMLInputElement>(null)
     function inputFile(event: any) {
@@ -18,14 +18,15 @@ function Background() {
         let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer)
         setImg(temp)
     }
+    
     function fetchImg() {
         let fetchUrl: any
         fetchUrl = process.env.REACT_APP_API_BASE_URL + 'users/' + userId
         fetch(fetchUrl, {method:'GET'})
             .then(res=>res.json())
             .then( res => {
-                if(res[0].bgImg != undefined) {
-                    getImg(res[0].bgImg.data.data)
+                if(res[0].userImg != undefined) {
+                    getImg(res[0].userImg.data.data)
                 } 
             })
     }
@@ -34,7 +35,7 @@ function Background() {
         e.preventDefault()
         let data = new FormData()
         if (e.target.files && e.target.files.length > 0) {
-            data.append('bgImg', e.target.files[0])
+            data.append('userImg', e.target.files[0])
         }
         
         let fetchUrl: any
@@ -46,25 +47,25 @@ function Background() {
             })
             .then(res => res.json())
             .then(res => {
-                getImg(res.bgImg.data.data)
+                getImg(res.userImg.data.data)
             })
     }
     return (
-        <div className={styles.headerBackground} onClick={inputFile}>
-            <div className={styles.bgImgContainer}>
+        <div className={styles.userImg} onClick={inputFile}>
+            <div className={styles.userImgContainer}>
                 {
                     img ? 
                     <img src = {img}></img>
                     :
-                    <div className={styles.bgImgAlt}></div>
+                    <div className={styles.userImgAlt}></div>
                 }
             </div>
-            <div className={styles.bgImgUploadPen}>
+            <div className={styles.userImgUploadPen}>
                 <FaIcons.FaPen size={40} />
             </div>
-            <input type="file" name="nft_img" className={styles.bgInputFile} ref = {inputRef} onChange={storeImg}/>
+            <input type="file" name="nft_img" className={styles.userInputFile} ref = {inputRef} onChange={storeImg}/>
         </div>
     )
 }
 
-export default Background
+export default UserImg

@@ -34,7 +34,7 @@ function Navbar() {
                     <Home />
                 </Route>
                 <Route exact path="/assets">
-                    <Marketplace />
+                    <Marketplace category={'market'}/>
                 </Route>
                 <Route path="/register">
                     <Register />

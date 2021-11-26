@@ -6,21 +6,12 @@ import styles from '../Marketplace.module.css'
 import * as FaIcons from "react-icons/fa";
 import backgroundVideo from '../../../assets/bgVideo.mp4'
 import bgPoster from '../../../assets/bgVideo.jpg'
-function List() {
+function List(props:any) {
+    const userId = localStorage.getItem('userId')
     const store = useSelector((state: any) => state.search)
     const [nftLen, setNftLen] = useState(0)
     const [nfts, setNfts] = useState([{}])
-    const nftTemp = {
-        nft_id:0,
-        collects: '',
-        ownerAddr: '',
-        creatorAddr: '',
-        price: 0,
-        name: "None",
-        description: "None",
-        hash:'',
-        imgURL: ''
-    }
+    const [catNftIds, setCatNftIds] = useState<Number[]>([]) // this is for nft Ids for user profile page list
     function getAPIQuery() {
         let queryStatus = store.status
         let queryPrice = store.price
@@ -51,6 +42,27 @@ function List() {
                 setNftLen(res.length)
             })
     }
+    function getUserInfo() {
+        let fetchUrl = process.env.REACT_APP_API_BASE_URL + 'users/' + userId
+        fetch(fetchUrl, {method:'GET'})
+            .then(res => res.json())
+            .then( (res) => {
+                switch (props.category) {
+                    case 'collected':
+                        setCatNftIds(res[0].collectedNftIds)
+                        break;
+                    case 'created':
+                        setCatNftIds(res[0].createdNftIds)
+                        break;
+                    case 'favorite':
+                        setCatNftIds(res[0].favNftIds)
+                        break;
+                    default:
+                        setCatNftIds([])
+                        break;
+                }
+            })
+    }
     function handleFilterForm(event: any) {
 
     }
@@ -58,8 +70,9 @@ function List() {
 
     }
     useEffect(() => {
+        getUserInfo()
         callAPI()
-    }, [store])
+    }, [store, catNftIds])
     return (
         <div className={styles.list}>
             <video className={styles.backgroundVideo} poster={bgPoster} autoPlay loop muted   >
@@ -81,11 +94,16 @@ function List() {
             <div className={styles.listWrap}>
                 {
                     nftLen > 0 ?
-                    nfts.map((nft, idx) => {
-                        return <Item idx={idx} nft={nft}/>
-                    })
-                    :
-                    ""
+                        props.category === 'market' ?
+                            nfts.map((nft:any, idx) => {
+                                return <Item idx={idx} nft={nft} />
+                            })
+                            :
+                            nfts.map((nft:any, idx) => {
+                                return catNftIds.includes(nft['nft_id']) ?  <Item idx={idx} nft={nft}/> : ''
+                            })
+                        :
+                        ""
                 }
             </div>
         </div>

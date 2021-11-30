@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import Marketplace from '../../Marketplace'
+import Activity from './TabContent/Activity'
+import Offers from './TabContent/Offers'
 import styles from '../User.module.css'
 import * as FaIcons from 'react-icons/fa'
 function Body() {
@@ -19,6 +21,12 @@ function Body() {
                 break;
             case '2':
                 setActiveTab('favorite')
+                break;
+            case '3':
+                setActiveTab('activity')
+                break;
+            case '4':
+                setActiveTab('offers')
                 break;
             default:
                 setActiveTab('collected')
@@ -84,7 +92,15 @@ function Body() {
                 </ul>
             </div>
             <div>
-                <Marketplace category={activeTab}/>
+                {
+                    {
+                        'collected': <Marketplace category={activeTab}/>,
+                        'created' : <Marketplace category={activeTab}/>,
+                        'favorite' : <Marketplace category={activeTab}/>,
+                        'activity': <Activity/>,
+                        'offers': <Offers/>
+                    }[activeTab]
+                }
             </div>
             
         </>

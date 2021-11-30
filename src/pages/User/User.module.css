@@ -137,49 +137,20 @@
 .tabContent {
 
 }
-    .listWrap, .collectedWrap {
-        display: flex;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
 
-    .listItem {
-        border: 3px #70759c solid;
-        width: 15%;
-        padding: 20px 15px;
-        border-radius: 5px;
+.activityTbl {
+    width: 70%;
+    margin: 30px 15%;
+    font-size: 30px;
+    border-collapse: collapse;
+}
+    .activityThead {
+        border-bottom: 2px solid red;
     }
-        .listItem a {
-            text-decoration: none;
-        }
-        .itemImg img {
-            width: 100%;
-        }
-        .itemDesTop {
-            display: flex;
-            justify-content: space-between;
-        }
-        .itemOffer {
-            display: flex;
-            justify-content: flex-end;
-            color: #FF01DD;
-        }
-        .itemCollection {
-            color: #35F2FE
-        }
-        .itemId {
-            font-weight: bold;
-            font-size: 23px;
-            color: white;
-        }
-        .itemPrice p:first-child {
-            font-size: 16px;
-            font-weight: medium;
-            color: #9F9F9F;
-        }
-        .itemPriceValue b {
-            font-size: 23px;
-            font-weight: bold;
-            color: white;
-        }
+        .activityTheadRow {}
+            .activityTheadCol {
+                text-align: left;
+            }
+    .activityTbody {}
+        .activityTbodyRow {}
+            .activityTbodyCol {}

@@ -34,7 +34,8 @@ function Create() {
         if( imgFile !== null) {
             data.append('file', imgFile)
         }
-        fetch("http://127.0.0.1:8000/nfts",
+        let fetchUrl = process.env.REACT_APP_API_BASE_URL + 'nfts'
+        fetch(fetchUrl,
             {
                 method: 'POST',
                 body: data

@@ -24,7 +24,8 @@ function Nft({match}: any) {
     }
     async function getData() {
         let nftId = parseInt(match.params.nftId)
-        const response = await fetch(`http://localhost:8000/nfts/${nftId}`)
+        let fetchUrl = process.env.REACT_APP_API_BASE_URL 
+        const response = await fetch(`${fetchUrl}nfts/${nftId}`)
         const json = await response.json()
         if(json[0].creatorAddr !== undefined) {
             var temp = abbreviate(json[0].creatorAddr)

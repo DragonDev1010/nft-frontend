@@ -5,7 +5,8 @@ function Collects(props:any) {
     const [collects, setCollects] = useState([])
     let temp:any = []
     async function getCollects() {
-        await fetch('http://localhost:8000/collects?')
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'collects'
+        await fetch(fetchURL)
             .then(res => res.json())
             .then(res => {
                 res.map((item:any) => {

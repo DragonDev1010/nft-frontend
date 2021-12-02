@@ -31,7 +31,7 @@ function List(props:any) {
                 queryStr += 'search[collects]=' + item + '&'
             })
         }
-        return 'http://localhost:8000/nfts?' + queryStr
+        return process.env.REACT_APP_API_BASE_URL + 'nfts?' + queryStr
     }
     function callAPI() {
         let fetchURL = getAPIQuery()

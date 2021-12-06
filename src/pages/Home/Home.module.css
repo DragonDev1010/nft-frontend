@@ -14,7 +14,7 @@
     justify-content: space-evenly;
 }
     .introText {
-        font-size: 32px;
+        font-size: 28px;
         font-weight: bold;
         color: white;
     }
@@ -137,16 +137,22 @@
         display: flex;
         justify-content: space-around;
     }
+    .slideBack .thumbDetailWrap {
+        display: none;
+    }
     .userLogoSlide {
 
     }
+    .thumbDetail {
+        font-size: 14px;
+    }
     .thumbDetail p:first-child {
-        font-size: 18px;
+        /* font-size: 18px; */
         color: #07AFB9;
     }
     .thumbDetail p:last-child {
         color: #00052B;
-        font-size: 18px;
+        /* font-size: 18px; */
     }
 .featureWrap {
 

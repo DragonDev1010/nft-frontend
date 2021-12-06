@@ -25,7 +25,9 @@ function Navbar(props: any) {
                 <NavSearch />
                 <ul className={styles.navItemList}>
                     <NavbarItem navName = {"MarketPlace"} navPath = {"/assets"}/>
+                    <span></span>
                     <NavbarItem navName = {"Create NFTs"} navPath = {"/create"}/>
+                    <span></span>
                     <NavbarItem navName = {"Resource Center"} navPath = {"/register"}/>
                     <NavbarItem navName = {"User"} navPath = {"/user"}/>
                 </ul>

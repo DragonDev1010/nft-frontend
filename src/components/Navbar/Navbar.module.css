@@ -31,6 +31,12 @@
   align-items: stretch;
   margin: 0 15px;
 }
+.navItemList > span {
+  background: white;
+  width: 2px;
+  height: 70%;
+  margin: auto 0;
+}
 .navListItem {
   list-style: none;
   display: flex;
@@ -39,7 +45,7 @@
 .navListItemLink {
   color: white;
   font-weight: bold;
-  font-size: 22px;
+  /* font-size: 22px; */
   text-decoration: none;
   display: flex;
   justify-content: center;

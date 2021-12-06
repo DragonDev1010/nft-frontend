@@ -1,13 +1,16 @@
 .createWrap {
    color: white; 
+   font-family: SpaceMarine;
 }
 .createWrap > p {
     margin-left: 25%;
 }
 .createForm {
-    width: 40%;
-    margin: 0 25%;
-    border: 2px solid #272938;
+    /* width: 40%; */
+    /* margin: 0 25%; */
+    /* border: 2px solid #272938; */
+    display: flex;
+    justify-content: space-around;
     padding: 39px 36px 89px 36px;
 }
 .createForm > div {
@@ -15,10 +18,11 @@
     margin-bottom: 20px;
 }
 .colList {
-    width: 40%;
-    height: 35px;
+    width: 100%;
+    height: 42px;
     background: #00052B;
     border: 1px #272938 solid;
+    border-radius: 20px;
     color: #9091A1;
 
     /* background-image:
@@ -36,12 +40,12 @@
     background-repeat: no-repeat; */
 }
 .artworkType {
-
+    margin-top: 56px;
 }
 .typeGroup {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 30px;
 }
@@ -53,6 +57,8 @@
     height: 50px;
     line-height: 50px;
     text-align: center;
+    font-size: 12px;
+    border-radius: 20px;
 }
 .typeItem:hover {
     border: 2px solid #FF01DD30;
@@ -61,6 +67,10 @@
 .createTitle {
     font-weight: bolder;
     font-size: 40px;
+    margin-bottom: 85px;
+}
+.imgUpload {
+    width: 20%;
 }
 .imgSelect {
     position: relative;
@@ -68,8 +78,9 @@
     cursor: pointer;
     border: 3px dashed rgb(204, 204, 204);
     border-radius: 10px;
-    height: 257px;
-    width: 350px;
+    height: 70%;
+    margin: 15% 0;
+    /* width: 350px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,6 +95,10 @@
     content: " *";
     color: rgb(235, 87, 87);
 }
+.preview {
+    width: 100%;
+    height: 100%;
+}
 .imgRemove {
     position: absolute;
     z-index: 1;
@@ -91,39 +106,44 @@
 }
 .image {
     position: relative;
-  /* width: 100%; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.detailsWrap {
+    margin-top: 55px;
 }
 .headTxt {
     font-weight: 700;
     font-size: 25px;
-    margin: 5px 0;
+    margin: 8px 0;
 }
-.generalTxt {
+.name {
+    margin-bottom: 16px;
+}
+/* .generalTxt {
     font-size: 20px;
     color: white;
     margin: 5px 0;
-}
+} */
 .inputName, .inputDescription {
     background: #00052B;
     color: #9091A1;
+    border: 2px #80808040 solid;
+    border-radius: 15px;
+    width: 100%;
 }
 .inputName {
-    height: 25px;
-    border: 2px #80808040 solid;
-    border-radius: 5px;
-    width: 100%;
+    height: 25px
 }
 .inputDescription {
     resize: vertical;
-    border: 2px #80808040 solid;
-    border-radius: 5px;
-    width: 100%;
 }
 .formSubmit {
     font-size: 31px;
-    margin: 5px 0 30px;
+    margin: 56px 0 30px;
     padding: 5px 20px;
     background: #00052B;
     color: #9091A1;
-    border-radius: 10px;
+    border-radius: 18px;
 }

@@ -22,7 +22,7 @@ function Image(props:any) {
     
     return (
         <div className = {styles.imgUpload}>
-        <p className={styles.headTxt}>Upload File</p>
+        {/* <p className={styles.headTxt}>Upload File</p> */}
         <div className={styles.imgSelect} onClick={inputFile}>
             <input type="file" name="nft_img" className={styles.inputFile} ref = {inputRef}  onChange={imageChange}/>
             
@@ -36,8 +36,6 @@ function Image(props:any) {
                     className={styles.image}
                     alt="Thumb"
                     />
-                    
-                    
                     {/* <button onClick={removeSelectedImage} className={styles.delete}>
                     Remove This Image
                     </button> */}

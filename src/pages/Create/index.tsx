@@ -45,23 +45,21 @@ function Create() {
     }
     return(
         <div className={styles.createWrap}>
-            <p className={styles.createTitle}>Create Non Fungible Token (NFT):</p>
+            
             <form onSubmit={handleSubmit} className={styles.createForm}>
-                <Collects setMethod={setCollects}/>
-                <ArtworkType setMethod={setArtType} artType={artType}/>
+                <div style={{textAlign: 'center'}}>
+                    <p className={styles.createTitle}>Create NFT</p>
+                    <Collects setMethod={setCollects}/>
+                    <ArtworkType setMethod={setArtType} artType={artType}/>
+                    <Details setName={setName} setDes={setDes}/>
+                    <button className={styles.formSubmit}>
+                        UPLOAD FILE
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17.183" height="17.272" viewBox="0 0 17.183 17.272">
+                            <path id="upload-file" d="M10.958,0,7.13,4.986h2.978a.975.975,0,0,0-.04.267V11.4a.979.979,0,1,0,1.959,0V5.253a.978.978,0,0,0-.04-.267h2.8L10.958,0ZM2.5,7.212V17.272H19.683V7.212H14.138V8.992h3.417v6.5H4.629v-6.5h3.68V7.212H2.5Z" transform="translate(-2.5)" fill="#46364d"/>
+                        </svg>
+                    </button>
+                </div>
                 <Image setMethod={setImgFile}/>
-                <Details setName={setName} setDes={setDes}/>
-                <button className={styles.formSubmit}>Create</button>
-                {/* {
-                    localStorage.userWalletAddress !== 'undefined' ?
-                        <button className={styles.formSubmit}>Create</button>
-                    :
-                    <div>
-                        <button className={styles.formSubmit} disabled>Create</button>
-                        <p style={{color: 'white', fontSize:'20px'}}>Please connect Metamask wallet.</p>
-                    </div>
-                } */}
-                
             </form>
         </div>
     )

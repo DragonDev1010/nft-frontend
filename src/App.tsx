@@ -1,18 +1,25 @@
 import React ,{useEffect} from 'react';
+import './App.module.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Marketplace'
 import { Web3ReactProvider } from '@web3-react/core'
 import Web3 from 'web3'
-import styles from './App.module.css'
+import web3 from './web3' // root/src/web3.tsx
+
 
 function getLibrary(provider:any ) {
   return new Web3(provider)
 }
 
 function App() {
-  return (
+  return ( 
     <Web3ReactProvider getLibrary={getLibrary}>
-      <Navbar/>
+      {
+        web3 === undefined ?
+          <Navbar err={'metamaskUninstalled'} />
+        :
+          <Navbar err={'none'} />
+      }
     </Web3ReactProvider>
   );
 }

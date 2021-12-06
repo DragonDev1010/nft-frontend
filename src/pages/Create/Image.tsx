@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react'
 import styles from './Create.module.css'
 import * as FaIcons from 'react-icons/fa'
 function Image(props:any) {
-    const [selectedImage, setSelectedImage] = useState<string | undefined | null>();
+    const [selectedImage, setSelectedImage] = useState<any>();
     const inputRef = useRef<HTMLInputElement>(null)
     function inputFile(event: any) {
         if(selectedImage === undefined || selectedImage === null) {

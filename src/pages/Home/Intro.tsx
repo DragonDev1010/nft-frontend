@@ -15,7 +15,7 @@ function Intro() {
                 {/* <button>Enter</button> */}
                 <button><NavLink to="/assets">Explore</NavLink></button>
             </div>
-            <p className={styles.buySOGE}>
+            <p className={styles.buySGE}>
                 <FaIcons.FaShoppingCart size={18}/>
                 <span>Buy SGE tokens to access STARSEAS</span>
             </p>

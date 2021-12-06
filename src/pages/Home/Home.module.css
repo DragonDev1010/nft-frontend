@@ -50,14 +50,14 @@
     .introBtnWrap > button:last-child:focus {
         outline: none;
     }
-    .buySOGE {
-        font-size: 30px;
+    .buySGE {
+        font-size: 18px;
         color: white;
     }
-        .buySOGE > svg {
+        .buySGE > svg {
             color: #35F2FE;
         }
-        .buySOGE span {
+        .buySGE span {
             margin-left: 20px;
         }
 .slide {

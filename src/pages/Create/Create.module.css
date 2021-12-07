@@ -24,7 +24,7 @@
     border: 1px #272938 solid;
     border-radius: 20px;
     color: #9091A1;
-
+    outline: none;
     /* background-image:
         linear-gradient(45deg, transparent 50%, blue 50%),
         linear-gradient(135deg, blue 50%, transparent 50%),
@@ -120,6 +120,7 @@
 }
 .name {
     margin-bottom: 16px;
+    position: inherit;
 }
 /* .generalTxt {
     font-size: 20px;
@@ -132,13 +133,33 @@
     border: 2px #80808040 solid;
     border-radius: 15px;
     width: 100%;
+    outline: none;
 }
 .inputName {
-    height: 25px
+    height: 25px;
+}
+.name > span, .description > span {
+    margin-left: 65px;
+    display: inline-block;
+    position: relative;
+    left: -50%;
+    transform: translateX(50%);
+    color: #ffffff36;
+}
+.name > span {
+    top: -27px;
+}
+.description {
+    position: inherit;
+}
+.description > span {
+    top: 27px;
 }
 .inputDescription {
     resize: vertical;
+    height: 400px;
 }
+
 .formSubmit {
     font-size: 31px;
     margin: 56px 0 30px;

@@ -9,7 +9,7 @@ function Feature() {
                         <path id="icons8-wallet" d="M53.633,3.031a18.184,18.184,0,0,0-4.544.757c-4.86,1.281-33.356,9.164-33.779,9.29-4.229,1.591-6.9,3.156-8.584,5a12.311,12.311,0,0,1,6.968-2.171h45.24V10.5C58.935,7.891,58.916,3.031,53.633,3.031ZM13.694,19.138C7.686,19.138,4,24.787,4,28.832V63.368a9.107,9.107,0,0,0,9.088,9.088H62.772a9.107,9.107,0,0,0,9.088-9.088V28.58c0-4.942-4.62-9.442-9.694-9.442Zm46.048,22.62A4.039,4.039,0,1,1,55.7,45.8,4.039,4.039,0,0,1,59.742,41.758Z" transform="translate(-4 -3.031)" fill="#fff"/>
                     </svg>`,
             header: "Connect Wallet",
-            detail: "Underneath here it should say, Begin using Starseas by connecting your crypto wallet. Once connected, our software will verify that you hold 1 Billion SGE tokens. Upon verification, you will have access to all utilities"
+            detail: "Begin using Starseas by connecting your crypto wallet. Once connected, our software will verify that you hold 1 Billion SGE tokens. Upon verification, you will have access to all utilities"
         },
         {
             icon: `<svg xmlns="http://www.w3.org/2000/svg" width="86.782" height="69.426" viewBox="0 0 86.782 69.426">
@@ -17,7 +17,7 @@ function Feature() {
           </svg>
           `,
             header: "Create NFTs",
-            detail: "Underneath here it should say, Starseas allows you to create your very own NFTS! Our platform focuses on the magnificent wonders and mysteries behind space exploration."
+            detail: "Starseas allows you to create your very own NFTS! Our platform focuses on the magnificent wonders and mysteries behind space exploration."
         },
         {
             icon: `<svg xmlns="http://www.w3.org/2000/svg" width="69.405" height="69.426" viewBox="0 0 69.405 69.426">

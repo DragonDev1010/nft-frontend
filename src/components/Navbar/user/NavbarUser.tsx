@@ -67,7 +67,7 @@ function NavbarUser() {
                         </button>
                         <nav ref={dropdownRef} className={isActive ? styles.navbarUserNavActive : styles.navbarUserNavInactive }>
                             <ul>
-                                <li><a href="/">Profile</a></li>
+                                <li><a href="/users">Profile</a></li>
                                 <li><a href="/">Favorites</a></li>
                                 <li><a href="/">Settings</a></li>
                                 <li onClick={disconnect}><a href="/">Log Out</a></li>

@@ -72,7 +72,8 @@ function List(props:any) {
     useEffect(() => {
         getUserInfo()
         callAPI()
-    }, [store, catNftIds])
+    }, [store])
+    // }, [store, catNftIds])
     return (
         <div className={styles.list}>
             <video className={styles.backgroundVideo} poster={bgPoster} autoPlay loop muted   >

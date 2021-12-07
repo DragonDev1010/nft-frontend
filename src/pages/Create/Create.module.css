@@ -161,10 +161,15 @@
 }
 
 .formSubmit {
+    border-style: solid;
+    outline: none;
     font-size: 31px;
     margin: 56px 0 30px;
     padding: 5px 20px;
     background: #00052B;
     color: #9091A1;
     border-radius: 18px;
+}
+.formSubmit svg {
+    margin-left: 20px;
 }

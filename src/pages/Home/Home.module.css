@@ -155,7 +155,6 @@
         /* font-size: 18px; */
     }
 .featureWrap {
-
 }
     .featureHeader {
         color: #FF01DD;
@@ -170,24 +169,24 @@
         gap: 20px;
     }
     .featureItem {
-
+        width: 30%;
     }
     .featureItemIcon {
         text-align: center;
         margin-bottom: 30px;
     }
     .featureItemHeader {
-        font-size: 30px;
+        font-size: 26px;
         font-weight: bold;
         color: white;
         text-align: center;
         margin-bottom: 15px;
     }
     .featureItemDetail {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: lighter;
         color: white;
-        width: 50%;
-        margin: 0 25%;
+        width: 66%;
+        margin: 0 17%;
         text-align: justify;
     }

@@ -7,7 +7,6 @@ function FilterCollectionList() {
     const [collects, setCollects] = useState([])
     function search() {
         let fetchURL = process.env.REACT_APP_API_BASE_URL + 'collects?'
-        console.log('fetchURL: ', fetchURL)
         if(searchName !== '') {
             fetchURL += 'collectsName='+searchName
         }

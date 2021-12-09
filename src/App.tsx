@@ -1,7 +1,6 @@
-import React ,{useEffect} from 'react';
 import './App.module.css'
 import Navbar from './components/Navbar'
-import Home from './pages/Marketplace'
+import Footer from './components/Footer'
 import { Web3ReactProvider } from '@web3-react/core'
 import Web3 from 'web3'
 import web3 from './web3' // root/src/web3.tsx
@@ -20,6 +19,7 @@ function App() {
         :
           <Navbar err={'none'} />
       }
+      <Footer />
     </Web3ReactProvider>
   );
 }

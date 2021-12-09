@@ -1,5 +1,6 @@
 // import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch, withRouter } from 'react-router-dom'
+import Footer from '../Footer'
 import Home from '../../pages/Home'
 import Marketplace from '../../pages/Marketplace'
 import Create from '../../pages/Create'
@@ -37,6 +38,7 @@ function Navbar(props: any) {
                     <Switch>
                         <Route exact path="/">
                             <Home />
+                            <Footer />
                         </Route>
                         <Route exact path="/assets">
                             <Marketplace category={'market'}/>

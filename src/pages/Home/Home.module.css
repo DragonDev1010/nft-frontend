@@ -1,5 +1,6 @@
 .home {
     margin: 30px 20px 50px 20px;
+    font-family: 'times new roman';
 }
 .homeHead {
     display: flex;
@@ -13,7 +14,7 @@
     justify-content: space-evenly;
 }
     .introText {
-        font-size: 60px;
+        font-size: 68px;
         font-weight: bold;
         color: white;
     }
@@ -49,14 +50,14 @@
     .introBtnWrap > button:last-child:focus {
         outline: none;
     }
-    .buySOGE {
-        font-size: 30px;
+    .buySGE {
+        font-size: 38px;
         color: white;
     }
-        .buySOGE > svg {
+        .buySGE > svg {
             color: #35F2FE;
         }
-        .buySOGE span {
+        .buySGE span {
             margin-left: 20px;
         }
 .slide {
@@ -136,19 +137,24 @@
         display: flex;
         justify-content: space-around;
     }
+    .slideBack .thumbDetailWrap {
+        display: none;
+    }
     .userLogoSlide {
 
     }
+    .thumbDetail {
+        font-size: 20px;
+    }
     .thumbDetail p:first-child {
-        font-size: 18px;
+        /* font-size: 18px; */
         color: #07AFB9;
     }
     .thumbDetail p:last-child {
         color: #00052B;
-        font-size: 18px;
+        /* font-size: 18px; */
     }
 .featureWrap {
-
 }
     .featureHeader {
         color: #FF01DD;
@@ -163,24 +169,24 @@
         gap: 20px;
     }
     .featureItem {
-
+        width: 30%;
     }
     .featureItemIcon {
         text-align: center;
         margin-bottom: 30px;
     }
     .featureItemHeader {
-        font-size: 30px;
+        font-size: 46px;
         font-weight: bold;
         color: white;
         text-align: center;
         margin-bottom: 15px;
     }
     .featureItemDetail {
-        font-size: 18px;
+        font-size: 30px;
         font-weight: lighter;
         color: white;
-        width: 50%;
-        margin: 0 25%;
-        text-align: justify;
+        width: 66%;
+        margin: 0 17%;
+        text-align: center;
     }

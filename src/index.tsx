@@ -5,8 +5,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 
 import App from './App';
-import styles from './index.module.css'
-
+import styles from 'index.module.css'
 const initialState = {
   search: {
     status: [],

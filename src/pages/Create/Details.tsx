@@ -9,17 +9,20 @@ function Details(props:any) {
         props.setDes(e.target.value)
     }
     return (
-        <>
-            <p className={styles.headTxt}>NFT Details</p>
+        <div className={styles.detailsWrap}>
+            <p className={styles.headTxt}>Details</p>
             <div className={styles.name}>
-                <p className={styles.generalTxt}>Name :</p>
+                {/* <p className={styles.generalTxt}>Name :</p> */}
                 <input type="text" className={styles.inputName} name="nft_name" onChange={changeName}/>
+                <span className={styles.inputPlaceholder}>NAME</span>
             </div>
             <div className={styles.description}>
-                <p className={styles.generalTxt}>Description : </p>
+                {/* <p className={styles.generalTxt}>Description : </p> */}
+                <span className={styles.inputPlaceholder}>DESCRIPTION</span>
                 <textarea className={styles.inputDescription} name="description" onChange={changeDes}/>
+                
             </div>
-        </>
+        </div>
     )
 }
 

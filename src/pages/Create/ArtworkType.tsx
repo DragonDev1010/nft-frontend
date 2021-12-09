@@ -19,6 +19,7 @@ function ArtworkType(props:any) {
                     ))
                 }
             </div>
+            <span style={{display: 'block', background:'white', width: '80%', height: '3px', margin:'25px auto 0'}}></span>
         </div>
     )
 }

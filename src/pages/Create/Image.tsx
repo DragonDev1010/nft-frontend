@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react'
 import styles from './Create.module.css'
 import * as FaIcons from 'react-icons/fa'
 function Image(props:any) {
-    const [selectedImage, setSelectedImage] = useState<string | undefined | null>();
+    const [selectedImage, setSelectedImage] = useState<any>();
     const inputRef = useRef<HTMLInputElement>(null)
     function inputFile(event: any) {
         if(selectedImage === undefined || selectedImage === null) {
@@ -22,7 +22,7 @@ function Image(props:any) {
     
     return (
         <div className = {styles.imgUpload}>
-        <p className={styles.headTxt}>Upload File</p>
+        {/* <p className={styles.headTxt}>Upload File</p> */}
         <div className={styles.imgSelect} onClick={inputFile}>
             <input type="file" name="nft_img" className={styles.inputFile} ref = {inputRef}  onChange={imageChange}/>
             
@@ -36,8 +36,6 @@ function Image(props:any) {
                     className={styles.image}
                     alt="Thumb"
                     />
-                    
-                    
                     {/* <button onClick={removeSelectedImage} className={styles.delete}>
                     Remove This Image
                     </button> */}

@@ -30,7 +30,7 @@ function UserImg() {
                 } 
             })
     }
-    fetchImg()
+    
     function storeImg(e: any) {
         e.preventDefault()
         let data = new FormData()
@@ -50,6 +50,9 @@ function UserImg() {
                 getImg(res.userImg.data.data)
             })
     }
+    useEffect(() => {
+        fetchImg()
+    }, [])
     return (
         <div className={styles.userImg} onClick={inputFile}>
             <div className={styles.userImgContainer}>

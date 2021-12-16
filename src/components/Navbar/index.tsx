@@ -110,7 +110,7 @@ function Navbar(props: any) {
                     </button>
                 </div>
             </header>            
-            <nav className={styles.spaceNav}>
+            {/* <nav className={styles.spaceNav}>
                 <a href="/" className={styles.logo}>
                     <img src={logo} alt="mmtuts logo"/>
                 </a>
@@ -123,7 +123,7 @@ function Navbar(props: any) {
                     <NavbarItem navName = {"Resource Center"} navPath = {"/register"}/>
                     <NavbarItem navName = {"User"} navPath = {"/user"}/>
                 </ul>
-            </nav>
+            </nav> */}
             {
                 props.err === 'none' ?
                     <Switch>

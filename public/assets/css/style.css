@@ -354,13 +354,13 @@ body::-webkit-scrollbar-thumb {
 .header__action-btn span {
   display: none;
 }
-.header__action-btn i {
+.header__action-btn svg {
   width: 22px;
   height: auto;
   color: #9FA4DD;
   transition: all 0.5s ease;
 }
-.header__action-btn:hover i {
+.header__action-btn:hover svg {
   color: #fff;
 }
 .header__btn {
@@ -455,7 +455,7 @@ body::-webkit-scrollbar-thumb {
   color: #9FA4DD;
   transition: 0.5s ease;
 }
-.header__search button:hover i {
+.header__search button:hover svg {
   color: #6164ff;
 }
 .header__search button.close {
@@ -516,7 +516,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 900;
   font-family: 'Inter', sans-serif;
 }
-.header__nav-link i {
+.header__nav-link svg {
   margin-left: 6px;
 }
 .header__nav-link--active {
@@ -691,7 +691,7 @@ body::-webkit-scrollbar-thumb {
 .header__profile-btn:hover {
   border-color: #6164ff;
 }
-.header__profile-btn:hover i{
+.header__profile-btn:hover svg{
   color: #6164ff;
 }
 @media (max-width: 576px) {
@@ -731,7 +731,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   font-family: 'Inter', sans-serif;
 }
-.header__profile-menu a i {
+.header__profile-menu a svg {
   color: #6164ff;
   width: 20px;
   height: auto;
@@ -741,7 +741,7 @@ body::-webkit-scrollbar-thumb {
 .header__profile-menu a:hover {
   color: #fff;
 }
-.header__profile-menu a:hover i {
+.header__profile-menu a:hover svg {
   color: #fff;
 }
 .header__profile-menu.show {
@@ -994,7 +994,7 @@ body::-webkit-scrollbar-thumb {
   bottom: -8px;
   left: 45px;
 }
-.main__title h2 i {
+.main__title h2 svg {
   width: 26px;
   height: auto;
   color: #6164ff;
@@ -1118,7 +1118,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 400;
   margin-bottom: 5px;
 }
-.main__link i {
+.main__link svg {
   width: 22px;
   height: auto;
   color: #9FA4DD;
@@ -1129,7 +1129,7 @@ body::-webkit-scrollbar-thumb {
 .main__link:hover {
   color: #6164ff;
 }
-.main__link:hover i {
+.main__link:hover svg {
   color: #6164ff;
 }
 .main__carousel-wrap {
@@ -1220,13 +1220,13 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
 }
-.main__filter-search button i {
+.main__filter-search button svg {
   width: 20px;
   height: auto;
   color: #9FA4DD;
   transition: 0.5s ease;
 }
-.main__filter-search button:hover i {
+.main__filter-search button:hover svg {
   color: #6164ff;
 }
 .main__load {
@@ -1324,7 +1324,7 @@ body::-webkit-scrollbar-thumb {
   color: #fff;
   background-color: #01BFAB;
 }
-.main__video i{
+.main__video svg{
   margin-right: 8px;
 }
 .main__author {
@@ -1428,14 +1428,14 @@ body::-webkit-scrollbar-thumb {
     top: -35px;
     z-index: 2;
   }
-  .main__nav i {
+  .main__nav svg {
     width: 30px;
     height: auto;
     color: #9FA4DD;
     font-size: 18px;
     transition: all 0.5s ease;
   }
-  .main__nav:hover i {
+  .main__nav:hover svg {
     color: #6164ff;
   }
   .main__nav--prev {
@@ -1448,7 +1448,7 @@ body::-webkit-scrollbar-thumb {
     top: auto;
     bottom: 25px;
   }
-  .main__nav--hero i {
+  .main__nav--hero svg {
     color: #fff;
   }
   .main__nav--hero.main__nav--prev {
@@ -1605,7 +1605,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 600;
   font-family: 'Inter', sans-serif;
 }
-.paginator__list a i {
+.paginator__list a svg {
   width: 22px;
   height: auto;
   color: #9FA4DD;
@@ -1615,7 +1615,7 @@ body::-webkit-scrollbar-thumb {
   color: #fff;
   background: #6164ff;
 }
-.paginator__list a:hover i {
+.paginator__list a:hover svg {
   color: #fff;
 }
 @media (min-width: 768px) {
@@ -1889,13 +1889,13 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
 }
-.filter__search i{
+.filter__search svg{
   width: 20px;
   height: auto;
   color: #9FA4DD;
   transition: 0.5s ease;
 }
-.filter__search button:hover i{
+.filter__search button:hover svg{
   color: #6164ff;
 } 
 @media (min-width: 1200px) {
@@ -2010,7 +2010,7 @@ body::-webkit-scrollbar-thumb {
   margin-top: 20px;
   margin-right: 20px;
 }
-.home__btn i{
+.home__btn svg{
   margin-left: 7px;
 }
 .home__btn:last-child {
@@ -2166,7 +2166,7 @@ body::-webkit-scrollbar-thumb {
   margin-top: 20px;
   margin-right: 20px;
 }
-.hero__btn i {
+.hero__btn svg {
   color: #fff;
   width: 28px;
   height: auto;
@@ -2309,7 +2309,7 @@ body::-webkit-scrollbar-thumb {
 .card__cover--carousel .owl-dot.active span {
   background-color: #6164ff;
 }
-.card__cover--video i {
+.card__cover--video svg {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -2325,7 +2325,7 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 3px 24px rgb(0 0 0 / 10%);
   transition: all .5s ease-in-out;
 }
-.card__cover--video i:hover{
+.card__cover--video svg:hover{
   background: #6164ff;
   color: #fff;
 }
@@ -2429,7 +2429,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: flex-start;
   align-items: center;
 }
-.card__likes i {
+.card__likes svg {
   width: 18px;
   height: auto;
   transition: all 0.5s ease;
@@ -2475,7 +2475,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 400;
   padding: 0 12px;
 }
-.card__time i {
+.card__time svg {
   position: relative;
   top: auto;
   left: auto;
@@ -2490,7 +2490,7 @@ body::-webkit-scrollbar-thumb {
 .card__time--clock {
   border-color: #f7630c;
 }
-.card__time--clock i {
+.card__time--clock svg {
   color: #f7630c;
   font-size: 17px;
 }
@@ -2609,7 +2609,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   color: #9FA4DD;
 }
-.post__date i {
+.post__date svg {
   color: #6164ff;
   width: 16px;
   height: auto;
@@ -2622,7 +2622,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   color: #9FA4DD;
 }
-.post__author i {
+.post__author svg {
   color: #6164ff;
   width: 16px;
   height: auto;
@@ -2653,7 +2653,7 @@ body::-webkit-scrollbar-thumb {
 .post-category a:hover{
   color: #6164ff;
 }
-.post-category a i{
+.post-category a svg{
   margin-right: 5px;
   color: #6164ff;
 }
@@ -2679,7 +2679,7 @@ body::-webkit-scrollbar-thumb {
   color: #9FA4DD;
   font-size: 14px;
 }
-.post-recent-content span i{
+.post-recent-content span svg{
   margin-right: 5px;
 }
 @media (min-width: 768px) {
@@ -2754,7 +2754,7 @@ body::-webkit-scrollbar-thumb {
   font-size: 16px;
   margin-bottom: 10px;
 }
-.asset__desc-list i {
+.asset__desc-list svg {
   margin-right: 10px;
   color: #9FA4DD;
   font-size: 15px;
@@ -2993,7 +2993,7 @@ body::-webkit-scrollbar-thumb {
   margin-top: 20px;
   margin-right: 20px;
 }
-.asset__btn i {
+.asset__btn svg {
   color: #fff;
   width: 28px;
   height: auto;
@@ -3025,7 +3025,7 @@ body::-webkit-scrollbar-thumb {
   height: 28px;
   z-index: 1;
 }
-.asset__likes i {
+.asset__likes svg {
   width: 18px;
   height: auto;
   transition: all 0.5s ease;
@@ -3041,16 +3041,16 @@ body::-webkit-scrollbar-thumb {
 .asset__likes span:empty {
   margin-left: 0;
 }
-.asset__likes:hover i {
+.asset__likes:hover svg {
   color: #eb5757;
 }
-.asset__likes--active i {
+.asset__likes--active svg {
   color: #eb5757;
 }
 .asset__likes--active span {
   color: #fff;
 }
-.asset__likes--active:hover i {
+.asset__likes--active:hover svg {
   color: #9FA4DD;
 }
 .asset__likes--active:hover span {
@@ -3105,7 +3105,7 @@ body::-webkit-scrollbar-thumb {
   line-height: 100%;
   color: #9FA4DD;
 }
-.asset__timer span i {
+.asset__timer span svg {
   width: 20px;
   height: auto;
   margin-right: 5px;
@@ -3407,32 +3407,32 @@ body::-webkit-scrollbar-thumb {
   border-radius: 12px;
   background-color: rgba(97,100,255,0.15);
 }
-.feature__icon i {
+.feature__icon svg {
   color: #6164ff;
   font-size: 25px;
 }
 .feature__icon--purple {
   background-color: rgba(128,81,212,0.15);
 }
-.feature__icon--purple i {
+.feature__icon--purple svg {
   color: #8051d4;
 }
 .feature__icon--red {
   background-color: rgba(235,87,87,0.15);
 }
-.feature__icon--red i {
+.feature__icon--red svg {
   color: #eb5757;
 }
 .feature__icon--blue {
   background-color: rgba(47,128,237,0.15);
 }
-.feature__icon--blue i {
+.feature__icon--blue svg {
   color: #2f80ed;
 }
 .feature__icon--green {
   background-color: rgba(37,165,106,0.15);
 }
-.feature__icon--green i {
+.feature__icon--green svg {
   color: #25a56a;
 }
 .feature__title {
@@ -3568,7 +3568,7 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 15px;
   width: 100%;
 }
-.knowledge__title i {
+.knowledge__title svg {
   color: #6164ff;
   width: 24px;
   height: auto;
@@ -3980,7 +3980,7 @@ body::-webkit-scrollbar-thumb {
   color: #01BFAB;
   position: relative;
 }
-.author__social a i {
+.author__social a svg {
   width: 20px;
   height: auto;
   transition: all 0.5s ease;
@@ -4064,7 +4064,7 @@ body::-webkit-scrollbar-thumb {
   transition: 0.4s ease;
   transition-property: opacity, transform;
 }
-.author__code button i {
+.author__code button svg {
   color: #6164ff;
   width: 18px;
   height: auto;
@@ -4075,10 +4075,10 @@ body::-webkit-scrollbar-thumb {
   transform: scale(1);
   opacity: 1;
 }
-.author__code button.active i {
+.author__code button.active svg {
   opacity: 1;
 }
-.author__code button:hover i {
+.author__code button:hover svg {
   opacity: 1;
 }
 .author__link {
@@ -4093,7 +4093,7 @@ body::-webkit-scrollbar-thumb {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
-.author__link i {
+.author__link svg {
   width: 20px;
   height: auto;
   color: #6164ff;
@@ -4202,7 +4202,7 @@ body::-webkit-scrollbar-thumb {
 .profile__tabs a:hover{
   border-color: transparent !important;
 }
-.profile__tabs a i{
+.profile__tabs a svg{
   margin-right: 8px;
 }
 @media (min-width: 576px) {
@@ -4259,7 +4259,7 @@ body::-webkit-scrollbar-thumb {
 .contacts__list a:hover {
   color: #01BFAB;
 }
-.contacts__list a i{
+.contacts__list a svg{
   margin-right: 10px;
   color: #01BFAB;
 }
@@ -4282,7 +4282,7 @@ body::-webkit-scrollbar-thumb {
   height: 22px;
   position: relative;
 }
-.contacts__social a i {
+.contacts__social a svg {
   width: 100%;
   height: auto;
   color: #9FA4DD;
@@ -4291,7 +4291,7 @@ body::-webkit-scrollbar-thumb {
 .contacts__social a:last-child {
   margin-right: 0;
 }
-.contacts__social a:hover i {
+.contacts__social a:hover svg {
   color: #6164ff;
 }
 .contact-map iframe{
@@ -4341,7 +4341,7 @@ body::-webkit-scrollbar-thumb {
   color: #9FA4DD;
   height: 28px;
 }
-.article__date i {
+.article__date svg {
   color: #6164ff;
   width: 16px;
   height: auto;
@@ -4556,7 +4556,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   margin-top: 0;
 }
-.share--asset .share__link i {
+.share--asset .share__link svg {
   margin-right: 0;
 }
 .share--asset span {
@@ -4577,7 +4577,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #6164ff;
   font-family: 'Inter', sans-serif;
 }
-.share__link i {
+.share__link svg {
   color: #fff;
   margin-right: 10px;
   margin-top: 1px;
@@ -4609,7 +4609,7 @@ body::-webkit-scrollbar-thumb {
   .share--asset .share__link {
     justify-content: flex-start;
   }
-  .share--asset .share__link i {
+  .share--asset .share__link svg {
     margin-right: 10px;
   }
 }
@@ -4746,7 +4746,7 @@ body::-webkit-scrollbar-thumb {
   transition: color 0.5s ease;
   display: none;
 }
-.comments__actions button i {
+.comments__actions button svg {
   width: 16px;
   height: auto;
   color: #9FA4DD;
@@ -4755,13 +4755,13 @@ body::-webkit-scrollbar-thumb {
 .comments__actions button:hover span {
   color: #fff;
 }
-.comments__actions button:hover i {
+.comments__actions button:hover svg {
   color: #6164ff;
 }
 .comments__actions button:last-child {
   margin-right: 0;
 }
-.comments__actions button:last-child i {
+.comments__actions button:last-child svg {
   width: 18px;
 }
 .comments__rate {
@@ -4784,7 +4784,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   height: 20px;
 }
-.comments__rate button i {
+.comments__rate button svg {
   width: 16px;
   height: auto;
   opacity: 0.6;
@@ -4794,12 +4794,12 @@ body::-webkit-scrollbar-thumb {
 .comments__rate button:last-child {
   margin-right: 0;
 }
-.comments__rate button:last-child i {
+.comments__rate button:last-child svg {
   margin-left: 8px;
   color: #eb5757;
   width: 16px;
 }
-.comments__rate button:first-child i {
+.comments__rate button:first-child svg {
   margin-right: 8px;
   color: #25a56a;
   width: 16px;
@@ -4819,7 +4819,7 @@ body::-webkit-scrollbar-thumb {
 .comments__rate button:hover {
   color: #fff;
 }
-.comments__rate button:hover i {
+.comments__rate button:hover svg {
   opacity: 1;
 }
 .comments__form {
@@ -4900,7 +4900,7 @@ body::-webkit-scrollbar-thumb {
   color: #9FA4DD;
   font-size: 16px;
 }
-.footer__links a i {
+.footer__links a svg {
   width: 20px;
   height: auto;
   color: #6164ff;
@@ -4928,7 +4928,7 @@ body::-webkit-scrollbar-thumb {
   height: 22px;
   position: relative;
 }
-.footer__social a i {
+.footer__social a svg {
   width: 100%;
   height: auto;
   font-size: 17px;
@@ -4938,7 +4938,7 @@ body::-webkit-scrollbar-thumb {
 .footer__social a:last-child {
   margin-right: 0;
 }
-.footer__social a:hover i {
+.footer__social a:hover svg {
   color: #01BFAB;
 }
 .footer__content {
@@ -5115,7 +5115,7 @@ body::-webkit-scrollbar-thumb {
   background: #01BFAB;
   color: #fff;
 }
-.footer-newsletter button i{
+.footer-newsletter button svg{
   margin-right: 7px;
 }
 @media (min-width: 576px) {
@@ -5450,7 +5450,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 12px;
   color: #fff;
 }
-.sign__social a i {
+.sign__social a svg {
   height: auto;
   color: #fff;
   transition: 0.5s ease;
@@ -5458,31 +5458,31 @@ body::-webkit-scrollbar-thumb {
 .sign__social a.fb {
   background-color: #3b5999;
 }
-.sign__social a.fb i {
+.sign__social a.fb svg {
   width: 10px;
 }
 .sign__social a.gl {
   background-color: #df4a32;
 }
-.sign__social a.gl i {
+.sign__social a.gl svg {
   width: 18px;
 }
 .sign__social a.tw {
   background-color: #1da1f2;
 }
-.sign__social a.tw i {
+.sign__social a.tw svg {
   width: 20px;
 }
 .sign__social a:hover {
   background-color: #fff;
 }
-.sign__social a:hover.fb i {
+.sign__social a:hover.fb svg {
   color: #3b5999;
 }
-.sign__social a:hover.gl i {
+.sign__social a:hover.gl svg {
   color: #df4a32;
 }
-.sign__social a:hover.tw i {
+.sign__social a:hover.tw svg {
   color: #1da1f2;
 }
 .sign__value {
@@ -5588,7 +5588,7 @@ body::-webkit-scrollbar-thumb {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
-.sign__file label i{
+.sign__file label svg{
   margin-right: 10px;
 }
 .sign__file label:hover {
@@ -5732,14 +5732,14 @@ body::-webkit-scrollbar-thumb {
   right: 15px;
   z-index: 1;
 }
-.modal__close i {
+.modal__close svg {
   color: #9FA4DD;
   opacity: 0.6;
   transition: 0.5s ease;
   height: auto;
   width: 24px;
 }
-.modal__close:hover i {
+.modal__close:hover svg {
   opacity: 1;
   color: #6164ff;
 }

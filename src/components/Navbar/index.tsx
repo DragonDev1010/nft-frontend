@@ -12,13 +12,104 @@ import NavbarItem from './NavbarItem'
 import NavSearch from './NavSearch';
 import Alert from '../Alert'
 // import { useWeb3React } from "@web3-react/core"
-// import logo from '../../assets/spaceLogo.png'
 import logo from '../../assets/starseas-final-001.png'
-// import logo from '../../assets/logo-light.jpg'
+import avatar1 from '../../assets/img/avatars/avatar-1.jpg'
+import * as FaIcons from 'react-icons/fa'
+import {Dropdown} from 'react-bootstrap'
 function Navbar(props: any) {
-    // const { active, account, library, connector, activate, deactivate } = useWeb3React()
     return (
         <Router>
+            <header className="header">
+                <div className="header__content">
+                    <div className="header__logo">
+                        <a href="/">
+                            <img src={logo} alt=""/>
+                        </a>
+                    </div>
+
+                    <form action="#" className="header__search">
+                        <input type="text" placeholder="Search Items, Creators, and More... "/>
+                        <button type="button"><FaIcons.FaSearch/></button>
+                        <button type="button" className="close"><FaIcons.FaTimes/></button>
+                    </form>
+
+                    <div className="header__menu">
+                        <ul className="header__nav">
+                            <li className="header__nav-item">
+                                <a href="/" className="header__nav-link" >Home</a>
+                            </li>
+                            <li className="header__nav-item">
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="" id="dropdown-basic" className="header__nav-link">
+                                        Marketplace
+                                        {/* <FaIcons.FaAngleDown /> */}
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu className="slideIn">
+                                        <Dropdown.Item href="/">All Items</Dropdown.Item>
+                                        <Dropdown.Item href="/">Live Auctions</Dropdown.Item>
+                                        <Dropdown.Item href="/">Creators</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </li>
+
+                            <li className="header__nav-item">
+                                <a href="/" className="header__nav-link">Activity</a>
+                            </li>
+                            <li className="header__nav-item">
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="" id="dropdown-basic" className="header__nav-link">
+                                        Resource Center 
+                                        {/* <FaIcons.FaAngleDown /> */}
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu className="dropdown-menu slideIn">
+                                        <Dropdown.Item href="/">About</Dropdown.Item>
+                                        <Dropdown.Item href="/">F&Q</Dropdown.Item>
+                                        <Dropdown.Item href="/">SGE Token</Dropdown.Item>
+                                        <Dropdown.Item href="/">Contact</Dropdown.Item>
+                                        <Dropdown.Item href="/">Privacy Policy</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div className="header__actions">
+                        <div className="header__action header__action--search">
+                            <button className="header__action-btn" type="button"><FaIcons.FaSearch/></button>
+                        </div>
+
+                        <div className="header__action header__action--profile">
+                            <Dropdown>
+                                <Dropdown.Toggle variant="" id="dropdown-basic" className="header__profile-btn header__profile-btn--verified">
+                                    <img src={avatar1} alt=""/>
+                                    <div>
+                                        <p>@wilson</p>
+                                        <span>920.75 ETH</span>
+                                    </div>
+                                    <FaIcons.FaAngleDown />
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu className="header__profile-menu">
+                                    <Dropdown.Item href="/"><FaIcons.FaUser /> <span>Profile</span></Dropdown.Item>
+                                    <Dropdown.Item href="/"><FaIcons.FaListUl/><span>Activity</span></Dropdown.Item>
+                                    <Dropdown.Item href="/"><FaIcons.FaLayerGroup/> <span>Add Item</span></Dropdown.Item>
+                                    <Dropdown.Item href="/"><FaIcons.FaCog /> <span>Settings</span></Dropdown.Item>
+                                    <Dropdown.Item href="/"><FaIcons.FaSignOutAlt/> <span>Sign out</span></Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
+                    </div>
+
+                    <button className="header__btn" type="button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </header>            
             <nav className={styles.spaceNav}>
                 <a href="/" className={styles.logo}>
                     <img src={logo} alt="mmtuts logo"/>

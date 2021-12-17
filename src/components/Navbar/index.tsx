@@ -129,7 +129,6 @@ function Navbar(props: any) {
                     <Switch>
                         <Route exact path="/">
                             <Home />
-                            <Footer />
                         </Route>
                         <Route exact path="/assets">
                             <Marketplace category={'market'}/>
@@ -152,8 +151,9 @@ function Navbar(props: any) {
                         <Home />
                     </Route>
             }
-            
+            <Footer />
         </Router>
+        
     )
 }
 

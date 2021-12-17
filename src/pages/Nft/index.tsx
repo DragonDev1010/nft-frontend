@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { withRouter } from 'react-router'
-import Item from '../Marketplace/list/Item'
+// import Item from '../Marketplace/list/Item'
 import styles from './Nft.module.css'
 import * as FaIcons from "react-icons/fa";
 import { getAllJSDocTags } from 'typescript'

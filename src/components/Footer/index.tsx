@@ -75,7 +75,7 @@ function Footer() {
                             <p>Subscribe to our newsletter for future updates! .</p>
                             <form action="#">
                                 <input type="email" placeholder="Enter your email"/>
-                                <button type="submit"><i className = "far fa-paper-plane"></i> Subscribe</button>
+                                <button type="submit"><FaIcons.FaPaperPlane />Subscribe</button>
                             </form>
                         </div>
                     </div>

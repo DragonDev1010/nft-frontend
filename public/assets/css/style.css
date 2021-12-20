@@ -1525,16 +1525,16 @@ body::-webkit-scrollbar-thumb {
   color: #9FA4DD;
   transition: 0.5s ease;
   position: relative;
-  margin-right: 30px;
+  /* margin-right: 30px; */
 }
 .breadcrumb__item:before {
-  content: '\f101';
+  /* content: '\f101';
   position: absolute;
   left: 100%;
   top: 1px;
   bottom: 0;
   margin-left: 10px;
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 5 Pro"; */
   
 }
 .breadcrumb__item:hover {
@@ -6209,4 +6209,9 @@ wallet connect
 }
 .header__action--profile .dropdown-item:hover {
   background-color: #0b1126;
+}
+.breadcrumb svg {
+  margin: 0 20px;
+  color: #9FA4DD;
+  
 }

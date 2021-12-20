@@ -43,10 +43,10 @@ function Navbar(props: any) {
                                     <Dropdown.Toggle variant="" id="dropdown-basic" className="header__nav-link">
                                         Marketplace
                                         {/* <FaIcons.FaAngleDown /> */}
-                                    </Dropdown.Toggle>
+                                    </Dropdown.Toggle>assets/
 
                                     <Dropdown.Menu className="slideIn">
-                                        <Dropdown.Item href="/">All Items</Dropdown.Item>
+                                        <Dropdown.Item href="/assets">All Items</Dropdown.Item>
                                         <Dropdown.Item href="/">Live Auctions</Dropdown.Item>
                                         <Dropdown.Item href="/">Creators</Dropdown.Item>
                                     </Dropdown.Menu>

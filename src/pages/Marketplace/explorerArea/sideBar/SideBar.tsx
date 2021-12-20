@@ -28,13 +28,11 @@ function SideBar() {
                             </div>
                         </div>
                         
-                        
-                        
                         <div className="filter__group">
                             <label className="filter__label">Category:</label>
                             <ul className="filter__checkboxes">
                                 <li>
-                                    <input id="type5" type="checkbox" name="type5" checked={undefined}/>
+                                    <input id="type5" type="checkbox" name="type5" checked={true}/>
                                     <label htmlFor="type5">Clusters</label>
                                 </li>
                                 <li>
@@ -42,11 +40,11 @@ function SideBar() {
                                     <label htmlFor="type6">Creatives</label>
                                 </li>
                                 <li>
-                                    <input id="type7" type="checkbox" name="type7" checked={undefined}/>
+                                    <input id="type7" type="checkbox" name="type7" checked={true}/>
                                     <label htmlFor="type7">Galaxies</label>
                                 </li>
                                 <li>
-                                    <input id="type8" type="checkbox" name="type8" checked={undefined}/>
+                                    <input id="type8" type="checkbox" name="type8" checked={true}/>
                                     <label htmlFor="type8">Lunar</label>
                                 </li>
                                 <li>

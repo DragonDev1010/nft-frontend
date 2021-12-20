@@ -1,3 +1,4 @@
+import * as FaIcons from 'react-icons/fa'
 import pageTitle from '../../../assets/img/bg/page-title.jpg'
 function Breadcrumb() {
     return(
@@ -8,6 +9,7 @@ function Breadcrumb() {
                     <div>
                         <ul className="breadcrumb">
                             <li className="breadcrumb__item"><a href="index.html">Home</a></li>
+                            <FaIcons.FaAngleDoubleRight />
                             <li className="breadcrumb__item breadcrumb__item--active">All Items</li>
                         </ul>
                     </div>

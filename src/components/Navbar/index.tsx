@@ -16,6 +16,7 @@ import logo from '../../assets/starseas-final-001.png'
 import avatar1 from '../../assets/img/avatars/avatar-1.jpg'
 import * as FaIcons from 'react-icons/fa'
 import {Dropdown} from 'react-bootstrap'
+import LiveAuction from '../../pages/LiveAuction/index'
 function Navbar(props: any) {
     return (
         <Router>
@@ -47,7 +48,7 @@ function Navbar(props: any) {
 
                                     <Dropdown.Menu className="slideIn">
                                         <Dropdown.Item href="/assets/">All Items</Dropdown.Item>
-                                        <Dropdown.Item href="/">Live Auctions</Dropdown.Item>
+                                        <Dropdown.Item href="/liveauction">Live Auctions</Dropdown.Item>
                                         <Dropdown.Item href="/">Creators</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
@@ -143,6 +144,9 @@ function Navbar(props: any) {
                         </Route>
                         <Route path="/users" exact>
                             <User />
+                        </Route>
+                        <Route path='/liveauction' exact>
+                            <LiveAuction />
                         </Route>
                     </Switch>
                 :   

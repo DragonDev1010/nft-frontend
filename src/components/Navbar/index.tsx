@@ -17,6 +17,7 @@ import avatar1 from '../../assets/img/avatars/avatar-1.jpg'
 import * as FaIcons from 'react-icons/fa'
 import {Dropdown} from 'react-bootstrap'
 import LiveAuction from '../../pages/LiveAuction/index'
+import Activity from '../../pages/Activity/Activity'
 function Navbar(props: any) {
     return (
         <Router>
@@ -49,13 +50,12 @@ function Navbar(props: any) {
                                     <Dropdown.Menu className="slideIn">
                                         <Dropdown.Item href="/assets/">All Items</Dropdown.Item>
                                         <Dropdown.Item href="/liveauction">Live Auctions</Dropdown.Item>
-                                        <Dropdown.Item href="/">Creators</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </li>
 
                             <li className="header__nav-item">
-                                <a href="/" className="header__nav-link">Activity</a>
+                                <a href="/activity" className="header__nav-link">Activity</a>
                             </li>
                             <li className="header__nav-item">
                                 <Dropdown>
@@ -147,6 +147,9 @@ function Navbar(props: any) {
                         </Route>
                         <Route path='/liveauction' exact>
                             <LiveAuction />
+                        </Route>
+                        <Route path='/Activity' exact>
+                            <Activity />
                         </Route>
                     </Switch>
                 :   

@@ -7,6 +7,7 @@ import Partners from './Partners'
 import { profile } from 'console'
 
 import logoLight from '../../assets/img/logo/logo-light.png'
+import * as FaIcons from 'react-icons/fa'
 function Footer() {
     return (
         // <div className={styles.footerWrap}>
@@ -84,12 +85,24 @@ function Footer() {
                     <div className = "col-12">
                         <div className = "footer__content">
                             <div className = "footer__social">
-                                <a href="https://www.facebook.com/sge.spaceofficial/" target="_blank" > <i className = "fab fa-facebook-f"></i> </a>
-                                <a href="https://twitter.com/starseasnft" target="_blank" > <i className = "fab fa-twitter"></i> </a>
-                                <a href="https://t.me/SGEVerificationPortal" target="_blank" > <i className = "fab fa-telegram"></i> </a>
-                                <a href="https://www.instagram.com/sge.official_/?hl=en" target="_blank"> <i className = "fab fa-instagram"></i> </a>
-                                <a href="https://www.youtube.com/channel/UCkiGgGgFEFbjgk3ru8FI6Nw" target="_blank"> <i className = "fab fa-youtube"></i> </a>
-                                <a href="https://www.reddit.com/r/SGEofficial/"target="_blank"  > <i className = "fab fa-reddit"></i> </a>
+                                <a href="https://www.facebook.com/sge.spaceofficial/" target="_blank" >
+                                    <FaIcons.FaFacebookF />
+                                </a>
+                                <a href="https://twitter.com/starseasnft" target="_blank" >
+                                    <FaIcons.FaTwitter /> 
+                                </a>
+                                <a href="https://t.me/SGEVerificationPortal" target="_blank" >
+                                     <FaIcons.FaTelegram /> 
+                                </a>
+                                <a href="https://www.instagram.com/sge.official_/?hl=en" target="_blank"> 
+                                    <FaIcons.FaInstagram /> 
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCkiGgGgFEFbjgk3ru8FI6Nw" target="_blank"> 
+                                    <FaIcons.FaYoutube />
+                                </a>
+                                <a href="https://www.reddit.com/r/SGEofficial/"target="_blank"  > 
+                                    <FaIcons.FaReddit />
+                                </a>
                             </div>
 
                             <small className = "footer__copyright">© Copyright 2021 <a href="#">Starseas</a> All Rights Reserved.</small>

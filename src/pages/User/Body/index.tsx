@@ -64,27 +64,27 @@ function Body() {
         <>
             <div className={styles.tabNavigation}>
                 <ul className={styles.tabNavWrap}>
-                    <li className={activeTab=='collected'?styles.active:''} onClick={handleTab} id='0'>
+                    <li className={activeTab==='collected'?styles.active:''} onClick={handleTab} id='0'>
                         <FaIcons.FaHeart size={15} />
                         Collected
                         <span className={styles.count}>{collectedAmount}</span>
                     </li>
-                    <li className={activeTab=='created'?styles.active:''} onClick={handleTab} id='1'>
+                    <li className={activeTab==='created'?styles.active:''} onClick={handleTab} id='1'>
                         <FaIcons.FaWallet size={15}/>
                         created 
                         <span className={styles.count}>{createdAmount}</span>
                     </li>
-                    <li className={activeTab=='favorite'?styles.active:''} onClick={handleTab} id='2'>
+                    <li className={activeTab==='favorite'?styles.active:''} onClick={handleTab} id='2'>
                         <FaIcons.FaHeart size={15}/>
                         favorite 
                         <span className={styles.count}>{favoriteAmount}</span>
                     </li>
-                    <li className={activeTab=='activity'?styles.active:''} onClick={handleTab} id='3'>
+                    <li className={activeTab==='activity'?styles.active:''} onClick={handleTab} id='3'>
                         <FaIcons.FaHistory size={15}/>
                         activity 
                         <span className={styles.count}></span>
                     </li>
-                    <li className={activeTab=='offers'?styles.active:''} onClick={handleTab} id='4'>
+                    <li className={activeTab==='offers'?styles.active:''} onClick={handleTab} id='4'>
                         <FaIcons.FaTag size={15} />
                         offers 
                         <span className={styles.count}></span>

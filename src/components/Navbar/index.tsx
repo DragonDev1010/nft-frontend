@@ -18,6 +18,11 @@ import * as FaIcons from 'react-icons/fa'
 import {Dropdown} from 'react-bootstrap'
 import LiveAuction from '../../pages/LiveAuction/index'
 import Activity from '../../pages/Activity/Activity'
+import Faq from '../../pages/ResourceCenter/Faq/Faq'
+import SgeToken from '../../pages/ResourceCenter/SgeToken/SgeToken'
+import Contract from '../../pages/ResourceCenter/Contact/Contact'
+import PrivacyPolicy from '../../pages/ResourceCenter/PrivacyPolicy/PrivacyPolicy'
+import About from '../../pages/ResourceCenter/About/About'
 function Navbar(props: any) {
     return (
         <Router>
@@ -65,11 +70,11 @@ function Navbar(props: any) {
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu className="dropdown-menu slideIn">
-                                        <Dropdown.Item href="/">About</Dropdown.Item>
-                                        <Dropdown.Item href="/">F&Q</Dropdown.Item>
-                                        <Dropdown.Item href="/">SGE Token</Dropdown.Item>
-                                        <Dropdown.Item href="/">Contact</Dropdown.Item>
-                                        <Dropdown.Item href="/">Privacy Policy</Dropdown.Item>
+                                        <Dropdown.Item href="/about">About</Dropdown.Item>
+                                        <Dropdown.Item href="/faq">F&Q</Dropdown.Item>
+                                        <Dropdown.Item href="/sge-token">SGE Token</Dropdown.Item>
+                                        <Dropdown.Item href="/contact">Contact</Dropdown.Item>
+                                        <Dropdown.Item href="/privacy-policy">Privacy Policy</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </li>
@@ -151,6 +156,21 @@ function Navbar(props: any) {
                         <Route path='/Activity' exact>
                             <Activity />
                         </Route>
+                        <Route path='/about' exact>
+                            <About />
+                        </Route>
+                        <Route path='/faq' exact>
+                            <Faq />
+                        </Route>
+                        <Route path='/sge-token' exact>
+                            <SgeToken />
+                        </Route>
+                        <Route path='/contact' exact>
+                            <Contract />
+                        </Route>
+                        <Route path='/privacy-policy' exact>
+                            <PrivacyPolicy />
+                        </Route>                       
                     </Switch>
                 :   
                     <Route path="/">

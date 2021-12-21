@@ -1,4 +1,5 @@
 import pageTitle from '../../assets/img/bg/page-title.jpg'
+import * as FaIcons from 'react-icons/fa'
 function Activity() {
     return(
         // <!-- main content -->
@@ -12,6 +13,7 @@ function Activity() {
                         <div>
                             <ul className="breadcrumb">
                                 <li className="breadcrumb__item"><a href="index.html">Home</a></li>
+                                <FaIcons.FaAngleDoubleRight />
                                 <li className="breadcrumb__item breadcrumb__item--active">Activity</li>
                             </ul>
                         </div>

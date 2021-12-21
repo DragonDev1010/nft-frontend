@@ -23,6 +23,8 @@ import SgeToken from '../../pages/ResourceCenter/SgeToken/SgeToken'
 import Contract from '../../pages/ResourceCenter/Contact/Contact'
 import PrivacyPolicy from '../../pages/ResourceCenter/PrivacyPolicy/PrivacyPolicy'
 import About from '../../pages/ResourceCenter/About/About'
+import Profile from '../../pages/User/Profile/Profile'
+import AddItem from '../../pages/User/AddItem/AddItem'
 function Navbar(props: any) {
     return (
         <Router>
@@ -99,10 +101,10 @@ function Navbar(props: any) {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu className="header__profile-menu">
-                                    <Dropdown.Item href="/"><FaIcons.FaUser /> <span>Profile</span></Dropdown.Item>
-                                    <Dropdown.Item href="/"><FaIcons.FaListUl/><span>Activity</span></Dropdown.Item>
-                                    <Dropdown.Item href="/"><FaIcons.FaLayerGroup/> <span>Add Item</span></Dropdown.Item>
-                                    <Dropdown.Item href="/"><FaIcons.FaCog /> <span>Settings</span></Dropdown.Item>
+                                    <Dropdown.Item href="/profile"><FaIcons.FaUser /> <span>Profile</span></Dropdown.Item>
+                                    <Dropdown.Item href="/profile"><FaIcons.FaListUl/><span>Activity</span></Dropdown.Item>
+                                    <Dropdown.Item href="/addItem"><FaIcons.FaLayerGroup/> <span>Add Item</span></Dropdown.Item>
+                                    <Dropdown.Item href="/profile"><FaIcons.FaCog /> <span>Settings</span></Dropdown.Item>
                                     <Dropdown.Item href="/"><FaIcons.FaSignOutAlt/> <span>Sign out</span></Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
@@ -170,7 +172,13 @@ function Navbar(props: any) {
                         </Route>
                         <Route path='/privacy-policy' exact>
                             <PrivacyPolicy />
-                        </Route>                       
+                        </Route>      
+                        <Route path='/profile' exact>
+                            <Profile/>
+                        </Route>
+                        <Route path='/addItem' exact>
+                            <AddItem/>
+                        </Route>                
                     </Switch>
                 :   
                     <Route path="/">

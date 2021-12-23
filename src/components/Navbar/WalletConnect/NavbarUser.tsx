@@ -1,12 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import { useEffect, useRef } from 'react'
 import styles from '../Navbar.module.css'
-import {useLocation} from 'react-router-dom'
 import { useDetectOutsideClick } from './useDetectOutsideClick';
 import * as FaIcons from "react-icons/fa";
 import { useWeb3React } from "@web3-react/core"
 import { injected } from "./Connectors"
-// import web3 from '../../../web3';
 function NavbarUser() {
     const dropdownRef = useRef<any>()
     const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);

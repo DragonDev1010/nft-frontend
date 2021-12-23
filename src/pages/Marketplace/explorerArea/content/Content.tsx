@@ -16,6 +16,7 @@ import itemImg1 from '../../../../assets/img/items/1.jpg'
 import avatarImg1 from '../../../../assets/img/avatars/1.jpg'
 import * as FaIcons from 'react-icons/fa'
 function Content() {
+
     return(
         <div className="col-12 col-xl-9">
             <div className="row row--grid">

@@ -1,18 +1,11 @@
 import Hero from "./hero/Hero";
 import FeatureArea from "./featureArea/FeatureArea";
 import LiveAuction from "./liveAuction/LiveAuction";
-import TopSeller from "./topCreators/TopCreators";
+import TopCreator from "./topCreators/TopCreators";
 import Explorer from "./explorer/Explorer";
 import CallAction from "./callAction/CallAction";
 function Home() {
     return (
-        // <div className={styles.home}>
-        //     <div className={styles.homeHead}>
-        //         <Intro/>
-        //         <Slide/>
-        //     </div>
-        //     <Feature />
-        // </div>
         <main className = "main">
 
             {/* home hero */}
@@ -28,7 +21,7 @@ function Home() {
             {/* end live auctions */}
 
             {/* top sellers */}
-            <TopSeller />
+            <TopCreator />
     		{/* end top sellers */}
 
     		{/* explore */}

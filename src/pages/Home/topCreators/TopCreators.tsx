@@ -13,7 +13,7 @@ import img12 from '../../../assets/img/avatars/3.jpg'
 import img13 from '../../../assets/img/avatars/3.jpg'
 import img14 from '../../../assets/img/avatars/3.jpg'
 import img15 from '../../../assets/img/avatars/3.jpg'
-function TopSeller() {
+function TopCreator() {
     return (
         <section className = "top-seller">
             <div className = "container">
@@ -174,4 +174,4 @@ function TopSeller() {
     )
 }
 
-export default TopSeller
+export default TopCreator

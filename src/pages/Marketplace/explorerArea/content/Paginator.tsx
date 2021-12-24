@@ -1,14 +1,19 @@
 import { useState, useEffect } from 'react'
 import * as FaIcons from 'react-icons/fa'
 function Paginator(props:any) {
+    let p
+    let temp = Array()
     const [pages, setPages] = useState<any>([])
-    useEffect(() => {
-        let p = Math.floor(props.amount/6) + 1
-        let temp = Array()
+    function calculatePages () {
+        p = Math.floor(props.amount/6) + 1
+        temp = Array()
         for(let i = 1 ; i <= p ; i++) {
             temp.push(i)
         }
         setPages(temp)
+    }
+    useEffect(() => {
+        calculatePages()
     },[])
     return (
         <div className="row row--grid">

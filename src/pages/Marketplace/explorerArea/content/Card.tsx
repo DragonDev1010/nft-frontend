@@ -1,10 +1,51 @@
+import { useState, useEffect } from 'react'
 import * as FaIcons from 'react-icons/fa'
 function Card(props: any) {
-    let itemImg, avatarImg
+    const [itemImg, setItemImg] = useState('')
+    const [avatarImg, setAvatarImg] = useState('')
+    const [favCount, setFavConut] = useState('')
     const title = "Title"
     const userName = "User1"
     const price = 10
-    const favCount = "6k"
+    function arrayBufferToBase64(buffer:any) {
+        var binary = '';
+        var bytes = [].slice.call(new Uint8Array(buffer));
+        bytes.forEach((b) => binary += String.fromCharCode(b));
+        return window.btoa(binary);
+    }
+    function setItemImgData(buffer:any) {
+        let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer)
+        setItemImg(temp)
+    }
+    function setAvatarImgData(buffer:any) {
+        let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer)
+        setAvatarImg(temp)
+    }
+    function nFormatter(num:any, digits:any) {
+        const lookup = [
+          { value: 1, symbol: "" },
+          { value: 1e3, symbol: "k" },
+          { value: 1e6, symbol: "M" },
+          { value: 1e9, symbol: "G" },
+          { value: 1e12, symbol: "T" },
+          { value: 1e15, symbol: "P" },
+          { value: 1e18, symbol: "E" }
+        ];
+        const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+        var item = lookup.slice().reverse().find(function(item) {
+          return num >= item.value;
+        });
+        return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
+    }
+    function setFavCountData() {
+        if(props.details.favUserIds.length > 0) {
+            setFavConut(nFormatter(props.details.favUserIds.length, 1))
+        } 
+    }
+    useEffect(() => {
+        setItemImgData(props.details.img.data.data)
+        setFavCountData()
+    }, [])
     return (
         <div className="col-12 col-sm-6 col-lg-4 col-xl-4">
             <div className="card">
@@ -13,7 +54,7 @@ function Card(props: any) {
                 </a>
                 <h3 className="card__title">
                     <a href="item.html">
-                        {title}
+                        {props.details.name}
                     </a>
                 </h3>
                 <div className="card__author card__author--verified">
@@ -23,7 +64,7 @@ function Card(props: any) {
                 <div className="card__info">
                     <div className="card__price">
                         <span>Sale price</span>
-                        <span>{price} ETH</span>
+                        <span>{props.details.price} ETH</span>
                     </div>
 
                     <button className="card__likes" type="button">

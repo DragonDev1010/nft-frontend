@@ -1,39 +1,42 @@
+import {useState, useEffect} from 'react'
 import itemImg8 from '../../../../assets/img/items/8.jpg'
 import avatarImg8 from '../../../../assets/img/avatars/8.jpg'
 
 import * as FaIcons from 'react-icons/fa'
 import Card from './Card'
 function Content() {
-    
+    const [nfts, setNfts] = useState([])
+    function getUserAvatar(userId:any, nft: any) {
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'users/' + userId
+        fetch(fetchURL)
+            .then(res => res.json())
+            .then( res => {
+                if(res.userImg !== undefined)
+                    return res.userImg.data
+            })
+    }
+    function fetchNfts() {
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'nfts?'
+        fetch(fetchURL)
+            .then(res => res.json())
+            .then( res => {
+                setNfts(res)
+            })
+    }
+    useEffect(() => {
+        fetchNfts()
+    }, [])
     return(
         <div className="col-12 col-xl-9">
             <div className="row row--grid">
-                <Card />
-                <div className="col-12 col-sm-6 col-lg-4 col-xl-4">
-                    <div className="card">
-                        <a href="item.html" className="card__cover">
-                            <img src={itemImg8} alt=""/>
-                        </a>
-                        <h3 className="card__title"><a href="item.html">Awesome Color
-                                Drop</a></h3>
-                        <div className="card__author card__author--verified">
-                            <img src={avatarImg8} alt=""/>
-                            <a href="author.html">@morgan28</a>
-                        </div>
-                        <div className="card__info">
-                            <div className="card__price">
-                                <span>Sale price</span>
-                                <span>9.21 ETH</span>
-                            </div>
-
-                            <button className="card__likes" type="button">
-                                <FaIcons.FaHeart />
-                                <span>6k</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
+                {
+                    nfts.length > 0 ?
+                    nfts.map((item:any, idx:any) => (
+                        <Card details={item}/>
+                    ))
+                    :
+                    ""
+                }
             </div>
 
             {/* paginator */}

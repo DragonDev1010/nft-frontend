@@ -9,7 +9,7 @@ function Paginator(props:any) {
             temp.push(i)
         }
         setPages(temp)
-    })
+    },[])
     return (
         <div className="row row--grid">
             <div className="col-12">

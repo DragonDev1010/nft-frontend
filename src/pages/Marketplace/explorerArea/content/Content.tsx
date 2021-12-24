@@ -4,15 +4,7 @@ import Card from './Card'
 import Paginator from './Paginator'
 function Content() {
     const [nfts, setNfts] = useState([])
-    function getUserAvatar(userId:any, nft: any) {
-        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'users/' + userId
-        fetch(fetchURL)
-            .then(res => res.json())
-            .then( res => {
-                if(res.userImg !== undefined)
-                    return res.userImg.data
-            })
-    }
+
     function fetchNfts() {
         let fetchURL = process.env.REACT_APP_API_BASE_URL + 'nfts?'
         fetch(fetchURL)

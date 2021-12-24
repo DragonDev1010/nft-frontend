@@ -4,6 +4,7 @@ function Card(props: any) {
     const [itemImg, setItemImg] = useState('')
     const [avatarImg, setAvatarImg] = useState('')
     const [favCount, setFavConut] = useState('')
+    const [ownerName, setOwnerName] = useState('')
     const title = "Title"
     const userName = "User1"
     const price = 10
@@ -17,9 +18,19 @@ function Card(props: any) {
         let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer)
         setItemImg(temp)
     }
-    function setAvatarImgData(buffer:any) {
-        let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer)
-        setAvatarImg(temp)
+    function setOwnerData() {
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'users/findByWallet/' + props.details.ownerAddr
+        fetch(fetchURL)
+            .then(res => res.json())
+            .then( res => {
+                if(res[0].userImg !== undefined) {
+                    let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(res[0].userImg.data.data)
+                    setAvatarImg(temp)
+                }
+                if(res[0].name !== undefined) {
+                    setOwnerName(res[0].name)
+                }
+            })
     }
     function nFormatter(num:any, digits:any) {
         const lookup = [
@@ -44,6 +55,7 @@ function Card(props: any) {
     }
     useEffect(() => {
         setItemImgData(props.details.img.data.data)
+        setOwnerData()
         setFavCountData()
     }, [])
     return (
@@ -59,7 +71,7 @@ function Card(props: any) {
                 </h3>
                 <div className="card__author card__author--verified">
                     <img src={avatarImg} alt=""/>
-                    <a href="author.html">{userName}</a>
+                    <a href="author.html">{ownerName}</a>
                 </div>
                 <div className="card__info">
                     <div className="card__price">

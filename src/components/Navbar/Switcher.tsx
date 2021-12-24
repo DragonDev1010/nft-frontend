@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import Home from '../../pages/Home'
 import Marketplace from '../../pages/Marketplace'
-import Nft from '../../pages/Nft'
+import NftDetail from '../../pages/NftDetail'
 import LiveAuction from '../../pages/LiveAuction/index'
 
 import Activity from '../../pages/Activity/Activity'
@@ -25,7 +25,7 @@ function Switcher() {
                 <Marketplace category={'market'}/>
             </Route>
             <Route path="/assets/:nftId" exact>
-                <Nft />
+                <NftDetail />
             </Route>
             <Route path='/liveauction' exact>
                 <LiveAuction />

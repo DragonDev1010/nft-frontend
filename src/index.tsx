@@ -1,16 +1,14 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 
 import App from './App';
-import styles from 'index.module.css'
 const initialState = {
   search: {
     status: [],
     price: [],
-    collects: []
+    category: []
   }
 };
 function reducer(state = initialState, action: any) {
@@ -18,7 +16,7 @@ function reducer(state = initialState, action: any) {
     case "changeState": {
       return {
         search: {
-          collects: action.search.collects,
+          category: action.search.category,
           price: action.search.price,
           status: action.search.status,
         }
@@ -29,7 +27,7 @@ function reducer(state = initialState, action: any) {
         search: {
           status: [],
           price: [],
-          collects: [],
+          category: [],
         }
       };
   }

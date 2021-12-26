@@ -1,7 +1,5 @@
-import React, {useState} from 'react'
 import { useStore, useSelector } from 'react-redux'
 import styles from '../Marketplace.module.css'
-import colLogo from '../../../assets/spaceItem.png'
 import checkedIcon from '../../../assets/marketplace/filter/collects/checked.png'
 
 function FilterCategoryOptions(props:any) {

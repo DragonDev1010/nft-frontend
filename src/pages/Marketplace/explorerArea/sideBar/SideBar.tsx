@@ -1,8 +1,8 @@
 import { useStore } from 'react-redux'
-import Search from './Search'
-import SortBy from './SortBy'
+import Search from './Search/Search'
+import SortBy from './SortBy/SortBy'
 import Category from './Category/Category'
-import Price from './Price'
+import Price from './Price/Price'
 import SelectedFilters from './SelectedFilters/SelectedFilters'
 function SideBar() {
     const store = useStore()

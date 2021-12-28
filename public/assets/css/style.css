@@ -6215,3 +6215,7 @@ wallet connect
   color: #9FA4DD;
   
 }
+.paginator__list {
+  align-items: center;
+  margin: 50px 0;
+}

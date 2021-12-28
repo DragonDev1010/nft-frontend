@@ -54,7 +54,6 @@ function NavUser() {
             setUserId(account)
             getBalance(account)
         }
-        console.log(Web3.givenProvider)
     }, [active])
     return(
         <div className="header__actions">

@@ -26,9 +26,10 @@ function CategoryBtn(props:any) {
         store.dispatch({
             type: "changeState",
             search: {
-                status: store.getState().search.status,
+                search: store.getState().search.search,
+                sort: store.getState().search.sort,
+                category: temp,
                 price: store.getState().search.price,
-                category: temp
             }
         })
     }

@@ -21,7 +21,7 @@ function SideBar() {
                     {/* filter */}
                     <div className="filter">
                         <h4 className="filter__title">Filters <button type="button" onClick={removeFilters}>Clear all</button></h4>
-                        <SelectedFilters/>
+                        {/* <SelectedFilters/> */}
                         <Search/>
 
                         <SortBy/>

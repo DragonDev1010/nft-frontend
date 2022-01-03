@@ -6,9 +6,10 @@ import { createStore } from "redux";
 import App from './App';
 const initialState = {
   search: {
-    status: [],
-    price: [],
-    category: []
+    search: '',
+    sort: '',
+    category: [],
+    price: {"min":0, "max": Number.MAX_SAFE_INTEGER},
   }
 };
 function reducer(state = initialState, action: any) {
@@ -16,18 +17,20 @@ function reducer(state = initialState, action: any) {
     case "changeState": {
       return {
         search: {
+          search: action.search.search,
+          sort: action.search.sort,
           category: action.search.category,
           price: action.search.price,
-          status: action.search.status,
         }
       };
     }
     default:
       return {
         search: {
-          status: [],
-          price: [],
+          search: '',
+          sort: '',
           category: [],
+          price: {"min":0, "max": Number.MAX_SAFE_INTEGER},
         }
       };
   }

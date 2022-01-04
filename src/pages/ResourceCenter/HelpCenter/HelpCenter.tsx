@@ -1,25 +1,12 @@
+import Breadcrumb from '../../Breadcrumb'
 import * as FaIcons from 'react-icons/fa'
-import pageTitle from '../../../assets/img/bg/page-title.jpg'
 function HelpCenter() {
     return(
         // <!-- main content -->
         <main className="main">
     
             {/* <!-- breadcrumb --> */}
-            <div className="breadcrumb-area" style={{backgroundImage: `url(${pageTitle})`}}>
-                <div className="container">
-                    <div className="breadcrumb-wrapper">
-                        <h1>Token</h1>
-                        <div>
-                            <ul className="breadcrumb">
-                                <li className="breadcrumb__item"><a href="index.html">Home</a></li>
-                                <FaIcons.FaAngleDoubleRight />
-                                <li className="breadcrumb__item breadcrumb__item--active">SGE Token</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb title={"Token"} subTitle={"SGE Token"}/>
             {/* <!-- end breadcrumb --> */}
     
     

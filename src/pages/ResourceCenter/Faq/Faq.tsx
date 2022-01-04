@@ -1,25 +1,11 @@
-import pageTitle from '../../../assets/img/bg/page-title.jpg'
-import * as FaIcons from 'react-icons/fa'
+import Breadcrumb from '../../Breadcrumb'
 function Faq() {
     return(
         // <!-- main content -->
         <main className="main">
     
             {/* <!-- breadcrumb --> */}
-            <div className="breadcrumb-area" style={{backgroundImage: `url(${pageTitle})`}}>
-                <div className="container">
-                    <div className="breadcrumb-wrapper">
-                        <h1>Frequently Asked Questions</h1>
-                        <div>
-                            <ul className="breadcrumb">
-                                <li className="breadcrumb__item"><a href="index.html">Home</a></li>
-                                <FaIcons.FaAngleDoubleRight />
-                                <li className="breadcrumb__item breadcrumb__item--active">F&Q</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb title={"Frequently Asked Questions"} subTitle={"F&Q"}/>
             {/* <!-- end breadcrumb --> */}
     
     

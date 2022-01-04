@@ -1,4 +1,4 @@
-import Breadcrumb from "./Breadcrumb/Breadcrumb"
+import Breadcrumb from "../Breadcrumb"
 import Filter from "./Filter/Filter"
 import ExploreArea from "./ExploreArea/ExploreArea"
 function LiveAuction() {
@@ -7,7 +7,7 @@ function LiveAuction() {
         <main className="main">
     
             {/* <!-- breadcrumb -->  style="background-image: url(assets/img/bg/page-title.jpg);"*/}
-            <Breadcrumb />
+            <Breadcrumb title={"Marketplace"} subTitle={"Live Auctions"}/>
             {/* <!-- end breadcrumb --> */}
     
     

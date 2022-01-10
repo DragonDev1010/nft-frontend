@@ -15,11 +15,35 @@ function CreateForm() {
     const [royalty, setRoyalty] = useState(5)
     const [saleOption, setSaleOption] = useState("0")
 
+    const [txConfirm, setTxConfirm] = useState(false)
+    const [tx, setTx] = useState('')
+    const [txFailed, setTxFailed] = useState('')
+
     const nftContract = new web3.eth.Contract(nftJson, nftContractAddress)
     let userWalletAddr:any
-    async function mint(metadata: any) { 
-        console.log("contract address: ",nftContractAddress)
-        await nftContract.methods.mint(metadata).send({from: userWalletAddr[0]})
+    function resetForm() {
+        setImgFile(null)
+        setName('')
+        setDesc('')
+        setCntCopies(1)
+        setCategory('')
+        setRoyalty(5)
+        setSaleOption('0')
+    }
+    // async function mint(metadata: any) { 
+    //     let tx = await nftContract.methods.mint(metadata).send({from: userWalletAddr[0]})
+    //     console.log('Transaction: ', tx)
+    // }
+    async function mint(metadata: any) {
+        try {
+            let tx = await nftContract.methods.mint(metadata).send({from: userWalletAddr[0]})
+            setTxConfirm(true)
+            setTx(tx.hash)
+            resetForm()
+        } catch (err:any) {
+            console.log(err)
+            setTxFailed(err.message)
+        }
     }
     async function handleSubmit(event: any) {
         event.preventDefault()
@@ -46,8 +70,6 @@ function CreateForm() {
         )
             .then( res => res.json() )
             .then( res => {
-                console.log(res.hash)
-
                 mint(res.hash)
             })
     }
@@ -58,6 +80,21 @@ function CreateForm() {
                 <h2>Create New NFT</h2>
             </div>
             {/* <!-- end title --> */}
+            {
+                txConfirm ? 
+                    <p style={{color:"white", fontSize:"20px"}}>Your NFT is successfully minted. You can confirm <a href={process.env.REACT_APP_RINKEYBY_TX_EXPLORER+tx}>here</a></p>
+                :
+                    ""
+            }
+            {
+                txFailed !== '' ?
+                    <>
+                        <p style={{color:"white", fontSize:"20px"}}>Transaction is failed</p>
+                        <p style={{color:"white", fontSize:"20px"}}>Reason: {txFailed}</p>
+                    </>
+                :
+                ""
+            }
             {/* <!-- create form --> */}
             <form onSubmit={handleSubmit} className="sign__form sign__form--create">
                 <div className="row">

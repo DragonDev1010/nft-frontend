@@ -30,26 +30,24 @@ function CreateForm() {
         setRoyalty(5)
         setSaleOption('0')
     }
-    // async function mint(metadata: any) { 
-    //     let tx = await nftContract.methods.mint(metadata).send({from: userWalletAddr[0]})
-    //     console.log('Transaction: ', tx)
-    // }
-    async function mint(metadata: any) {
+    async function mint(ipfsHash: any) {
         try {
-            let tx = await nftContract.methods.mint(metadata).send({from: userWalletAddr[0]})
+            userWalletAddr = await web3.eth.getAccounts()
+            let tx = await nftContract.methods.mint(ipfsHash).send({from: userWalletAddr[0]})
+            create(ipfsHash, tx.events.Transfer.returnValues.tokenId)
             setTxConfirm(true)
-            setTx(tx.hash)
+            setTx(tx.transactionHash)
             resetForm()
         } catch (err:any) {
-            console.log(err)
             setTxFailed(err.message)
         }
     }
-    async function handleSubmit(event: any) {
-        event.preventDefault()
-        userWalletAddr = await web3.eth.getAccounts()
-
+    async function create(hash:any, tokenId:any) {
         var data = new FormData()
+        userWalletAddr = await web3.eth.getAccounts()
+        if( imgFile !== null) {
+            data.append('file', imgFile)
+        }
         data.append('name', name)
         data.append('description', desc)
         data.append('cntCopies', cntCopies.toString())
@@ -58,9 +56,10 @@ function CreateForm() {
         data.append('saleOption', saleOption)
         data.append('creatorAddr', userWalletAddr[0])
         data.append('ownerAddr', userWalletAddr[0])
-        if( imgFile !== null) {
-            data.append('file', imgFile)
-        }
+
+        data.append('hash', hash)
+        data.append('nft_id', tokenId)
+        
         let fetchUrl = process.env.REACT_APP_API_BASE_URL + 'nfts'
         fetch(fetchUrl,
             {
@@ -70,8 +69,22 @@ function CreateForm() {
         )
             .then( res => res.json() )
             .then( res => {
-                mint(res.hash)
             })
+    }
+    async function handleSubmit(event: any) {
+        event.preventDefault()
+
+        var data = new FormData()
+        data.append('name', name)
+        if( imgFile !== null) {
+            data.append('file', imgFile)
+            let ipfsURL = process.env.REACT_APP_API_BASE_URL + 'ipfs'
+            fetch(ipfsURL, {method: 'POST', body: data})
+                .then(res => res.json())
+                .then( res => {
+                    mint(res)
+                })
+        }
     }
     return(
         <div className="col-12 col-xl-9">

@@ -4,8 +4,8 @@ import Others from './Others'
 import SaleOptions from './SaleOptions'
 import UploadFile from './UploadFile'
 import web3 from '../../../../web3'
-const nftJson = require('../../../../contracts/NFT.json')
-const nftContractAddress = process.env.NFT_CONTRACT_ADDR
+const nftJson = require('../../../../contracts/StarSeasNFT.json')
+const nftContractAddress = process.env.REACT_APP_STARSEASNFT_ADDR
 function CreateForm() {
     const [imgFile, setImgFile] = useState(null)
     const [name, setName] = useState('')
@@ -17,24 +17,21 @@ function CreateForm() {
 
     const nftContract = new web3.eth.Contract(nftJson, nftContractAddress)
     let userWalletAddr:any
-    async function mint() { 
-        let nftPrice = await nftContract.methods.PRICE().call()
-        await nftContract.methods.mint(userWalletAddr[0], 1).send({from: userWalletAddr[0], value: nftPrice})
+    async function mint(metadata: any) { 
+        console.log("contract address: ",nftContractAddress)
+        await nftContract.methods.mint(metadata).send({from: userWalletAddr[0]})
     }
     async function handleSubmit(event: any) {
         event.preventDefault()
-        console.log('sdf sdf sdf sdf sdf')
+        userWalletAddr = await web3.eth.getAccounts()
+
         var data = new FormData()
-        if(imgFile !== null) {
-            data.append('imgFile', imgFile)
-        }
         data.append('name', name)
         data.append('description', desc)
         data.append('cntCopies', cntCopies.toString())
         data.append('category', category)
         data.append('royalty', royalty.toString())
         data.append('saleOption', saleOption)
-        userWalletAddr = await web3.eth.getAccounts()
         data.append('creatorAddr', userWalletAddr[0])
         data.append('ownerAddr', userWalletAddr[0])
         if( imgFile !== null) {
@@ -47,7 +44,12 @@ function CreateForm() {
                 body: data
             }
         )
-        // mint()
+            .then( res => res.json() )
+            .then( res => {
+                console.log(res.hash)
+
+                mint(res.hash)
+            })
     }
     return(
         <div className="col-12 col-xl-9">

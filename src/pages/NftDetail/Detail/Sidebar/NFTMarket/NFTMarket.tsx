@@ -1,4 +1,4 @@
-import SellNFT from "./SellNFT"
+import SellNFT from "./SellNFT/SellNFT"
 import BuyNFT from "./BuyNFT"
 import BidAuction from "./BidAuction"
 import CreateAuction from "./CreateAuction"
@@ -12,6 +12,7 @@ function NFTMarket(props:any) {
     },[])
     return(
         <>  
+            <SellNFT cancle={false}/>
             {
                 user === props.owner ?
                 (() => {

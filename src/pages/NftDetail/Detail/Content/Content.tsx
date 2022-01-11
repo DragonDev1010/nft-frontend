@@ -23,6 +23,11 @@ function Content(props: any) {
             .then(res => {
                 if(res[0].img.data.data !== undefined) 
                     getImage(res[0].img.data.data)
+                if(res[0].favUserIds.length > 0) {
+                    setFavCount(res[0].favUserIds.length)
+                } else {
+                    setFavCount(0)
+                }
             })
     }
     useEffect(() => {

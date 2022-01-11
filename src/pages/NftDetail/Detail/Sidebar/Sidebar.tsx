@@ -2,16 +2,25 @@ import AuctionTimer from './AuctionTimer'
 import Info from './Info'
 import TabContent from './Tab/TabContent'
 import TabHead from './Tab/TabHead'
+import NFTMarket from './NFTMarket/NFTMarket'
 import {useState, useEffect} from 'react'
 function Sidebar(props:any) {
+    enum NFTState {
+        Sale,
+        Auction,
+        None
+    }
     const [auctionEnd, setAuctionEnd] = useState(0)
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
     const [currency, setCurrency] = useState(0)
     const [creatorAddr, setCreatorAddr] = useState('')
+    const [ownerAddr, setOwnerAddr] = useState('')
 
     const [desc, setDesc] = useState('')
     const [created, setCreated] = useState('')
+
+    const [nftState, setNftState] = useState(NFTState.None)
 
     function getInfo() {
         let fetchURL = process.env.REACT_APP_API_BASE_URL + 'nfts/' + props.nftId
@@ -32,6 +41,8 @@ function Sidebar(props:any) {
                 if(res[0].created !== undefined) {
                     setCreated(res[0].created)
                 }
+                if(res[0].ownerAddr !== undefined)
+                    setOwnerAddr(res[0].ownerAddr)
             })
     }
     useEffect(() => {
@@ -44,9 +55,7 @@ function Sidebar(props:any) {
                 <TabHead/>
                 <TabContent desc={desc} created={created}/>
                 <AuctionTimer/>
-                <div className="asset__btns">
-                    <a href="#modal-bid" className="asset__btn open-modal">Place a bid</a>
-                </div>
+                <NFTMarket creator={creatorAddr} owner={ownerAddr} nftState = {nftState}/>
             </div>
         </div>
     )

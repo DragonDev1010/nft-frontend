@@ -5,7 +5,7 @@ function Detail(props:any) {
     return(
         <div className="row">
             <Content nftId = {props.nftId}/>
-            <Sidebar />
+            <Sidebar nftId = {props.nftId}/>
         </div>
     )
 }

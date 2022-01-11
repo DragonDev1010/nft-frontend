@@ -1,12 +1,11 @@
 import * as FaIcons from 'react-icons/fa'
+import {useState, useEffect} from 'react'
 function DetailsTab() {
+    const [desc, setDesc] = useState("Nft Description Undefined")
     return(
         <div className="tab-pane fade show active" id="tab-33" role="tabpanel">
             <div className="asset__desc--tab">
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                    doloremque laudantium totam rem aperiam eaque ipsa quae ab illo.
-                </p>
+                <p>{desc}</p>
                 <div className="asset__desc--content">
                     <div className="asset__desc-list">
                         <span> <FaIcons.FaUser/>Item Artist </span>

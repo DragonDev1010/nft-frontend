@@ -30,7 +30,7 @@ function Sidebar(props:any) {
                 if(res[0].description !== undefined)
                     setDesc(res[0].description)
                 if(res[0].created !== undefined) {
-
+                    setCreated(res[0].created)
                 }
             })
     }

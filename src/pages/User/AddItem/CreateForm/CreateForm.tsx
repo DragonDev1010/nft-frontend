@@ -56,7 +56,7 @@ function CreateForm() {
         data.append('saleOption', saleOption)
         data.append('creatorAddr', userWalletAddr[0])
         data.append('ownerAddr', userWalletAddr[0])
-
+        
         data.append('hash', hash)
         data.append('nft_id', tokenId)
         

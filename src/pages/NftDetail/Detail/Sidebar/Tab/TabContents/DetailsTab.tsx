@@ -1,6 +1,21 @@
 import * as FaIcons from 'react-icons/fa'
 import {useState, useEffect} from 'react'
 function DetailsTab(props:any) {
+    const [formatedDate, setFormatedDate] = useState('')
+    function format(str:any) {
+        var dateObj = new Date(str);
+        var month = dateObj.getUTCMonth() + 1; //months from 1-12
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+
+        let newdate = year + " - " + month + " - " + day;
+        setFormatedDate(newdate)
+    }
+    useEffect(() => {
+        if(props.created !== undefined) {
+            format(props.created)
+        }
+    })
     return(
         <div className="tab-pane fade show active" id="tab-33" role="tabpanel">
             <div className="asset__desc--tab">
@@ -28,7 +43,7 @@ function DetailsTab(props:any) {
                     </div> */}
                     <div className="asset__desc-list">
                         <span> <FaIcons.FaClock/>Created </span>
-                        <span> {props.created} </span>
+                        <span>{formatedDate}</span>
                     </div>
                 </div>
             </div>

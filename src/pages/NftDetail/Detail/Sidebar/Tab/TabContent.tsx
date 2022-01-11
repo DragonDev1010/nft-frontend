@@ -2,11 +2,11 @@ import BidsTab from "./TabContents/BidsTab"
 import DetailsTab from "./TabContents/DetailsTab"
 import HistoryTab from "./TabContents/HistoryTab"
 
-function TabContent() {
+function TabContent(props:any) {
     return(
         <>
             <div className="tab-content">
-                <DetailsTab/>
+                <DetailsTab desc={props.desc} created={props.created}/>
                 <BidsTab/>
                 <HistoryTab/>
             </div>

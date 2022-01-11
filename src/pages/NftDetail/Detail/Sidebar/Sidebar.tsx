@@ -9,6 +9,10 @@ function Sidebar(props:any) {
     const [price, setPrice] = useState(0)
     const [currency, setCurrency] = useState(0)
     const [creatorAddr, setCreatorAddr] = useState('')
+
+    const [desc, setDesc] = useState('')
+    const [created, setCreated] = useState('')
+
     function getInfo() {
         let fetchURL = process.env.REACT_APP_API_BASE_URL + 'nfts/' + props.nftId
         fetch(fetchURL)
@@ -22,6 +26,12 @@ function Sidebar(props:any) {
                     setPrice(res[0].price)
                 if(res[0].creatorAddr !== undefined)
                     setCreatorAddr(res[0].creatorAddr)
+
+                if(res[0].description !== undefined)
+                    setDesc(res[0].description)
+                if(res[0].created !== undefined) {
+
+                }
             })
     }
     useEffect(() => {
@@ -32,7 +42,7 @@ function Sidebar(props:any) {
             <div className="asset__info">
                 <Info name={name} currency={currency} price={price} creator={creatorAddr}/>
                 <TabHead/>
-                <TabContent/>
+                <TabContent desc={desc} created={created}/>
                 <AuctionTimer/>
                 <div className="asset__btns">
                     <a href="#modal-bid" className="asset__btn open-modal">Place a bid</a>

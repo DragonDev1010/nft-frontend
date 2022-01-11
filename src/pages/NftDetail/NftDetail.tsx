@@ -2,29 +2,13 @@ import pageTitle from '../../assets/img/bg/page-title.jpg'
 import single from '../../assets/img/items/single.jpg'
 import avatar from '../../assets/img/avatars/1.jpg'
 import * as FaIcons from 'react-icons/fa'
+import Breadcrumb from '../Breadcrumb'
 function NftDetail(props: any) {
     const nftId = props.match.params.nftId
     return (
         // <!-- main content -->
             <main className="main">
-        
-                {/* <!-- breadcrumb --> */}
-                <div className="breadcrumb-area" style={{backgroundImage: `url(${pageTitle})`}}>
-                    <div className="container">
-                        <div className="breadcrumb-wrapper">
-                            <h1>Item Single</h1>
-                            <div>
-                                <ul className="breadcrumb">
-                                    <li className="breadcrumb__item"><a href="index.html">Home</a></li>
-                                    <li className="breadcrumb__item breadcrumb__item--active">Item Single</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* <!-- end breadcrumb --> */}
-        
-        
+                <Breadcrumb title={"Item Single"} subTitle={"Item Single"}/>
                 {/* <!-- item single --> */}
                 <div className="item-single pt-70">
                     <div className="container">

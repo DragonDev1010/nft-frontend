@@ -2,7 +2,8 @@ import pageTitle from '../../assets/img/bg/page-title.jpg'
 import single from '../../assets/img/items/single.jpg'
 import avatar from '../../assets/img/avatars/1.jpg'
 import * as FaIcons from 'react-icons/fa'
-function NftDetail() {
+function NftDetail(props: any) {
+    const nftId = props.match.params.nftId
     return (
         // <!-- main content -->
             <main className="main">

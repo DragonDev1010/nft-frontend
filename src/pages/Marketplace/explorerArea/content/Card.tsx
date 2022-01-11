@@ -61,7 +61,7 @@ function Card(props: any) {
     return (
         <div className="col-12 col-sm-6 col-lg-4 col-xl-4">
             <div className="card">
-                <a href="item.html" className="card__cover">
+                <a href={props.details.nft_id} className="card__cover">
                     <img src={itemImg} alt=""/>
                 </a>
                 <h3 className="card__title">

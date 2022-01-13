@@ -1,11 +1,10 @@
-import BuyNFT from "./BuyNFT"
-import BidAuction from "./BidAuction"
-import CancelAuction from "./CreateAuction/CancelAuction"
-import CreateAuction from "./CreateAuction/CreateAuction"
 import {useState, useEffect} from 'react'
-import SelectedFiltersDetail from "../../../../Marketplace/explorerArea/sideBar/SelectedFilters/SelectedFiltersDetail"
 import CreateSellNFT from "./SellNFT/CreateSellNFT"
 import CancelSellNFT from "./SellNFT/CancelSellNFT"
+import CancelAuction from "./CreateAuction/CancelAuction"
+import CreateAuction from "./CreateAuction/CreateAuction"
+import BuyNFT from "./BuyNFT/BuyNFT"
+import BidAuction from "./BidAuction/BidAuction"
 function NFTMarket(props:any) {
     const [user, setUser] = useState<any>('')
     useEffect(() => {
@@ -43,6 +42,15 @@ function NFTMarket(props:any) {
                                 </>
                             )
                             break;
+                        default:
+                            return(
+                                //  Create Sale or Auction 
+                                <>
+                                    <CreateSellNFT nftId = {props.nftId}/>
+                                    <CreateAuction nftId={props.nftId}/>
+                                </>
+                            )
+                            break;
                     }
                 })()
                 :
@@ -51,13 +59,13 @@ function NFTMarket(props:any) {
                         case 'sale': // Sale
                             return (
                                 //  Buy NFT 
-                                <BuyNFT owner={false}/>
+                                <BuyNFT nftId={props.nftId}/>
                             )
                             break;
                         case 'auction': // Auction
                             return (
                                 //  Bid Auction 
-                                <BidAuction owner={false}/>
+                                <BidAuction nftId={props.nftId}/>
                             )
                             break;
                         case 'none': // None

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import web3 from '../../../../../../web3'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { FaDigitalTachograph } from 'react-icons/fa';
+
 const marketJSON = require('../../../../../../contracts/Market.json')
 const marketContractAddr = process.env.REACT_APP_MARKET_ADDR
 

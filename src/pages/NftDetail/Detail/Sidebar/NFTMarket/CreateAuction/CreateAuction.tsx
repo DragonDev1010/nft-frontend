@@ -22,7 +22,7 @@ function CreateAuction(props:any) {
     const starSeasNft = new web3.eth.Contract(starSeasNftJSON, starSeasNftContractAddr)
     let tx
 
-    function setSellOnDB(currency:any, price: any) {
+    function updateNftState(currency:any, price: any) {
         var data = new FormData()
         data.append('currency', currency)
         data.append('price', price.toString())
@@ -34,15 +34,25 @@ function CreateAuction(props:any) {
 
             })
     }
+    function addNewAuctionDB(currency:any, price:any, creator:any) {
+        var data = new FormData()
+        data.append('nftId', props.nftId)
+        data.append('currency', currency)
+        data.append('auctionPrice', price)
+        data.append('startTime', startDate.toString())
+        data.append('endTime', endDate.toString())
+        data.append('creator', creator)
+        let created = new Date()
+        data.append('created', created.toString())
+        let apiURL = process.env.REACT_APP_API_BASE_URL + 'auctions/'
+        fetch(apiURL, {method: 'POST', body: data})
+            .then(res => res.json())
+            .then(res => {
+            })
+    }
     async function createAuction(event:any) {
         event.preventDefault()
-        console.log(
-            'Token Id: ', props.nftId,
-            'Currency Type: ', currency,
-            'Price: ', price,
-            'Start Time: ', Math.round(startDate.getTime()/1000),
-            'End Time: ', Math.round(endDate.getTime()/1000)
-        )
+        
         try {
             let userWalletAddr = await web3.eth.getAccounts()
             tx = await starSeasNft.methods.approve(auctionContractAddr, props.nftId).send({from: userWalletAddr[0]})
@@ -58,10 +68,13 @@ function CreateAuction(props:any) {
             }
             setTxConfirm(true)
             setTxHash(tx.transactionHash)
-            setSellOnDB(currency, price)
+            updateNftState(currency, price)
+            addNewAuctionDB(currency, price, userWalletAddr[0])
         } catch (error: any) {
             setTxFailed(error.message)
         }
+        // let userWalletAddr = await web3.eth.getAccounts()
+        // addNewAuctionDB(currency, price, userWalletAddr[0])
     }
     return(
         <>

@@ -34,15 +34,24 @@ function CreateSellNFT(props:any) {
 
             })
     }
+    function addNewSaleDB(currency:any, price:any, creator:any) {
+        var data = new FormData()
+        data.append('nftId', props.nftId)
+        data.append('currency', currency)
+        data.append('salePrice', price)
+        data.append('startTime', startDate.toString())
+        data.append('endTime', endDate.toString())
+        data.append('creator', creator)
+        let created = new Date()
+        data.append('created', created.toString())
+        let apiURL = process.env.REACT_APP_API_BASE_URL + 'sales/'
+        fetch(apiURL, {method: 'POST', body: data})
+            .then(res => res.json())
+            .then(res => {
+            })
+    }
     async function sellNft(event: any) {
         event.preventDefault()
-        console.log(
-            props.nftId,
-            currency,
-            price,
-            Math.round(startDate.getTime()/1000),
-            endDate
-        )
         try {
             let userWalletAddr = await web3.eth.getAccounts()
             tx = await starSeasNft.methods.approve(marketContractAddr, props.nftId).send({from: userWalletAddr[0]})
@@ -64,6 +73,7 @@ function CreateSellNFT(props:any) {
             setTxConfirm(true)
             setTxHash(tx.transactionHash)
             setSellOnDB(currency, price)
+            addNewSaleDB(currency, price, userWalletAddr[0])
         } catch (error: any) {
             setTxFailed(error.message)
         }

@@ -5,6 +5,7 @@ const auctionJSON = require('../../../../../../contracts/Auction.json')
 const auctionContractAddr = process.env.REACT_APP_AUCTION_ADDR
 
 function BidAuction(props:any) {
+    const [currency, setCurrency] = useState('eth')
     const [price, setPrice] = useState('0')
     const [highest, setHighest] = useState(0)
     const [endTime, setEndTime] = useState(0)
@@ -16,15 +17,36 @@ function BidAuction(props:any) {
     const auctionContract = new web3.eth.Contract(auctionJSON, auctionContractAddr)
     
     let tx
+    function updateDB(bidPrice:any, bidder:any) {
+        var data = new FormData()
+        data.append('highestBid', bidPrice)
+        data.append('bidder', bidder)
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'auctions/' + props.nftId
+        fetch(fetchURL, {method:'PUT', body:data})
+    }
     async function bid(event: any) {
         event.preventDefault()
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'auctions/' + props.nftId
+        fetch(fetchURL)
+            .then(res => res.json())
+            .then(res => {
+                if(res[0].currency !== undefined)
+                    setCurrency(res[0].currency)
+            })
         try {
             let userWalletAddr = await web3.eth.getAccounts()
-            tx = await auctionContract.methods
-                .Bidding(props.nftId, price)
-                .send({from: userWalletAddr[0]})
+            if(currency === 'eth') {
+                tx = await auctionContract.methods
+                    .Bidding(props.nftId, web3.utils.toWei(price, 'ether'))
+                    .send({from: userWalletAddr[0]})
+            } else {
+                tx = await auctionContract.methods
+                    .Bidding(props.nftId, web3.utils.toWei(price, 'ether'))
+                    .send({from: userWalletAddr[0]})
+            }
             setTxConfirm(true)
             setTxHash(tx.transactionHash)
+            updateDB(price, userWalletAddr[0])
         } catch (error: any) {
             setTxFailed(error.message)
         }

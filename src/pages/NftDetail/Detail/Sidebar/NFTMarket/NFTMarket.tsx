@@ -70,7 +70,12 @@ function NFTMarket(props:any) {
                             break;
                         case 'none': // None
                             return (
-                                <></>
+                                <>This NFT is disabled now.</>
+                            )
+                            break;
+                        default: // None
+                            return (
+                                <>This NFT is disabled now.</>
                             )
                             break;
                     }

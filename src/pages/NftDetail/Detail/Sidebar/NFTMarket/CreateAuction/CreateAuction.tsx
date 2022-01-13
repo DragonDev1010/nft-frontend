@@ -42,6 +42,7 @@ function CreateAuction(props:any) {
         data.append('startTime', startDate.toString())
         data.append('endTime', endDate.toString())
         data.append('creator', creator)
+        data.append('highestBid', price)
         let created = new Date()
         data.append('created', created.toString())
         let apiURL = process.env.REACT_APP_API_BASE_URL + 'auctions/'

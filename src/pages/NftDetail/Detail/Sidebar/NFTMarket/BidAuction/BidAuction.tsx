@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import web3 from '../../../../../../web3'
-
+import AuctionTimer from '../../AuctionTimer'
 const auctionJSON = require('../../../../../../contracts/Auction.json')
 const auctionContractAddr = process.env.REACT_APP_AUCTION_ADDR
 
 function BidAuction(props:any) {
     const [price, setPrice] = useState('0')
     const [highest, setHighest] = useState(0)
+    const [endTime, setEndTime] = useState(0)
 
     const [txConfirm, setTxConfirm] = useState(false)
     const [txHash, setTxHash] = useState('')
@@ -28,11 +29,26 @@ function BidAuction(props:any) {
             setTxFailed(error.message)
         }
     }
+    function getHighestBid() {
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'auctions/' + props.nftId
+        fetch(fetchURL)
+            .then(res => res.json())
+            .then(res => {
+                if(res[0].highestBid !== undefined)
+                    setHighest(res[0].highestBid)
+                if(res[0].endTime !== undefined)
+                    setEndTime(res[0].endTime)
+            })
+    }
+    useEffect(() => {
+        getHighestBid()
+    })
     return(
         <form onSubmit={bid}>
+            <AuctionTimer endTime={endTime} highest={highest}/>
             <div className="col-12">
                 <div className="sign__group">
-                    <label className="sign__label" htmlFor="itemname">Bid Price <span>Highest Bid Price: {highest}</span></label>
+                    <label className="sign__label" htmlFor="itemname">Bid Price</label>
                     <input id="itemname" type="text" name="itemname" className="sign__input" placeholder="" onChange={(e:any) => {setPrice(e.target.value)}}/>
                 </div>
             </div>

@@ -370,17 +370,17 @@ $(document).ready(function () {
 	/*==============================
 	Countdown
 	==============================*/
-	$('.asset__clock').countdown('2025/12/01', function(event) {
-		$(this).html(event.strftime('<div class="asset__countdown"><div class="asset__countdown--single"><div>%D</div><small>Days</small></div><div class="asset__countdown--single"><div>%H</div><small>Hours</small></div><div class="asset__countdown--single"><div>%M</div><small>Mins</small></div><div class="asset__countdown--single"><div>%S</div><small>Secs</small></div></div>'));
-	});
+	// $('.asset__clock').countdown('2025/12/01', function(event) {
+	// 	$(this).html(event.strftime('<div class="asset__countdown"><div class="asset__countdown--single"><div>%D</div><small>Days</small></div><div class="asset__countdown--single"><div>%H</div><small>Hours</small></div><div class="asset__countdown--single"><div>%M</div><small>Mins</small></div><div class="asset__countdown--single"><div>%S</div><small>Secs</small></div></div>'));
+	// });
 
-	$('.card__clock--1').countdown('2025/12/01', function(event) {
-		$(this).html(event.strftime('%H:%M:%S'));
-	});
+	// $('.card__clock--1').countdown('2025/12/01', function(event) {
+	// 	$(this).html(event.strftime('%H:%M:%S'));
+	// });
 
-	$('.card__clock--2').countdown('2025/12/01', function(event) {
-		$(this).html(event.strftime('%H:%M:%S'));
-	});
+	// $('.card__clock--2').countdown('2025/12/01', function(event) {
+	// 	$(this).html(event.strftime('%H:%M:%S'));
+	// });
 
 	/*==============================
 	Scrollbar

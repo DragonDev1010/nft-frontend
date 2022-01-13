@@ -1,4 +1,3 @@
-import AuctionTimer from './AuctionTimer'
 import Info from './Info'
 import TabContent from './Tab/TabContent'
 import TabHead from './Tab/TabHead'
@@ -56,7 +55,6 @@ function Sidebar(props:any) {
                 <Info name={name} currency={currency} price={price} creator={creatorAddr}/>
                 <TabHead/>
                 <TabContent desc={desc} created={created}/>
-                <AuctionTimer/>
                 <NFTMarket creator={creatorAddr} owner={ownerAddr} nftState = {nftState} nftId={props.nftId}/>
             </div>
         </div>

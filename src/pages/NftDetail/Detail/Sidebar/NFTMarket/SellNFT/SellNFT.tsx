@@ -8,7 +8,7 @@ function SellNFT(props:any) {
                 props.cancel ?
                 <button style={{color:"white"}}>Cancel selling</button>
                 :
-                <SellNFTForm/>
+                <SellNFTForm nftId={props.nftId}/>
             }
         </>
     )

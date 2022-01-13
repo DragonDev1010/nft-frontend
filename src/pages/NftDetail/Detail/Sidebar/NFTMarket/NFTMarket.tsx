@@ -1,7 +1,7 @@
 import SellNFT from "./SellNFT/SellNFT"
 import BuyNFT from "./BuyNFT"
 import BidAuction from "./BidAuction"
-import CreateAuction from "./CreateAuction"
+import CreateAuction from "./CreateAuction/CreateAuction"
 import {useState, useEffect} from 'react'
 import SelectedFiltersDetail from "../../../../Marketplace/explorerArea/sideBar/SelectedFilters/SelectedFiltersDetail"
 function NFTMarket(props:any) {
@@ -12,8 +12,9 @@ function NFTMarket(props:any) {
     },[])
     return(
         <>  
-            <SellNFT cancle={false}/>
-            {
+            <SellNFT cancle={false} nftId = {props.nftId}/>
+            <CreateAuction nftId={props.nftId}/>
+            {/* {
                 user === props.owner ?
                 (() => {
                     switch (props.nftState) {
@@ -62,7 +63,7 @@ function NFTMarket(props:any) {
                             break;
                     }
                 })()
-            }
+            } */}
         </>
     )
 }

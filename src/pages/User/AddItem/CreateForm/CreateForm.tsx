@@ -16,7 +16,7 @@ function CreateForm() {
     const [saleOption, setSaleOption] = useState("0")
 
     const [txConfirm, setTxConfirm] = useState(false)
-    const [tx, setTx] = useState('')
+    const [txHash, setTxHash] = useState('')
     const [txFailed, setTxFailed] = useState('')
 
     const nftContract = new web3.eth.Contract(nftJson, nftContractAddress)
@@ -36,7 +36,7 @@ function CreateForm() {
             let tx = await nftContract.methods.mint(ipfsHash).send({from: userWalletAddr[0]})
             create(ipfsHash, tx.events.Transfer.returnValues.tokenId)
             setTxConfirm(true)
-            setTx(tx.transactionHash)
+            setTxHash(tx.transactionHash)
             resetForm()
         } catch (err:any) {
             setTxFailed(err.message)
@@ -88,14 +88,12 @@ function CreateForm() {
     }
     return(
         <div className="col-12 col-xl-9">
-            {/* <!-- title --> */}
             <div className="main__title main__title--create">
                 <h2>Create New NFT</h2>
             </div>
-            {/* <!-- end title --> */}
             {
                 txConfirm ? 
-                    <p style={{color:"white", fontSize:"20px"}}>Your NFT is successfully minted. You can confirm <a href={process.env.REACT_APP_RINKEYBY_TX_EXPLORER+tx}>here</a></p>
+                    <p style={{color:"white", fontSize:"20px"}}>Your NFT is successfully minted. You can confirm <a href={process.env.REACT_APP_RINKEYBY_TX_EXPLORER+txHash}>here</a></p>
                 :
                     ""
             }

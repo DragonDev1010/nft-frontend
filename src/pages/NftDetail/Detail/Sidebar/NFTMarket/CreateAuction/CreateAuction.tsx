@@ -1,3 +1,5 @@
+import CreateAuctionForm from "./CreateAuctionForm"
+
 function CreateAuction(props:any) {
     return(
         <>
@@ -5,7 +7,7 @@ function CreateAuction(props:any) {
                 props.cancel ? 
                 <button style={{color:"white"}}>Cancel Auction</button>
                 :
-                <button style={{color:"white"}}>Create Auction</button>
+                <CreateAuctionForm nftId={props.nftId}/>
             }
         </>
     )

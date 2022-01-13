@@ -55,7 +55,7 @@ function Sidebar(props:any) {
                 <TabHead/>
                 <TabContent desc={desc} created={created}/>
                 <AuctionTimer/>
-                <NFTMarket creator={creatorAddr} owner={ownerAddr} nftState = {nftState}/>
+                <NFTMarket creator={creatorAddr} owner={ownerAddr} nftState = {nftState} nftId={props.nftId}/>
             </div>
         </div>
     )

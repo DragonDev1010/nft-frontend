@@ -1,14 +1,14 @@
-import SellNFTForm from "./SellNFTForm"
-
+import CreateSellNFT from "./CreateSellNFT"
+import CancelSellNFT from "./CancelSellNFT"
 function SellNFT(props:any) {
 
     return(
         <>
             {
                 props.cancel ?
-                <button style={{color:"white"}}>Cancel selling</button>
+                <CancelSellNFT nftId={props.nftId}/>
                 :
-                <SellNFTForm nftId={props.nftId}/>
+                <CreateSellNFT nftId={props.nftId}/>
             }
         </>
     )

@@ -35,15 +35,15 @@ function CreateAuctionForm(props:any) {
             let userWalletAddr = await web3.eth.getAccounts()
             tx = await starSeasNft.methods.approve(auctionContractAddr, props.nftId).send({from: userWalletAddr[0]})
             // function createAuction(uint256 tokenId_, Currency currency_, uint256 auctionPrice_, uint256 startTime_, uint256 endTime_)
-            // if(currency === 'eth'){
-            //     tx = await auctionContract.methods
-            //         .createAuction(props.nftId, currency, web3.utils.toWei(price, 'ether'), Math.round(startDate.getTime()/1000), Math.round(endDate.getTime()/1000))
-            //         .send({from: userWalletAddr[0]})
-            // } else {
-            //     tx = await auctionContract.methods
-            //         .createAuction(props.nftId, currency, web3.utils.toWei(price, 'ether'), Math.round(startDate.getTime()/1000), Math.round(endDate.getTime()/1000))
-            //         .send({from: userWalletAddr[0]})
-            // }
+            if(currency === 'eth'){
+                tx = await auctionContract.methods
+                    .createAuction(props.nftId, currency, web3.utils.toWei(price, 'ether'), Math.round(startDate.getTime()/1000), Math.round(endDate.getTime()/1000))
+                    .send({from: userWalletAddr[0]})
+            } else {
+                tx = await auctionContract.methods
+                    .createAuction(props.nftId, currency, web3.utils.toWei(price, 'ether'), Math.round(startDate.getTime()/1000), Math.round(endDate.getTime()/1000))
+                    .send({from: userWalletAddr[0]})
+            }
             setTxConfirm(true)
             setTxHash(tx.transactionHash)
         } catch (error: any) {

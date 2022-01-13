@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import web3 from '../../../../../../web3'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FaDigitalTachograph } from 'react-icons/fa';
 const marketJSON = require('../../../../../../contracts/Market.json')
 const marketContractAddr = process.env.REACT_APP_MARKET_ADDR
 
 const starSeasNftJSON = require('../../../../../../contracts/StarSeasNFT.json')
 const starSeasNftContractAddr = process.env.REACT_APP_STARSEASNFT_ADDR
 
-function SellNFTForm(props:any) {
+function CreateSellNFT(props:any) {
     const [endDate, setEndDate] = useState(new Date())
     const [startDate, setStartDate] = useState(new Date());
     const [currency, setCurrency] = useState('eth')
@@ -21,6 +22,18 @@ function SellNFTForm(props:any) {
     const marketContract = new web3.eth.Contract(marketJSON, marketContractAddr)
     const starSeasNft = new web3.eth.Contract(starSeasNftJSON, starSeasNftContractAddr)
     let tx
+    function setSellOnDB(currency:any, price: any) {
+        var data = new FormData()
+        data.append('currency', currency)
+        data.append('price', price.toString())
+        data.append('state', 'sale')
+        let updateURL = process.env.REACT_APP_API_BASE_URL + 'nfts/' + props.nftId
+        fetch(updateURL, {method: 'PUT', body: data})
+            .then(res => res.json())
+            .then( res => {
+
+            })
+    }
     async function sellNft(event: any) {
         event.preventDefault()
         console.log(
@@ -46,10 +59,11 @@ function SellNFTForm(props:any) {
                 decimal = 9
                 console.log('sge price: ', web3.utils.toWei(price, 'ether'))
                 // sellingNFT(uint256 tokenId_, Currency currency_,  uint256 salePrice_, uint256 startTime_, uint256 endTime_)
-                tx = await marketContract.methods.sellingNFT(props.nftId, 1, web3.utils.toWei(price, 'ether'), startDate, endDate).send({from: userWalletAddr[0]})
+                tx = await marketContract.methods.sellingNFT(props.nftId, 1, web3.utils.toWei(price, 'ether'), Math.round(startDate.getTime()/1000), Math.round(endDate.getTime()/1000)).send({from: userWalletAddr[0]})
             }
             setTxConfirm(true)
             setTxHash(tx.transactionHash)
+            setSellOnDB(currency, price)
         } catch (error: any) {
             setTxFailed(error.message)
         }
@@ -102,4 +116,4 @@ function SellNFTForm(props:any) {
     )
 }
 
-export default SellNFTForm
+export default CreateSellNFT

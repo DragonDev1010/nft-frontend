@@ -43,6 +43,8 @@ function Sidebar(props:any) {
                 }
                 if(res[0].ownerAddr !== undefined)
                     setOwnerAddr(res[0].ownerAddr)
+                if(res[0].state !== undefined)
+                    setNftState(res[0].state)
             })
     }
     useEffect(() => {

@@ -14,34 +14,32 @@ function NFTMarket(props:any) {
     },[])
     return(
         <>  
-            {/* <CreateSellNFT nftId = {props.nftId}/> */}
-            {/* <CancelSellNFT nftId = {props.nftId}/> */}
+            {/* <CreateSellNFT nftId = {props.nftId}/>
+            <CancelSellNFT nftId = {props.nftId}/>
             <CreateAuction nftId={props.nftId}/>
-            <CancelAuction nftId={props.nftId}/>
-            {/* <SellNFT cancle={false} nftId = {props.nftId}/> */}
-            {/* <CreateAuction nftId={props.nftId}/> */}
-            {/* {
+            <CancelAuction nftId={props.nftId}/> */}
+            {
                 user === props.owner ?
                 (() => {
                     switch (props.nftState) {
-                        case 0: // Sale
+                        case 'sale': // Sale
                             return (
                                 // Cancel Sale
-                                <SellNFT cancle={true}/>
+                                <CancelSellNFT nftId = {props.nftId}/>
                             )
                             break;
-                        case 1:  // Auction
+                        case 'auction':  // Auction
                             return (
                                 // Cancel Auction 
-                                <CreateAuction cancle={true}/>
+                                <CancelAuction nftId={props.nftId}/>
                             )
                             break;
-                        case 2: // None
+                        case 'none': // None
                             return (
                                 //  Create Sale or Auction 
                                 <>
-                                    <SellNFT cancle={false}/>
-                                    <CreateAuction cancle={false}/>
+                                    <CreateSellNFT nftId = {props.nftId}/>
+                                    <CreateAuction nftId={props.nftId}/>
                                 </>
                             )
                             break;
@@ -50,26 +48,26 @@ function NFTMarket(props:any) {
                 :
                 (() => {
                     switch (props.nftState) {
-                        case 0: // Sale
+                        case 'sale': // Sale
                             return (
                                 //  Buy NFT 
                                 <BuyNFT owner={false}/>
                             )
                             break;
-                        case 1: // Auction
+                        case 'auction': // Auction
                             return (
                                 //  Bid Auction 
                                 <BidAuction owner={false}/>
                             )
                             break;
-                        case 2: // None
+                        case 'none': // None
                             return (
                                 <></>
                             )
                             break;
                     }
                 })()
-            } */}
+            }
         </>
     )
 }

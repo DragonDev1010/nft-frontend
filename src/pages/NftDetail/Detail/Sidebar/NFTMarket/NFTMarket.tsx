@@ -1,4 +1,3 @@
-import SellNFT from "./SellNFT/SellNFT"
 import BuyNFT from "./BuyNFT"
 import BidAuction from "./BidAuction"
 import CreateAuction from "./CreateAuction/CreateAuction"

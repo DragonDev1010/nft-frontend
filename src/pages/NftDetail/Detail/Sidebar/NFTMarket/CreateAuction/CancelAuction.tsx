@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
 import web3 from '../../../../../../web3'
-const marketJSON = require('../../../../../../contracts/Market.json')
-const marketContractAddr = process.env.REACT_APP_MARKET_ADDR
 
-function CancelSellNFT(props:any) {
+const auctionJSON = require('../../../../../../contracts/Auction.json')
+const auctionContractAddr = process.env.REACT_APP_AUCTION_ADDR
+
+function CancelAuction(props:any) {
 
     const [txConfirm, setTxConfirm] = useState(false)
     const [txHash, setTxHash] = useState('')
     const [txFailed, setTxFailed] = useState('')
 
-    const marketContract = new web3.eth.Contract(marketJSON, marketContractAddr)
+    const auctionContract = new web3.eth.Contract(auctionJSON, auctionContractAddr)
     let tx
+
     function setSellOnDB(currency:any, price: any) {
         var data = new FormData()
         data.append('currency', currency)
@@ -28,8 +30,8 @@ function CancelSellNFT(props:any) {
         console.log('click cancel button')
         try {
             let userWalletAddr = await web3.eth.getAccounts()
-            tx = await marketContract.methods
-                .cancelSell(props.nftId)
+            tx = await auctionContract.methods
+                .CancelAuction(props.nftId)
                 .send({from: userWalletAddr[0]})
             setTxConfirm(true)
             setTxHash(tx.transactionHash)
@@ -40,9 +42,9 @@ function CancelSellNFT(props:any) {
     }
     return(
         <>
-            <button style={{color:"white"}} onClick={cancel}>Cancel NFT Sale</button>
+            <button style={{color:"white"}} onClick={cancel}>Cancel Auction</button>
         </>
     )
 }
 
-export default CancelSellNFT
+export default CancelAuction

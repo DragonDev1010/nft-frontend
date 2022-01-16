@@ -83,7 +83,11 @@ function NavUser() {
                     </Dropdown>
                 </div>
                 :
-                <button onClick = {connect} className="">Connect</button>
+                <button onClick = {connect} className="" style={{
+                    "fontSize": "16px",
+                    "color": "#ff37d0",
+                    "fontWeight": "bold"
+                }}>Connect</button>
             }
 
         </div>

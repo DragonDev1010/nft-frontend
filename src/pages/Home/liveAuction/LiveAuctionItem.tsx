@@ -67,7 +67,7 @@ function LiveAuctionItem(props:any) {
         return() => {
             clearInterval(myInterval)
         }
-    })
+    }, [])
     return(
         <div className = "card">
             <a href={`/assets/${props.nftId}`} className = "card__cover">

@@ -38,7 +38,6 @@ function LiveAuction() {
                             :
                                 <OwlCarousel items={4}  
                                     className="owl-theme"  
-                                    loop  
                                     margin={8} >
                                     {
                                         auctions.map((auction:any) => (

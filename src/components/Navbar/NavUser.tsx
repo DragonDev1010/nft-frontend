@@ -95,7 +95,7 @@ function NavUser() {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu className="header__profile-menu">
-                                    <Dropdown.Item href="/profile"><FaIcons.FaUser /> <span>Sign Up</span></Dropdown.Item>
+                                    <Dropdown.Item href="/signup"><FaIcons.FaUser /> <span>Sign Up</span></Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>

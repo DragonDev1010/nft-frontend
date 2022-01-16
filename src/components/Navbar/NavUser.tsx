@@ -62,26 +62,44 @@ function NavUser() {
             </div>
             {
                 ((localStorage.getItem('connected') === 'true') && (localStorage.getItem('wallet') !== 'null')) ?
-                <div className="header__action header__action--profile">
-                    <Dropdown>
-                        <Dropdown.Toggle variant="" id="dropdown-basic" className="header__profile-btn header__profile-btn--verified">
-                            <img src={avatar1} alt=""/>
-                            <div>
-                                <p>{name}</p>
-                                <span>{balance} ETH</span>
-                            </div>
-                            <FaIcons.FaAngleDown />
-                        </Dropdown.Toggle>
+                (
+                    name !== undefined ?
+                        <div className="header__action header__action--profile">
+                            <Dropdown>
+                                <Dropdown.Toggle variant="" id="dropdown-basic" className="header__profile-btn header__profile-btn--verified">
+                                    <img src={avatar1} alt=""/>
+                                    <div>
+                                        <p>{name}</p>
+                                        <span>{balance} ETH</span>
+                                    </div>
+                                    <FaIcons.FaAngleDown />
+                                </Dropdown.Toggle>
 
-                        <Dropdown.Menu className="header__profile-menu">
-                            <Dropdown.Item href="/profile"><FaIcons.FaUser /> <span>Profile</span></Dropdown.Item>
-                            <Dropdown.Item href="/profile"><FaIcons.FaListUl/><span>Activity</span></Dropdown.Item>
-                            <Dropdown.Item href="/addItem"><FaIcons.FaLayerGroup/> <span>Add Item</span></Dropdown.Item>
-                            <Dropdown.Item href="/profile"><FaIcons.FaCog /> <span>Settings</span></Dropdown.Item>
-                            <Dropdown.Item href="/" onClick={disconnect}><FaIcons.FaSignOutAlt/> <span>Sign out</span></Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </div>
+                                <Dropdown.Menu className="header__profile-menu">
+                                    <Dropdown.Item href="/profile"><FaIcons.FaUser /> <span>Profile</span></Dropdown.Item>
+                                    <Dropdown.Item href="/profile"><FaIcons.FaListUl/><span>Activity</span></Dropdown.Item>
+                                    <Dropdown.Item href="/addItem"><FaIcons.FaLayerGroup/> <span>Add Item</span></Dropdown.Item>
+                                    <Dropdown.Item href="/profile"><FaIcons.FaCog /> <span>Settings</span></Dropdown.Item>
+                                    <Dropdown.Item href="/" onClick={disconnect}><FaIcons.FaSignOutAlt/> <span>Sign out</span></Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
+                    :
+                        <div className="header__action header__action--profile">
+                            <Dropdown>
+                                <Dropdown.Toggle variant="" id="dropdown-basic" className="header__profile-btn">
+                                    <div>
+                                        <span>{balance} ETH</span>
+                                    </div>
+                                    <FaIcons.FaAngleDown />
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu className="header__profile-menu">
+                                    <Dropdown.Item href="/profile"><FaIcons.FaUser /> <span>Sign Up</span></Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
+                )
                 :
                 <button onClick = {connect} className="" style={{
                     "fontSize": "16px",

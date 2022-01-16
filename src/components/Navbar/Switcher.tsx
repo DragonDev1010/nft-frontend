@@ -55,7 +55,11 @@ function Switcher() {
             </Route>
             <Route path='/addItem' exact>
                 <AddItem/>
-            </Route>                
+            </Route>        
+
+            <Route path='/signup' exact>
+                <Profile signup={true}/>
+            </Route>        
         </Switch>
     )
 }

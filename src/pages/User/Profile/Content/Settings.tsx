@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-function Settings() {
+function Settings(props:any) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [firstName, setFirstName] = useState('')
@@ -77,7 +77,8 @@ function Settings() {
         fetchData()
     }, [])
     return(
-        <div className="tab-pane fade" id="tab-4" role="tabpanel">
+        // <div className="tab-pane fade" id="tab-4" role="tabpanel">
+        <div className={props.signup? "tab-pane fade show active":"tab-pane fade"} id="tab-4" role="tabpanel">
             <div className="row row--grid">
                 {/* <!-- details form --> */}
                 <div className="col-12 col-lg-6">

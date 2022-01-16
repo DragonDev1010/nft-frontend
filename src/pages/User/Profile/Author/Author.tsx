@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import * as FaIcons from 'react-icons/fa'
-function Author() {
+function Author(props:any) {
     const [img, setImg] = useState('')
     const [name, setName] = useState('')
     const [desc, setDesc] = useState('')

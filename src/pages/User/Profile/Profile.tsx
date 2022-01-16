@@ -1,26 +1,25 @@
 import * as FaIcons from 'react-icons/fa'
 import Author from './Author/Author'
 import Content from './Content/Content'
-function Profile() {
+function Profile(props:any) {
+    console.log('profile: ', props.signup)
     return(
-        // <!-- main content -->
         <main className="main">
             <div className="main__author" data-bg="assets/img/authors/banner.jpg"></div>
             <div className="container">
-                <div className="row row--grid">
-                    {/* Author Start */}
-                    <Author/>
-                    {/* Author End */}
-    
-                    {/* Content Start */}
-                    <Content />
-                    {/* Content End */}
-                </div>
+            {
+                props.signup ?
+                    <div className="row row--grid">
+                        <Content signup={props.signup}/>
+                    </div>
+                :
+                    <div className="row row--grid">
+                        <Author signup={props.signup}/>
+                        <Content signup={props.signup}/>
+                    </div>
+            }
             </div>					
-                      
-    
         </main>
-        // <!-- end main content -->
     )
 }
 

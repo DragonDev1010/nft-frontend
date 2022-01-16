@@ -21,12 +21,14 @@ function Card(props:any) {
         fetch(fetchURL)
             .then(res => res.json())
             .then( res => {
-                if(res[0].userImg !== undefined) {
-                    let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(res[0].userImg.data.data)
-                    setOwnerImg(temp)
-                }
-                if(res[0].name !== undefined) {
-                    setOwner(res[0].name)
+                if(res[0] !== undefined) {
+                    if(res[0].userImg !== undefined) {
+                        let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(res[0].userImg.data.data)
+                        setOwnerImg(temp)
+                    }
+                    if(res[0].name !== undefined) {
+                        setOwner(res[0].name)
+                    }
                 }
             })
     }

@@ -5,7 +5,7 @@ import Unlisted from "./Unlisted"
 
 import {useState, useEffect} from 'react'
 import ContentTab from "./ContentTab"
-function Content() {
+function Content(props:any) {
 
     const [forSaleNfts, setForSaleNfts] = useState([])
     const [unlistNfts, setUnlistNfts] = useState([])
@@ -31,19 +31,20 @@ function Content() {
     }, [])
     return(
         <div className="col-12 col-xl-9">
-            <ContentTab/>
-            {/* <!-- content tabs --> */}
-            <div className="tab-content">
-                {/* <!-- tab 1 --> */}
-                <ForSale nfts={forSaleNfts}/>
-                {/* <!-- tab 2 --> */}
-                <Unlisted nfts={unlistNfts}/>
-                {/* <!-- tab 3 --> */}
-                <Activity/>
-                {/* <!-- tab 4 --> */}
-                <Settings/>
-            </div>
-            {/* <!-- end content tabs --> */}
+            <ContentTab signup={props.signup}/>
+            {
+                props.signup ?
+                    <div className="tab-content">
+                        <Settings signup={true}/>
+                    </div>
+                :
+                    <div className="tab-content">
+                        <ForSale nfts={forSaleNfts}/>
+                        <Unlisted nfts={unlistNfts}/>
+                        <Activity/>
+                        <Settings/>
+                    </div>
+            }
         </div>
     )
 }

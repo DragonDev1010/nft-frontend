@@ -1,25 +1,24 @@
 import { useState, useEffect } from 'react'
 import * as FaIcons from 'react-icons/fa'
 function Card(props: any) {
-    const [itemImg, setItemImg] = useState('')
+    const [nftImg, setNftImg] = useState('')
     const [avatarImg, setAvatarImg] = useState('')
-    const [favCount, setFavConut] = useState('')
+    const [favCount, setFavConut] = useState('0')
     const [ownerName, setOwnerName] = useState('')
-    const title = "Title"
-    const userName = "User1"
-    const price = 10
+    const [fav, setFav] = useState(false)
+    const [myFavNfts, setMyFavNfts] = useState<any>([])
     function arrayBufferToBase64(buffer:any) {
         var binary = '';
         var bytes = [].slice.call(new Uint8Array(buffer));
         bytes.forEach((b) => binary += String.fromCharCode(b));
         return window.btoa(binary);
     }
-    function setItemImgData(buffer:any) {
+    function setNftImgData(buffer:any) {
         let temp = 'data:image/jpeg;base64,' + arrayBufferToBase64(buffer)
-        setItemImg(temp)
+        setNftImg(temp)
     }
     function setOwnerData() {
-        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'users/findByWallet/' + props.details.ownerAddr
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'users/findByWallet/' + props.ownerAddr
         fetch(fetchURL)
             .then(res => res.json())
             .then( res => {
@@ -51,24 +50,36 @@ function Card(props: any) {
         return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
     }
     function setFavCountData() {
-        if(props.details.favUserIds.length > 0) {
-            setFavConut(nFormatter(props.details.favUserIds.length, 1))
+        if(props.favUsers.length > 0) {
+            setFavConut(nFormatter(props.favUsers.length, 1))
         } 
     }
+    function isFav() {
+        let myAddr = localStorage.getItem('wallet')
+        if(myAddr !== '') {
+            if(props.favUsers.includes(myAddr))
+                setFav(true)
+            else
+                setFav(false)
+        }
+    }
+    function favClick() {
+    }
     useEffect(() => {
-        setItemImgData(props.details.img.data.data)
+        isFav()
+        setNftImgData(props.nftImg.data.data)
         setOwnerData()
         setFavCountData()
     }, [])
     return (
         <div className="col-12 col-sm-6 col-lg-4 col-xl-4">
             <div className="card">
-                <a href={props.details.nft_id} className="card__cover">
-                    <img src={itemImg} alt=""/>
+                <a href={props.nftId} className="card__cover">
+                    <img src={nftImg} alt=""/>
                 </a>
                 <h3 className="card__title">
                     <a href="item.html">
-                        {props.details.name}
+                        {props.nftName}
                     </a>
                 </h3>
                 <div className="card__author card__author--verified">
@@ -77,12 +88,17 @@ function Card(props: any) {
                 </div>
                 <div className="card__info">
                     <div className="card__price">
-                        <span>Sale price</span>
-                        <span>{props.details.price} ETH</span>
+                        <span>{props.state} price</span>
+                        <span>{props.price} {props.currency}</span>
                     </div>
 
-                    <button className="card__likes" type="button">
-                        <FaIcons.FaHeart />
+                    <button className="card__likes" type="button" onClick={favClick}>
+                    {
+                        fav ? 
+                            <FaIcons.FaHeart />
+                        :
+                            <FaIcons.FaRegHeart />
+                    }
                         <span>{favCount}</span>
                     </button>
                 </div>

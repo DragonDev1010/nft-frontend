@@ -4,10 +4,10 @@ import Card from './Card'
 import ReactPaginate from 'react-paginate';
 function Content() {
     let filterState = useSelector((state: any) => state.search)
-    const [items, setItems] = useState([])
-    const [nfts, setNfts] = useState([])
+    const [allNfts, setAllNfts] = useState([])
+    const [nftsPerPage, setNftsPerPage] = useState([])
     const [pages, setPages] = useState(1)
-    const [page, setPage] = useState(1)
+    const [curPage, setCurPage] = useState(1)
 
     function fetchNfts() {
         let querySearch = filterState.search
@@ -35,30 +35,39 @@ function Content() {
         fetch(fetchURL)
             .then(res => res.json())
             .then( res => {
-                setNfts(res)
+                setAllNfts(res)
                 setPages(Math.floor(res.length/3) + 1)
             })
     }
     function handlePageClick(e:any) {
-        setPage(e.selected)
+        setCurPage(e.selected)
     }
     useEffect(() => {
         console.log(filterState)
-        if(nfts.length === 0) {
+        if(allNfts.length === 0) {
             fetchNfts()
         }
-        let temp = nfts.slice(page*3, (page+1)*3)
-        setItems(temp)
-        console.log(items)
+        let temp = allNfts.slice(curPage*3, (curPage+1)*3)
+        setNftsPerPage([...temp])
+        console.log(nftsPerPage)
     // }, [filterState])
-    }, [page, items, filterState])
+    }, [curPage, nftsPerPage, filterState])
     return(
         <div className="col-12 col-xl-9">
             <div className="row row--grid">
                 {
-                    items.length > 0 ?
-                    items.map((item:any, idx:any) => (
-                        <Card details={item}/>
+                    nftsPerPage.length > 0 ?
+                    nftsPerPage.map((item:any, idx:any) => (
+                        <Card 
+                            nftId={item.nft_id}
+                            nftImg={item.img}
+                            nftName={item.name} 
+                            ownerAddr={item.ownerAddr}
+                            currency={item.currency}
+                            price={item.price}
+                            state = {item.state}
+                            favUsers = {item.favUsers}
+                        />
                     ))
                     :
                     ""

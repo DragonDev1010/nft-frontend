@@ -33,7 +33,7 @@ function TopCreator() {
                                 <ul className = "sellers-list">
                                 {
                                     creators.map((creator:any, idx:any) => (
-                                        <TopCreatorItem order={idx} name ={creator.name} avatar={creator.userImg}/>                            
+                                        <TopCreatorItem order={idx} name ={creator.name} avatar={creator.userImg} userId={creator.userId}/>                            
                                     ))
                                 }
                                 </ul>

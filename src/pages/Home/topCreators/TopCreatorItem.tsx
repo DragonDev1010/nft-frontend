@@ -21,7 +21,7 @@ function TopCreatorItem(props:any) {
             <span className = "sellers-list__number">{props.order + 1}</span>
             <div className = "sellers-list__author sellers-list__author--verified">
                 <img src={creatorAvatar} alt=""/>
-                <a href="author.html">{props.name}</a>
+                <a href={`/user/${props.userId}`}>{props.name}</a>
                 {/* <span>520.25 ETH</span> */}
             </div>
         </li>

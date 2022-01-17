@@ -70,7 +70,7 @@ function Card(props: any) {
         setNftImgData(props.nftImg.data.data)
         setOwnerData()
         setFavCountData()
-    }, [])
+    }, [props.nftId])
     return (
         <div className="col-12 col-sm-6 col-lg-4 col-xl-4">
             <div className="card">
@@ -78,7 +78,7 @@ function Card(props: any) {
                     <img src={nftImg} alt=""/>
                 </a>
                 <h3 className="card__title">
-                    <a href="item.html">
+                    <a href={props.nftId}>
                         {props.nftName}
                     </a>
                 </h3>

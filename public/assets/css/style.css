@@ -6219,3 +6219,6 @@ wallet connect
   align-items: center;
   margin: 50px 0;
 }
+.card__price span:last-child {
+  text-transform: uppercase;
+}

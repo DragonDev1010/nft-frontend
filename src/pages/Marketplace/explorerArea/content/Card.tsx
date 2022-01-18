@@ -174,7 +174,12 @@ function Card(props: any) {
                 </div>
                 <div className="card__info">
                     <div className="card__price">
-                        <span>{props.state} price</span>
+                        {
+                            (props.state === 'none' || props.state === undefined) ?
+                                <span>Not Available</span>
+                            :
+                                <span>{props.state} price</span>
+                        }
                         <span>{props.price} {props.currency}</span>
                     </div>
 

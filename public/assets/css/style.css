@@ -6222,3 +6222,7 @@ wallet connect
 .card__price span:last-child {
   text-transform: uppercase;
 }
+
+.card__price span:first-child {
+  text-transform: capitalize;
+}

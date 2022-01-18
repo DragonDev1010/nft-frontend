@@ -8,14 +8,14 @@ function Items({currentItems}:any) {
                 currentItems &&
                 currentItems.map((item:any) => (
                     <Card 
-                            nftId={item.nft_id}
-                            nftImg={item.img}
-                            nftName={item.name} 
-                            ownerAddr={item.ownerAddr}
-                            currency={item.currency}
-                            price={item.price}
-                            state = {item.state}
-                            favUsers = {item.favUsers}
+                        nftId={item.nft_id}
+                        nftImg={item.img}
+                        nftName={item.name} 
+                        ownerAddr={item.ownerAddr}
+                        currency={item.currency}
+                        price={item.price}
+                        state = {item.state}
+                        favUsers = {item.favUsers}
                     />
                 ))
             }

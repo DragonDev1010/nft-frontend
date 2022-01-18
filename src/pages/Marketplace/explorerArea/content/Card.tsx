@@ -6,7 +6,6 @@ function Card(props: any) {
     const [favCount, setFavConut] = useState('0')
     const [ownerName, setOwnerName] = useState('')
     const [fav, setFav] = useState(false)
-    const [myFavNfts, setMyFavNfts] = useState<any>([])
     function arrayBufferToBase64(buffer:any) {
         var binary = '';
         var bytes = [].slice.call(new Uint8Array(buffer));
@@ -63,14 +62,101 @@ function Card(props: any) {
                 setFav(false)
         }
     }
+    function removeItemFromArray(arr:any, item:any) {
+        const idx = arr.indexOf(item)
+        if(idx > -1) 
+            arr.splice(idx, 1)
+        console.log('removed array: ', arr)
+        return arr
+    }
+    function removeFavUsers(addr:any) {
+        let newFavUsers = props.favUsers
+        newFavUsers = removeItemFromArray(newFavUsers, addr)
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'nfts/' + props.nftId
+        fetch(
+            fetchURL, 
+            {
+                method:'PUT', 
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ favUsers: newFavUsers })
+            }
+        )
+    }
+    async function removeFavNfts(myAddr_:any, nftId_:any) {
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'users/' + myAddr_
+        let newFavNfts:any
+        await fetch(fetchURL)
+            .then(res=>res.json())
+            .then(res=>{
+                if(res[0] !== undefined) {
+                    if(res[0].favNftIds !== undefined) {
+                        newFavNfts = res[0].favNftIds
+                    }
+                }
+            })
+            newFavNfts = removeItemFromArray(newFavNfts, nftId_)
+            fetch(
+                fetchURL, 
+                {
+                    method:'PUT', 
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ favNftIds: newFavNfts })
+                }
+            )
+    }
+    function addFavUsers(addr:any) {
+        let newFavUsers = props.favUsers
+        newFavUsers.push(addr)
+        console.log(JSON.stringify({ favUsers: newFavUsers }))
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'nfts/' + props.nftId
+        fetch(
+            fetchURL, 
+            {
+                method:'PUT', 
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ favUsers: newFavUsers })
+            }
+        )
+    }
+    async function addFavNfts(myAddr_:any, nftId_:any) {
+        let newFavNfts:any
+        let fetchURL = process.env.REACT_APP_API_BASE_URL + 'users/' + myAddr_
+        await fetch(fetchURL)
+            .then(res=>res.json())
+            .then(res=>{
+                newFavNfts = res[0].favNftIds
+            })
+        newFavNfts.push(nftId_)
+        fetch(
+            fetchURL, 
+            {
+                method:'PUT', 
+                headers: {'Content-Type': 'application/json'},
+                body:JSON.stringify({ favNftIds: newFavNfts })
+            }
+        )
+    }
     function favClick() {
+        let myAddr = localStorage.getItem('wallet')
+        if(myAddr !== '') {
+            if(fav) {
+                removeFavUsers(myAddr)
+                removeFavNfts(myAddr, props.nftId)
+                setFavConut(nFormatter((props.favUsers.length - 1), 1))
+            } else {
+                addFavUsers(myAddr)
+                addFavNfts(myAddr, props.nftId)
+                setFavConut(nFormatter((props.favUsers.length + 1), 1))
+            }
+            setFav(!fav)
+        }
     }
     useEffect(() => {
         isFav()
         setNftImgData(props.nftImg.data.data)
         setOwnerData()
         setFavCountData()
-    }, [props.nftId])
+    }, [props.nftId, favCount])
     return (
         <div className="col-12 col-sm-6 col-lg-4 col-xl-4">
             <div className="card">

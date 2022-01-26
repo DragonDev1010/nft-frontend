@@ -23,8 +23,8 @@ function Content(props: any) {
             .then(res => {
                 if(res[0].img.data.data !== undefined) 
                     getImage(res[0].img.data.data)
-                if(res[0].favUserIds.length > 0) {
-                    setFavCount(res[0].favUserIds.length)
+                if(res[0].favUsers.length > 0) {
+                    setFavCount(res[0].favUsers.length)
                 } else {
                     setFavCount(0)
                 }
